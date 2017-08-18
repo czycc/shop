@@ -20,9 +20,8 @@ class CreateOrdersTable extends Migration
             $table->string('mobile', 11);
             $table->string('reward');
             $table->enum('status', ['取消', '待确认', '已确认', '待发货', '已发货', '已收货', '完成']);
-            $table->string('code', 50)->default('')
-                ->comment('物流单号');
-            $table->text('comment')->default('');
+            $table->string('code', 50)->comment('物流单号');
+            $table->text('comment');
             $table->timestamps();
         });
     }
