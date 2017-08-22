@@ -17,7 +17,7 @@ class CoinController extends Controller
         //判断是否注册
         $user_info = session('wechat.oauth_user');
         $user = Shop_user::where('openid',$user_info->id)->first();
-        if (isEmpty($user)){
+        if (is_null($user)){
             return redirect('shop/users/create');
         }
 
@@ -40,7 +40,7 @@ class CoinController extends Controller
         //判断是否注册
         $user_info = session('wechat.oauth_user');
         $user = Shop_user::where('openid',$user_info->id)->first();
-        if (isEmpty($user)){
+        if (is_null($user)){
             return redirect('shop/users/create');
         }
 

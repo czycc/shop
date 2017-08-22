@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//狗环更新步数接口
 Route::post('shop/step', 'Api\MachineController@update');
 
 //礼品抽奖接口
@@ -24,3 +25,6 @@ Route::post('shop/step', 'Api\MachineController@update');
 Route::post('draw/coin', 'Api\DrawController@coin');
 Route::post('draw/ticket', 'Api\DrawController@ticket');
 Route::post('draw/reward', 'Api\DrawController@reward');
+
+//用户注册接口
+Route::post('user/info', 'Api\ShopController@register');
