@@ -86,8 +86,9 @@ class DrawController extends Controller
             );
         }
         //查看奖品库存
-        $reward = Reward::select($request->type)->find(1);
-        if($reward == 0){
+        $reward = Reward::find(1);
+        $arr = $reward->toArray();
+        if($arr[$request->type] == 0){
             return response()->json(
                 [
                     'code' => 0,
