@@ -15,8 +15,9 @@ class CreateRelatesTable extends Migration
     {
         Schema::create('relates', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('openid')->unique();
+            $table->string('openid', 100)->unique();
             $table->date('day')->comment('兑换金币时间');
+            $table->text('avatar');
             $table->integer('machine_id')->unsigned();
 
             $table->foreign('machine_id')->references('id')
