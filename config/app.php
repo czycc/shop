@@ -180,6 +180,7 @@ return [
         Toplan\Sms\SmsManagerServiceProvider::class,
         Encore\Admin\Providers\AdminServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
