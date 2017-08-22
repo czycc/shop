@@ -20,9 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('shop/step', 'Api\MachineController@update');
 
 //礼品抽奖接口
-Route::group(['prefix'=>'shop'],function (){
 //    Route::post('draw/spend','Api\DrawController@draw');
-    Route::post('draw/coin', 'Api\DrawController@coin');
-    Route::post('draw/ticket', 'Api\DrawController@ticket');
-    Route::post('draw/reward', 'Api\DrawController@reward');
-});
+Route::post('draw/coin', 'Api\DrawController@coin');
+Route::post('draw/ticket', 'Api\DrawController@ticket');
+Route::post('draw/reward', 'Api\DrawController@reward');
