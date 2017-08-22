@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\CoinChange;
 use App\Models\Shop_user;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class ShopController extends Controller
             //保存用户数据
             $user = new Shop_user;
             $user->openid = $request->openid;
-            $user->username = $request->username;
+            $user->name = $request->username;
             $user->location = $request->location;
             $user->birthday = $request->birthday;
             $user->mobile = $request->mobile;
@@ -33,8 +34,11 @@ class ShopController extends Controller
 
             //没有填写非必填项
             if (is_null($request->username) || is_null($request->location)){
+                $user->coin = 5;
                 $user->save();
                 //可以领取5金币
+                event(new CoinChange($request->openid,'5','注册奖励','+'));
+
                 return response()->json([
                     'is_new' => 1,
                     'type' => 1
@@ -42,15 +46,19 @@ class ShopController extends Controller
             }
 
             //可以领取10金币
+            $user->coin = 10;
             $user->type = '1';
             $user->save();
+            event(new CoinChange($request->openid,'10','注册奖励','+'));
+
             return response()->json([
                 'is_new' => 1,
                 'type' => 2
             ]);
+
         }elseif ($user->type == '0'){
             //保存数据
-            $user->username = $request->username;
+            $user->name = $request->username;
             $user->location = $request->location;
             $user->birthday = $request->birthday;
             $user->mobile = $request->mobile;
@@ -58,7 +66,7 @@ class ShopController extends Controller
             //没有填写非必填项
             if (is_null($request->username) || is_null($request->location)){
                 $user->save();
-                //可以领取5金币
+                //不可以领取
                 return response()->json([
                     'is_new' => 0,
                     'type' => 0
@@ -68,6 +76,8 @@ class ShopController extends Controller
             //第二次完善信息，发放5金币
             $user->type = '1';
             $user->save();
+            event(new CoinChange($request->openid,'5','注册奖励','+'));
+
             return response()->json([
                 'is_new' => 0,
                 'type' => 1
@@ -75,7 +85,7 @@ class ShopController extends Controller
         }
 
         //不能发放金币，保存数据
-        $user->username = $request->username;
+        $user->name = $request->username;
         $user->location = $request->location;
         $user->birthday = $request->birthday;
         $user->mobile = $request->mobile;
