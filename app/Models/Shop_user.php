@@ -13,8 +13,4 @@ class Shop_user extends Model
 {
     protected $fillable = ['openid', 'name', 'mobile', 'birthday', 'location', 'coin', 'sign'];
 
-    public function tickets()
-    {
-        return $this->belongsToMany('App\Models\Ticket');
-    }
 }

@@ -29,12 +29,15 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth']], func
     Route::get('/', function () {
         return 'coming soon';
     });
-    //每日领取金币
+    //相关金币
     Route::get('/coin/day', 'Front\CoinController@day');
-    //新用户
+    Route::get('coin/log', 'Front\CoinController@log');
+    //相关用户
     Route::get('/users/create', 'Front\UserController@create');
     Route::post('/users', 'Front\UserController@store');
     Route::get('users/edit', 'Front\UserController@edit');
+    Route::post('users/update','Front\UserController@update');
+    Route::get('users/show', 'Front\UserController@show');
     //优惠券
     Route::get('tickets/show', 'Front\TicketController@show');
     //抽奖

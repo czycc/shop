@@ -18,7 +18,8 @@ class CreateMachinesTable extends Migration
             $table->string('mac', 60)->unique();
             $table->smallInteger('num')->default(0);
             $table->date('date');
-            $table->boolean('type')->default('0');
+            $table->boolean('type')->default('0')
+                ->comment('是否被关联');
         });
     }
 

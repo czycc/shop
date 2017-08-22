@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShopUserTicketsTable extends Migration
+class CreateRewardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateShopUserTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shop_user_tickets', function (Blueprint $table) {
+        Schema::create('rewards', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('openid',100);
-            $table->integer('ticket_id')->unsigned();
-
-            $table->foreign('ticket_id')->references('id')
-                ->on('tickets');
+            $table->smallInteger('gift1');
+            $table->smallInteger('gift2');
+            $table->smallInteger('gift3');
+            $table->smallInteger('gift4');
+            $table->smallInteger('gift5');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateShopUserTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shop_user_tickets');
+        Schema::dropIfExists('rewards');
     }
 }

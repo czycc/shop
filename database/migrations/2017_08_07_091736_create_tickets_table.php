@@ -17,7 +17,7 @@ class CreateTicketsTable extends Migration
             $table->increments('id');
             $table->string('ticket', 150)->unique();
             $table->string('type')->comment('优惠券类型说明');
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(0)->comment('是否使用');
             $table->date('start')->comment('优惠券开始时间');
             $table->date('end')->comment('优惠券结束时间');
             $table->timestamps();

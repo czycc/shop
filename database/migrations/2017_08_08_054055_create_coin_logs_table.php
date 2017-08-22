@@ -16,7 +16,7 @@ class CreateCoinLogsTable extends Migration
         Schema::create('coin_logs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('openid', 150);
-            $table->string('type',10);
+            $table->string('type',10)->comment('+ 或 -');
             $table->smallInteger('quantity');
             $table->string('event');
             $table->timestamps();

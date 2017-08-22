@@ -17,12 +17,17 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('shop_user_id')->unsigned();
             $table->string('location');
+            $table->string('name');
             $table->string('mobile', 11);
-            $table->string('reward');
-            $table->enum('status', ['取消', '待确认', '已确认', '待发货', '已发货', '已收货', '完成']);
-            $table->string('code', 50)->comment('物流单号');
-            $table->text('comment');
+            $table->string('type')->comment('奖品类型');
+//            $table->enum('status', ['取消', '待确认', '已确认', '待发货', '已发货', '已收货', '完成']);
+//            $table->string('code', 50)->comment('物流单号');
+//            $table->text('comment');
             $table->timestamps();
+
+            $table->foreign('shop_user_id')
+                ->references('id')
+                ->on('shop_users');
         });
     }
 
