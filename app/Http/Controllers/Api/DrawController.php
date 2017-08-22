@@ -55,10 +55,10 @@ class DrawController extends Controller
     {
         $ticket = Ticket::select('id')
             ->where('status', '0')
-            ->where('end', '<', Carbon::now())
+            ->where('end', '>', Carbon::now())
             ->first();
         //优惠券已经领完
-        if (isNull($ticket)) {
+        if (is_null($ticket)) {
             return response()->json([
                 'code' => 0
             ]);
@@ -66,7 +66,7 @@ class DrawController extends Controller
         //分配优惠券
         $userTicket = new Shop_user_ticket;
         $userTicket->openid = $request->openid;
-        $userTicket->ticket_id = $ticket;
+        $userTicket->ticket_id = $ticket->id;
         $userTicket->save();
 
         return response()->json([
