@@ -131,6 +131,7 @@ body{
 	right: 0;
 	bottom: 35px;
 	margin: auto;
+    width: 168px;
 }
 .relation_input input::-webkit-input-placeholder {
 	color: #8988d3;

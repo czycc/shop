@@ -104,18 +104,18 @@
                         },
                         success: function (data) {
                             //提交成功
-                            console.log(data);
                             if (data.is_new == 1) {
                                 $('.mask_ok').show();
                             } else if (data.is_new == 0) {
                                 if (data.type == 2) {
                                     $('.text span').text('10');
+                                    $('.mask_gold').show();
                                 } else if (data.type == 1) {
                                     $('.text span').text('5');
+                                    $('.mask_gold').show();
                                 } else if (data.type == 0) {
                                     window.location.href = "{{ url('shop/index') }}";
                                 }
-                                $('.mask_gold').show();
                             }
                         },
                         error: function (data) {
@@ -136,15 +136,15 @@
                         },
                         success: function (data) {
                             //提交成功
-                            console.log(data);
                             if (data.type == 2) {
                                 $('.text span').text('10');
+                                $('.mask_gold').show();
                             } else if (data.type == 1) {
                                 $('.text span').text('5');
+                                $('.mask_gold').show();
                             } else if (data.type == 0) {
                                 window.location.href = "{{ url('shop/index') }}";
                             }
-                            $('.mask_gold').show();
                         },
                         error: function (data) {
                             //提交失败

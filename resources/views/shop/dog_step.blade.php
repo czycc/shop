@@ -89,6 +89,15 @@
 	    		}
 	    	});
 
+            //表单验证
+            $('.relation_input input').blur(function(){
+                var text = $(this).val();
+                var reg = /^[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]$/;
+                if(!reg.test(text)){
+                    alert('请填写正确的MAC地址(冒号必须在英文状态下输入)')
+                }
+            })
+
     	})
 
     	
