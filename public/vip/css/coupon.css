@@ -58,16 +58,20 @@ body{
 .coupon ul li{
     width: 460px;
     height: 124px;
+    position: relative;
     border-bottom: 5px dashed #8887d2;
 }
 .coupon ul li img{
-    float: left;
-    margin:32px 0px 0px 34px;
+    position: absolute;
+    top: 24px;
+    left: 8px;
 }
 .coupon ul li div{
-    float: left;
+    position: absolute;
+    left: 96px;
+    top: 10px;
     color:#f8a85e;
-    margin:20px 0px 0px 20px;
+
 }
 .coupon ul li div .textNum{
     font-size: 50px;
