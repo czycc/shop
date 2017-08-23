@@ -16,36 +16,38 @@ class CoinController extends Controller
     {
         //判断是否注册
         $user_info = session('wechat.oauth_user');
-        $user = Shop_user::where('openid',$user_info->id)->first();
-        if (is_null($user)){
-            return redirect('shop/users/create');
+        $user = Shop_user::where('openid', $user_info->id)->first();
+        if (is_null($user)) {
+            return redirect('shop/user');
         }
 
         $quantity = config('vip.dayCoin');
         $today = Carbon::today();
-
         //判断是否已经签到
-        if ($user->sign < $today){
+        if ($user->sign < $today) {
             $user->sign = Carbon::now();
             $user->coin += $quantity;
             $user->save();
             event(new CoinChange($user_info->id, $quantity, '每日签到', '+'));
+            return redirect('shop/index')->with('sign', 'true');
         }
 
-        return '已经签到';
+        return redirect('shop/index');
     }
 
     public function log()
     {
         //判断是否注册
         $user_info = session('wechat.oauth_user');
-        $user = Shop_user::where('openid',$user_info->id)->first();
-        if (is_null($user)){
-            return redirect('shop/users/create');
+        $user = Shop_user::where('openid', $user_info->id)->first();
+        if (is_null($user)) {
+            return redirect('shop/user');
         }
 
-        $logs = Coin_log::where('openid', $user_info->id)->get();
-
-        return '金币日志';
+        $logs = Coin_log::where('openid', $user_info->id)
+            ->orderBy('created_at', 'desc')
+            ->limit(4)
+            ->get();
+        return view('shop.makeGood', compact('user', 'logs'));
     }
 }

@@ -1,0 +1,78 @@
+body{
+    position: absolute;
+    width: 640px;
+    height: 1038px;
+    font-family: 'font1';
+}
+@font-face{
+    font-family: 'font1';
+    src: url('HYHeiLiZhiTiJ 1.ttf');
+}
+.coupon{
+    width: 640px;
+    height: 1038px;
+    background: url("../images/coupon/bj.jpg") no-repeat center center;
+}
+.coupon .btn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin:auto;
+    top: 930px;
+    width: 224px;
+}
+.coupon .home{
+    position: absolute;
+    left: 65px;
+    top:920px;
+    width:88px ;
+}
+
+.coupon .text{
+    position: absolute;
+    top: 372px;
+}
+
+.coupon ul{
+    width: 450px;
+    height: 370px;
+    position: absolute;
+    left:0;
+    right: 0;
+    margin: auto;
+    top: 366px;
+    overflow: scroll;
+}
+.coupon ul::-webkit-scrollbar {
+    display: none;
+}
+.coupon ul::-moz-scrollbar {
+    display: none;
+}
+.coupon ul::-ms-scrollbar {
+    display: none;
+}
+.coupon ul::-o-scrollbar {
+    display: none;
+}
+.coupon ul li{
+    width: 460px;
+    height: 124px;
+    border-bottom: 5px dashed #8887d2;
+}
+.coupon ul li img{
+    float: left;
+    margin:32px 0px 0px 34px;
+}
+.coupon ul li div{
+    float: left;
+    color:#f8a85e;
+    margin:20px 0px 0px 20px;
+}
+.coupon ul li div .textNum{
+    font-size: 50px;
+}
+.coupon ul li div .dataText{
+    font-size: 20px;
+    margin-left: 34px;
+}

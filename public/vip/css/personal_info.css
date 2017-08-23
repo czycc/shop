@@ -1,0 +1,92 @@
+body{
+	position: absolute;
+	width: 640px;
+	height: 1038px;
+	font-family: 'font1';
+	font-size: 34px;
+	color: #8988d3;
+}
+@font-face{
+	font-family: 'font1';
+	src: url('HYHeiLiZhiTiJ 1.ttf');
+}
+.nickName{
+	position: absolute;
+	top: 310px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+}
+.info{
+	position: absolute;
+	left: 200px;
+	top: 370px;
+	color: #8988d3;
+}
+.info p{
+	line-height: 100px;
+}
+.info p input{
+	margin-left: 5px;
+	padding-bottom: 5px;
+	height: 36px;
+	width: 200px;
+
+	font-size: 30px;
+	font-family: 'font1';
+	color: #8988d3;;
+	vertical-align: middle;
+	border: none;
+	outline: none;
+}
+.home{
+	position: absolute;
+	left: 70px;
+	bottom: 40px;
+	z-index: 20;
+}
+.ok{
+	position: absolute;
+	right: 70px;
+	bottom: 40px;
+	z-index: 20;
+}
+.btn,.btnDown{
+	position: absolute;
+	bottom: 34px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 225px;
+}
+.btn img,.btnDown img{
+	margin: 0 auto;
+}
+.mask{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 666;
+	width: 640px;
+	height: 1038px;
+}
+.mask_ok{
+	background: url(../images/personal_info/mask_ok.png) center center;
+}
+.mask_gold{
+	background: url(../images/personal_info/mask_gold.png) center center;
+}
+.mask_gold .text{
+	position: absolute;
+	bottom: 30%;
+	left: 0;
+	right: 0;
+	margin: 0;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+}
+.mask_confirm{
+	background: url(../images/personal_info/confirm.png) center center;
+}

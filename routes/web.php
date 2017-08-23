@@ -20,26 +20,28 @@ Route::get('/test', function () {
 Route::post('sms', 'Test\SmsController@index');
 
 //Route::any('/wechat', 'WechatController@serve');
-
+//会员商城入口重定向
 Route::get('/', function () {
     return redirect('shop');
 });
 Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth']], function () {
     //首页
     Route::get('/', function () {
-        return 'coming soon';
+        return view('shop.loading');
     });
-    //相关金币
-    Route::get('/coin/day', 'Front\CoinController@day');
-    Route::get('coin/log', 'Front\CoinController@log');
-    //相关用户
-    Route::get('/users/create', 'Front\UserController@create');
-    Route::post('/users', 'Front\UserController@store');
-    Route::get('users/edit', 'Front\UserController@edit');
-    Route::post('users/update','Front\UserController@update');
-    Route::get('users/show', 'Front\UserController@show');
-    //优惠券
-    Route::get('tickets/show', 'Front\TicketController@show');
-    //抽奖
+    Route::get('index',function (){
+        return view('shop.index');
+    });
 
+    //相关金币
+    Route::get('coin', 'Front\CoinController@log');
+    Route::get('coin/day', 'Front\CoinController@day');
+    //用户信息
+    Route::get('user', 'Front\UserController@index');
+    //优惠券
+    Route::get('ticket', 'Front\TicketController@show');
+    //抽奖
+    Route::get('draw', 'Front\DrawController@index');
+    //狗环
+    Route::get('dog', 'Front\DogController@index');
 });

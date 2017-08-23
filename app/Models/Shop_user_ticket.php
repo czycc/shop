@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shop_user_ticket extends Model
 {
-    public $guarded = ['id'];
+    protected $guarded = ['id'];
 
+    public function ticket()
+    {
+        return $this->hasOne('App\Models\Ticket');
+    }
 }

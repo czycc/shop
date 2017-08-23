@@ -1,0 +1,57 @@
+body{
+	position: absolute;
+	width: 640px;
+	height: 1038px;
+}
+/*nav*/
+nav{
+	position: absolute;
+	bottom: 0;
+	z-index: 999999;
+}
+nav li{
+	float: left;
+}
+/*index*/
+.index .dog1{
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	z-index: 20;
+}
+.index .dog2{
+	position: absolute;
+	top: 216px;
+	left: 336px;
+	z-index: 20;
+}
+.index .gift{
+	position: absolute;
+	top: 310px;
+	left: 98px;
+	z-index: 20;
+}
+.index .shoes{
+	position: absolute;
+	top: 483px;
+	left: 362px;
+	z-index: 20;
+}
+.index .sign{
+	position: absolute;
+	bottom: 140px;
+	z-index: 10;
+}
+/*mask*/
+.mask{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 666;
+	width: 640px;
+	height: 1038px;
+}
+.mask_sign{
+	background: url(../images/index/mask_sign.png) center center;
+	z-index: 99999999;
+}

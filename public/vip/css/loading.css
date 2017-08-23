@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'hy';
+    src: url('../fonts/hy.ttf');
+
+}
+body{
+    font-family: 'hy';
+}
+.loading{
+    width: 640px;
+    height: 1038px;
+    background: url("../images/loading/bg.jpg") no-repeat center center;
+}
+.loading .loadText{
+    font-size: 110px;
+    width: 640px;
+    text-align: center;
+    position: absolute;
+    top: 370px;
+}
+.loading .load .grey,.loading .load .orange{
+    position: absolute;
+    left: 70px;
+    height: 30px;
+    border-radius:40px ;
+    top: 620px;
+}
+.loading .load .grey{
+    width:500px;
+    background-color: #677386;
+}
+.loading .load .orange{
+    width: 0px;
+    background-color: #fdc85d;
+
+}
+.loading .dog1{
+    position: absolute;
+    z-index: 100;
+    left:80px;
+    top:562px;
+}
+.loading .dog2{
+    position: absolute;
+    z-index: 100;
+    right:80px;
+    top:562px;
+}

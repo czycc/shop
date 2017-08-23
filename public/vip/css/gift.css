@@ -1,0 +1,107 @@
+@font-face{
+    font-family: 'font1';
+    src: url('HYHeiLiZhiTiJ 1.ttf');
+}
+.rta{
+    width: 640px;
+    height: 1038px;
+    position: absolute;
+    background: url("../images/gift/bg.jpg") no-repeat center center;
+}
+.hidden{
+    display: none;
+}
+.rta #rotate{
+    position: absolute;
+    left:0;
+    right: 0;
+    margin:auto;
+    top:394px;
+}
+.rta .pointer img{
+    position: absolute;
+    left:0;
+    right: 0;
+    margin:auto;
+    top:552px;
+    z-index: 1;
+    animation: pointer 0.6s infinite linear alternate;
+
+}
+@keyframes pointer {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0.3;
+    }
+}
+.rta .sprite{
+    position: absolute;
+    left:380px;
+    top:772px;
+}
+.rta .coupon{
+    position: absolute;
+    z-index: 100;
+    width: 640px;
+    height: 1038px;
+    background: url("../images/gift/coupon.png") no-repeat center center;
+}
+.rta .gold{
+    position: absolute;
+    z-index: 100;
+    width: 640px;
+    height: 1038px;
+    background-color: rgba(0,0,0,0.7);
+
+}
+.rta .home img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 944px;
+}
+.popup{
+    position: absolute;
+    width: 640px;
+    height: 1038px;
+    z-index: 1000;
+}
+.popup .popupBg{
+    position: absolute;
+}
+.popup .btn img{
+    position: absolute;
+    top: 800px;
+}
+.popup .btn .confirmBtn{
+    left: 50px;
+}
+.popup .btn .abandonBtn{
+    right: 50px;
+}
+.popup .gold{
+    position: absolute;
+    width: 249px;
+    height: 146px;
+    background: url("../images/gift/goldBg.png") no-repeat center center;
+    left: 340px;
+    top:130px;
+}
+.popup .gold p{
+    font-family: 'font1';
+    font-size: 38px;
+    color: #8988d3;
+    text-align: center;
+    margin-top:70px;
+}
+.popup2{
+    position: absolute;
+    z-index: 1000;
+    width: 640px;
+    height: 1038px;
+    background: url("../images/gift/11.png") no-repeat center center;
+    
+}

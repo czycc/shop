@@ -13,15 +13,10 @@ class DrawController extends Controller
         //判断是否注册
         $userInfo = session('wechat.oauth_user');
         $user = Shop_user::where('openid', $userInfo->id)->first();
-        if (isEmpty($user)) {
-            return redirect('shop/users/create');
+        if (is_null($user)) {
+            return redirect('shop/user');
         }
 
-        return '抽奖界面';
-    }
-
-    public function draw()
-    {
-
+        return view('shop.gift',compact('user'));
     }
 }

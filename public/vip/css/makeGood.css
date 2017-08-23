@@ -1,0 +1,71 @@
+@font-face{
+    font-family: 'font1';
+    src: url('HYHeiLiZhiTiJ 1.ttf');
+}
+body{
+    position: absolute;
+    width: 640px;
+    height: 1038px;
+    font-family: 'font1';
+    font-size: 34px;
+    color: #2cab96;
+}
+.makeGood{
+    width: 640px;
+    height: 1038px;
+    background: url("../images/makeGood/bg.jpg") no-repeat center center;
+}
+.makeGood .text{
+    color: white;
+    font-size: 90px;
+    width: 640px;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    top:100px;
+}
+.makeGood .btn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 275px;
+    top: 706px;
+}
+.makeGood .btn img{
+    margin: 0 auto;
+}
+.makeGood .home{
+    position: absolute;
+    left: 96px;
+    top:898px;
+}
+.makeGood li {
+    color: #8988d3;
+    width: 640px;
+    font-size: 30px;
+    position: absolute;
+
+}
+.makeGood li .payText{
+    display: inline-block;
+    font-size: 38px;
+    width: 400px;
+    text-align: right;
+}
+.makeGood li .number{
+    margin-left: 70px;
+}
+.makeGood li:nth-child(1){
+    top: 430px;
+}
+.makeGood li:nth-child(2){
+    top: 310px;
+}
+.makeGood li:nth-child(3){
+    top: 556px;
+ }
+.makeGood li:nth-child(4){
+    top: 678px;
+  }
+

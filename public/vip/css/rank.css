@@ -1,0 +1,118 @@
+body{
+	position: absolute;
+	width: 640px;
+	height: 1038px;
+	font-family: 'font1';
+	font-size: 34px;
+	color: #2cab96;
+}
+@font-face{
+	font-family: 'font1';
+	src: url('HYHeiLiZhiTiJ 1.ttf');
+}
+.myStep{
+	position: absolute;
+	top: 92px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	font-size: 100px;
+}
+.getGold{
+	position: absolute;
+	top: 226px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	font-size: 26px;
+}
+.ranking{
+	position: absolute;
+	top: 325px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	padding-left: 10px;
+	padding-right: 20px;
+	width: 80%;
+}
+.ranking li{
+	position: relative;
+	height: 75px;
+	line-height: 75px;
+	border-bottom: 1px solid #f1f1f1;
+}
+.ranking li .no{
+	position: absolute;
+	left: 0;
+	width: 75px;
+	height: 75px;
+	line-height: 75px;
+	text-align: center;
+}
+.ranking li:nth-child(1) .no{
+	background: url(../images/rank/icon.png) center center no-repeat;
+}
+.ranking li:nth-child(2) .no{
+	background: url(../images/rank/icon.png) center center no-repeat;
+}
+.ranking li:nth-child(3) .no{
+	background: url(../images/rank/icon.png) center center no-repeat;
+}
+.ranking li .user_avatar{
+	position: absolute;
+	top: 7px;
+	left: 80px;
+	width: 60px;
+	height: 60px;
+}
+.ranking li .user_name{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+}
+.ranking li .user_step{
+	position: absolute;
+	right: 0;
+}
+.home{
+	position: absolute;
+	left: 62px;
+	bottom: 44px;
+	z-index: 100;
+}
+.getGoldBtn,.btnDown{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 44px;
+	margin: auto;
+	width: 225px;
+}
+.getGoldBtn img,.btnDown img{
+	margin: 0 auto;
+}
+.mask{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 666;
+	width: 640px;
+	height: 1038px;
+}
+.mask_gold{
+	background: url(../images/rank/mask_gold.png) center center;
+	color: #fff;
+}
+.mask_gold p{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 300px;
+	margin: auto;
+	text-align: center;
+}
