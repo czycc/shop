@@ -17,6 +17,7 @@ class CreateRelatesTable extends Migration
             $table->increments('id');
             $table->string('openid', 100)->unique();
             $table->date('day')->comment('兑换金币时间');
+            $table->string('nickname');
             $table->text('avatar');
             $table->integer('machine_id')->unsigned();
 
