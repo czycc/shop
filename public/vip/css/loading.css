@@ -1,10 +1,11 @@
-@font-face {
-    font-family: 'hy';
-    src: url('../fonts/hy.ttf');
-
-}
 body{
-    font-family: 'hy';
+    width: 640px;
+    height: 1038px;
+    font-family: 'font1';
+}
+@font-face{
+    font-family: 'font1';
+    src: url('HYHeiLiZhiTiJ 1.ttf');
 }
 .loading{
     width: 640px;
