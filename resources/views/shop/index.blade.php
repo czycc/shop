@@ -24,7 +24,7 @@
     {{--爱犬大步走--}}
     <a href="{{ url('shop/dog') }}"><img src="{{asset('vip/images/index/dog1.png')}}" class="dog1"></a>
     {{--闪耀星派对--}}
-    <a href="#"><img src="{{asset('vip/images/index/dog2.png')}}" class="dog2"></a>
+    <a href="" onclick="alert('即将上线！')"><img src="{{asset('vip/images/index/dog2.png')}}" class="dog2"></a>
     {{--礼品店--}}
     <a href="{{ url('shop/draw') }}"><img src="{{asset('vip/images/index/gift.png')}}" class="gift"></a>
     {{--秋冬新鞋--}}
@@ -43,6 +43,9 @@
 <!-- script -->
 <script type="text/javascript" src="{{asset('vip/js/jquery.min.js')}}"></script>
 <script type="text/javascript">
+    @if (session('sign_error'))
+        alert('已经签到过啦！');
+    @endif
     $(function () {
         //点击签到
         //https://weixin.touchworld-sh.com/shop/coin/day
