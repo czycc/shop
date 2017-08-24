@@ -103,7 +103,18 @@
                         success: function (data) {
                             //提交成功
                             if (data.is_new == 1) {
-                                $('.mask_ok').show();
+                                //$('.mask_ok').show();
+
+                                if (data.type == 2) {
+                                    $('.text span').text('10');
+                                    $('.mask_gold').show();
+                                } else if (data.type == 1) {
+                                    $('.text span').text('5');
+                                    $('.mask_gold').show();
+                                } else if (data.type == 0) {
+                                    window.location.href = "{{ url('shop/index') }}";
+                                }
+
                             } else if (data.is_new == 0) {
                                 if (data.type == 2) {
                                     $('.text span').text('10');
@@ -121,7 +132,6 @@
                         }
                     })
                 } else if (target === 'mask_gold') {
-                    alert(birthday)
                     $.ajax({
                         type: 'POST',
                         url: 'https://weixin.touchworld-sh.com/api/user/info',
