@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('vip/css/dog_step.css') }}">
 </head>
 <body>
-	<img src="{{ asset('') }}/images/dog_step/step_bg.jpg">
+	<img src="{{ asset('vip/images/dog_step/step_bg.jpg') }}">
 	<a href="javascript:void(0)" class="storeList"><img src="{{ asset('vip/images/dog_step/storeList.png') }}"></a>
 	<a href="{{ url('shop/index') }}" class="home"><img src="{{ asset('vip/images/dog_step/home.png') }}"></a>
 	<a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/dog_step/btn.png') }}"></a>
@@ -54,12 +54,12 @@
 				<li>秦皇岛:茂业HP</li>
 				<li>唐山:万达百货HP</li>
 			</ul>
-            <img src="../images/dog_step/dog.png" class="dog">
+            <img src="{{ asset('vip/images/dog_step/dog.png') }}" class="dog">
 		</div>
 	</div>
 
 	<div class="mask mask_relation" id="mask2">
-		<form class="show_relation" action="{{ url('shop/') }}" method="post">
+		<form class="show_relation" action="{{ url('shop/rank') }}" method="post">
 			<p class="relation_title">请将狗狗项圈屏幕上的代码输入下面框框</p>
 			<p class="relation_input"><input type="text" name="" placeholder="请写代码"></p>
 			<label class="relation_btn" >
