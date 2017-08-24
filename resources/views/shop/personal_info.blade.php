@@ -121,6 +121,7 @@
                         }
                     })
                 } else if (target === 'mask_gold') {
+                    alert(birthday)
                     $.ajax({
                         type: 'POST',
                         url: 'https://weixin.touchworld-sh.com/api/user/info',
