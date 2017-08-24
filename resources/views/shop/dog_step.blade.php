@@ -58,7 +58,7 @@
 		</div>
 	</div>
 
-	<div class="mask mask_relation" id="mask2">
+	<div class="mask mask_relation hidden" id="mask2">
 		<form class="show_relation" action="" method="">
 			<p class="relation_title">请将狗狗项圈屏幕上的代码输入下面框框</p>
 			<p class="relation_input"><input type="text" name="" placeholder="请写代码"></p>

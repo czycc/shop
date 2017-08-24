@@ -77,8 +77,6 @@
             var tel = $('#tel').val();
             var address = $('#address').val();
             var birthday = $('#dateinput').val();
-            //将日期yy.mm.dd转换成yy-mm-dd
-            birthday = birthday.replace(/\./g, '-');
 
             //表单验证
             if (tel === '' || birthday === '') {
