@@ -27,7 +27,6 @@ Route::get('/', function () {
 Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function () {
     //首页
     Route::get('/', function () {
-        dd(session('wechat.oauth_user'));
         return view('shop.loading');
     });
     Route::get('index',function (){
