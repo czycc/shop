@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>会员商城</title>
+    <meta charset="utf-8">
 	<meta name="viewport" content="width=640,user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vip/css/reset.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vip/css/dog_step.css') }}">
@@ -53,6 +54,7 @@
 				<li>秦皇岛:茂业HP</li>
 				<li>唐山:万达百货HP</li>
 			</ul>
+            <img src="../images/dog_step/dog.png" class="dog">
 		</div>
 	</div>
 
