@@ -17,7 +17,7 @@ $(function(){
                 rotateFn(0, 292, '狗项圈');
                 break;
             case 1:
-                rotateFn(1, 247, '名牌');
+                rotateFn(1, 247, '徽章');
                 break;
             case 2:
                 rotateFn(2, 202, '钥匙扣');
