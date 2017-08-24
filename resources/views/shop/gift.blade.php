@@ -24,6 +24,7 @@
     <div class="btn">
         <img src="{{ asset('vip/images/gift/confirm.png') }}" alt="" class="confirmBtn" id="confirmBtn">
         <img src="{{ asset('vip/images/gift/abandon.png') }}" alt="" class="abandonBtn">
+        <img src="{{ asset('vip/images/gift/goldText.png') }}" alt="" class="goldText">
     </div>
     <div class="gold">
         <p>$<span class="goldNum"></span></p>
