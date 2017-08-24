@@ -10,6 +10,6 @@ class Relate extends Model
 
     public function machine()
     {
-        return $this->hasOne('App\Models\Machine');
+        return $this->belongsTo('App\Models\Machine');
     }
 }

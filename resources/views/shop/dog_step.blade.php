@@ -59,9 +59,10 @@
 	</div>
 
 	<div class="mask mask_relation hidden" id="mask2">
-		<form class="show_relation" action="{{ url('shop/rank') }}" method="post">
+		<form class="show_relation" action="{{ url('shop/relate') }}" method="post">
+			{!! csrf_field() !!}
 			<p class="relation_title">请将狗狗项圈屏幕上的代码输入下面框框</p>
-			<p class="relation_input"><input type="text" name="" placeholder="请写代码"></p>
+			<p class="relation_input"><input type="text" name="mac" placeholder="请写代码"></p>
 			<label class="relation_btn" >
 				<img src="{{ asset('vip/images/dog_step/confirm.png') }}">
 				<input type="submit" style="display: none">
