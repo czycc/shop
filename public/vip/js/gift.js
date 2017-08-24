@@ -17,7 +17,7 @@ $(function(){
                 rotateFn(0, 292, '狗项圈');
                 break;
             case 1:
-                rotateFn(1, 247, '名牌');
+                rotateFn(1, 247, '徽章');
                 break;
             case 2:
                 rotateFn(2, 202, '钥匙扣');
@@ -57,6 +57,7 @@ $(function(){
                 globalAwards = awards;
                 globalTxt = txt;
                 bRotate = !bRotate;
+
                 $('.popup .popupBg').attr('src','../vip/images/gift/'+awards+'.png');
                 //确认兑换 和 取消兑换按钮显示，在抽到金币，代金券的情况下影藏；
                 $('.popup .btn').show();

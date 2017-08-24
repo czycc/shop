@@ -82,17 +82,24 @@
 .popup .btn .abandonBtn{
     right: 50px;
 }
+.popup .btn .goldText{
+    top: 730px;
+    width: 282px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
 .popup .gold{
     position: absolute;
     width: 249px;
     height: 146px;
-    background: url("../images/gift/goldBg.png") no-repeat center center;
+    background: url("../images/gift/goldBg2.png") no-repeat center center;
     left: 340px;
     top:130px;
 }
 .popup .gold p{
     font-family: 'font1';
-    font-size: 38px;
+    font-size: 26px;
     color: #8988d3;
     text-align: center;
     margin-top:70px;
