@@ -57,6 +57,7 @@ $(function(){
                 globalAwards = awards;
                 globalTxt = txt;
                 bRotate = !bRotate;
+
                 $('.popup .popupBg').attr('src','../vip/images/gift/'+awards+'.png');
                 //确认兑换 和 取消兑换按钮显示，在抽到金币，代金券的情况下影藏；
                 $('.popup .btn').show();
