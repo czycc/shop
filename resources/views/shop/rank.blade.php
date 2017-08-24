@@ -56,7 +56,7 @@
 		</li>
 	</ul>
 
-	<a href="../index.html" class="home"><img src="{{ asset('vip/images/rank/home.png') }}"></a>
+	<a href="{{ url('shop/index') }}" class="home"><img src="{{ asset('vip/images/rank/home.png') }}"></a>
 	<a href="javascript:void(0)" class="getGoldBtn"><img src="{{ asset('vip/images/rank/getGold.png') }}"></a>
 	<a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/rank/btnDown.png') }}"></a>
 

@@ -44,4 +44,7 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth']], func
     Route::get('draw', 'Front\DrawController@index');
     //狗环
     Route::get('dog', 'Front\DogController@index');
+    Route::post('rank', function (){
+        return view('shop.rank');
+    });
 });
