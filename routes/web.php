@@ -24,7 +24,7 @@ Route::post('sms', 'Test\SmsController@index');
 Route::get('/', function () {
     return 'coming soon';
 });
-Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth']], function () {
+Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function () {
     //首页
     Route::get('/', function () {
         return view('shop.loading');
