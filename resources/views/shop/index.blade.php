@@ -28,7 +28,7 @@
     {{--礼品店--}}
     <a href="{{ url('shop/draw') }}"><img src="{{asset('vip/images/index/gift.png')}}" class="gift"></a>
     {{--秋冬新鞋--}}
-    <a href="#"><img src="{{asset('vip/images/index/shoes.png')}}" class="shoes"></a>
+    <a href="http://mp.weixin.qq.com/s/-mbpYIvpFN4oQvsKGSU4kw"><img src="{{asset('vip/images/index/shoes.png')}}" class="shoes"></a>
     {{--每日签到--}}
     <a href="{{ url('shop/coin/day') }}" class="sign"><img src="{{asset('vip/images/index/sign.png')}}"></a>
 </section>
