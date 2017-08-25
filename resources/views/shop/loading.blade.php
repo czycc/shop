@@ -9,11 +9,11 @@
 </head>
 <body>
 <div class="loading">
-    <p class="loadText"><span class="number">0</span><span>%</span></p>
-    <div class="load">
-        <p class="grey"></p>
-        <p class="orange"></p>
-    </div>
+    {{--<p class="loadText"><span class="number">0</span><span>%</span></p>--}}
+    {{--<div class="load">--}}
+        {{--<p class="grey"></p>--}}
+        {{--<p class="orange"></p>--}}
+    {{--</div>--}}
     <canvas id='canvas'></canvas>
 </div>
 </body>
@@ -22,10 +22,10 @@
 
 <script>
     var imgarr = [];
-    for(var i = 1 ;i < 10;i ++){
-        imgarr.push('../vip/images/loading/ladingpage/loding page_0000'+i+'.png')
+    for(var i = 1 ;i < 5;i ++){
+        imgarr.push('../vip/images/loading/ladingpage/loding page_0000'+2*i+'.png')
     }
-    for(var i = 10 ;i < 69;i ++){
+    for(var i = 10 ;i < 87;i ++){
         imgarr.push('../vip/images/loading/ladingpage/loding page_000'+i+'.png')
     }
 
@@ -37,25 +37,25 @@
         loop: false,
         callback: function() {
 
-            $('.essence1').show();
+            window.location.href = '{{ url('shop/index') }}'
 
         },
         imgArr: imgarr
     });
 
-    var num = 0;
-    var wid = 0;
-    var timer = setInterval(function () {
-        num++;
-        wid = num / 100;
-        $('.loading .loadText .number').html(num);
-        $('.loading .load .orange').css('width',500*wid + "px")
-        if(num >= 100){
-            clearInterval(timer);
-            //当数据为100的时候，调转的连接
-          window.location.href = '{{ url('shop/index') }}'
-        }
-    },30)
+    {{--var num = 0;--}}
+    {{--var wid = 0;--}}
+    {{--var timer = setInterval(function () {--}}
+        {{--num++;--}}
+        {{--wid = num / 100;--}}
+        {{--$('.loading .loadText .number').html(num);--}}
+        {{--$('.loading .load .orange').css('width',500*wid + "px")--}}
+        {{--if(num >= 100){--}}
+            {{--clearInterval(timer);--}}
+            {{--//当数据为100的时候，调转的连接--}}
+          {{--window.location.href = '{{ url('shop/index') }}'--}}
+        {{--}--}}
+    {{--},30)--}}
 
 </script>
 </html>

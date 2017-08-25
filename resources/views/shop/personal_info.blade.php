@@ -136,7 +136,6 @@
                                     $('.btn').hide();
                                     alert('修改成功');
                                 }
-
                             } else if (data.is_new == 0) {
                                 if (data.type == 2) {
                                     $('.text span').text('10');
@@ -152,9 +151,6 @@
                                     $('.btn').hide();
                                 } else if (data.type == 0) {
                                     {{--window.location.href = "{{ url('shop/index') }}";--}}
-                                    //领取金币按钮变灰
-                                    $('.btnDown').show();
-                                    $('.btn').hide();
                                     alert('修改成功');
                                 }
                             }
@@ -188,9 +184,6 @@
                                 $('.mask_gold').show();
                             } else if (data.type == 0) {
                                 {{--window.location.href = "{{ url('shop/index') }}";--}}
-                                //领取金币按钮变灰
-                                $('.btnDown').show();
-                                $('.btn').hide();
                                 alert('修改成功');
                             }
                         },
