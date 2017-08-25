@@ -80,7 +80,7 @@ class CoinController extends Controller
             //录入日志
             event(new CoinChange($user_info->id, $coin, '步数兑换', '+'));
 
-            return redirect('shop/dog')->with('dayCoin', 'true');
+            return redirect('shop/dog')->with('day', 'true');
         }
         return redirect('shop/dog');
     }
