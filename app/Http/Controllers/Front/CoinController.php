@@ -32,7 +32,7 @@ class CoinController extends Controller
             return redirect('shop/index')->with('sign', 'true');
         }
 
-        return redirect('shop/index');
+        return redirect('shop/index')->with('sign_error', 'true');
     }
 
     public function log()
