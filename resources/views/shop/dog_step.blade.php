@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>会员商城</title>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=640,user-scalable=no">
+    <title>暇步士拍党俱乐部</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vip/css/reset.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('vip/css/dog_step.css') }}">
 </head>
 <body>
 	<img src="{{ asset('vip/images/dog_step/step_bg.jpg') }}">
 	<a href="javascript:void(0)" class="storeList"><img src="{{ asset('vip/images/dog_step/storeList.png') }}"></a>
+    <a href="javascript:void(0)" class="showList"><img src="{{ asset('vip/images/dog_step/showList.png') }}"></a>
 	<a href="{{ url('shop/index') }}" class="home"><img src="{{ asset('vip/images/dog_step/home.png') }}"></a>
 	<a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/dog_step/btn.png') }}"></a>
 
@@ -77,7 +78,7 @@
     <script type="text/javascript">
     	$(function(){
     		//点击显示门店信息弹窗
-	    	$('.storeList').click(function(e){
+	    	$('.showList').click(function(e){
 	    		$('.mask_store').show();
 	    	})
 

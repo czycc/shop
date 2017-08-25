@@ -19,6 +19,13 @@ body{
 .storeList img{
 	margin: 0 auto;
 }
+.showList{
+    position: absolute;
+    top: 70px;
+    left: 140px;
+    margin: auto;
+    width: 104px;
+}
 .home{
 	position: absolute;
 	left: 60px;

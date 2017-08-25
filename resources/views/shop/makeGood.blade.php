@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>会员商城</title>
+    <title>暇步士拍党俱乐部</title>
     <meta name="viewport" content="width=640,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('vip/css/makeGood.css') }}">

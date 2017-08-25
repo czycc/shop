@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>会员商城</title>
+    <meta charset="utf-8">
+    <title>暇步士拍党俱乐部</title>
     <meta name="viewport" content="width=640,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/reset.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/date.css') }}">
@@ -112,7 +113,8 @@
                                     $('.text span').text('5');
                                     $('.mask_gold').show();
                                 } else if (data.type == 0) {
-                                    window.location.href = "{{ url('shop/index') }}";
+                                    {{--window.location.href = "{{ url('shop/index') }}";--}}
+                                    alert('修改成功');
                                 }
 
                             } else if (data.is_new == 0) {
@@ -123,7 +125,8 @@
                                     $('.text span').text('5');
                                     $('.mask_gold').show();
                                 } else if (data.type == 0) {
-                                    window.location.href = "{{ url('shop/index') }}";
+                                    {{--window.location.href = "{{ url('shop/index') }}";--}}
+                                    alert('修改成功');
                                 }
                             }
                         },
@@ -152,7 +155,8 @@
                                 $('.text span').text('5');
                                 $('.mask_gold').show();
                             } else if (data.type == 0) {
-                                window.location.href = "{{ url('shop/index') }}";
+                                {{--window.location.href = "{{ url('shop/index') }}";--}}
+                                alert('修改成功');
                             }
                         },
                         error: function (data) {
