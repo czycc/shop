@@ -122,6 +122,9 @@
                                 if (data.type == 2) {
                                     $('.text span').text('10');
                                     $('.mask_gold').show();
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
                                 } else if (data.type == 1) {
                                     $('.text span').text('5');
                                     $('.mask_gold').show();
@@ -134,9 +137,15 @@
                                 if (data.type == 2) {
                                     $('.text span').text('10');
                                     $('.mask_gold').show();
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
                                 } else if (data.type == 1) {
                                     $('.text span').text('5');
                                     $('.mask_gold').show();
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
                                 } else if (data.type == 0) {
                                     {{--window.location.href = "{{ url('shop/index') }}";--}}
                                     alert('修改成功');
@@ -164,6 +173,9 @@
                             if (data.type == 2) {
                                 $('.text span').text('10');
                                 $('.mask_gold').show();
+                                //领取金币按钮变灰
+                                $('.btnDown').show();
+                                $('.btn').hide();
                             } else if (data.type == 1) {
                                 $('.text span').text('5');
                                 $('.mask_gold').show();
