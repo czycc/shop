@@ -39,6 +39,9 @@ class DrawController extends Controller
     public function coin(Request $request)
     {
         $user = Shop_user::where('openid', $request->openid)->first();
+        if ($user->num <= 3 && $user->updated_at >= Carbon::today()){
+
+        }
         //保存中奖金币
         $user->coin += $request->count;
         $user->save();

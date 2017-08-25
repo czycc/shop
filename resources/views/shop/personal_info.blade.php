@@ -11,7 +11,7 @@
 <body>
 <img src="{{ asset('vip/images/personal_info/personal_info_bg.jpg') }}">
 <div class="pannel">
-    <img class="avatar" src="{{ asset('vip/images/personal_info/confirm.png') }}">
+    <img class="avatar" src="{{ session('wechat.oauth_user')->avatar }}">
     <img class="love" src="{{ asset('vip/images/personal_info/love.png') }}">
     <img class="pannel_bg" src="{{ asset('vip/images/personal_info/pannel_bg.png') }}">
 </div>
@@ -34,8 +34,16 @@
 
 <!-- btn start-->
 <a href="{{ url('shop/index') }}" class="home"><img src="{{ asset('vip/images/personal_info/home.png') }}"></a>
-<a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
-<a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
+@if(isset($user))
+    @if($user->type)
+        <a href="javascript:void(0)" class="btnDown"><img src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
+
+    @else
+        <a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
+    @endif
+@else
+    <a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
+@endif
 <a href="javascript:void(0)" class="ok"><img src="{{ asset('vip/images/personal_info/ok.png') }}"></a>
 <!-- btn end-->
 
