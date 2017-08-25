@@ -22,22 +22,9 @@ class MachineController extends Controller
         //找不到设备时保存信息
         if ($machine == null) {
             $machine = new Machine;
-            $machine->date = $request->date;
-            $machine->num = $request->num;
             $machine->mac = $request->mac;
-            $machine->save();
-
-            return response()->json([
-                'code' => 1,
-                'desc' => 'success'
-            ]);
         }
-//        elseif ($request->date < $today) {
-//            return response()->json([
-//                'code' => 0,
-//                'desc' => '应为当日时间'
-//            ]);
-//        }
+
         $machine->date = $request->date;
         $machine->num = $request->num;
         $machine->save();
