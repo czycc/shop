@@ -36,7 +36,7 @@ ul li:nth-child(4){
 .mygift .homeBtn{
     position: absolute;
     left:100px;
-    bottom:200px;
+    top:840px;
 }
 .mygift .btn{
     position: absolute;
@@ -44,5 +44,5 @@ ul li:nth-child(4){
     right: 0;
     margin:auto;
     width: 146px;
-    bottom: 200px;
+    top: 760px;
 }
