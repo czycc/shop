@@ -23,6 +23,9 @@ class CreateShopUsersTable extends Migration
             $table->mediumInteger('coin')->default(0)
                 ->comment('持有金币数量');
             $table->dateTime('sign')->comment('签到时间');
+            $table->tinyInteger('num')
+                ->default(0)
+                ->comment('抽奖次数');
             $table->boolean('type')->default('0')
                 ->comment('是否完善信息');
             $table->timestamps();

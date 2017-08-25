@@ -42,6 +42,7 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_u
     Route::get('ticket', 'Front\TicketController@show');
     //抽奖
     Route::get('draw', 'Front\DrawController@index');
+    Route::get('reward', 'Front\UserController@reward');
     //狗环
     Route::get('dog', 'Front\DogController@index');
     Route::post('relate', 'Front\DogController@relate');

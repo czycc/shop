@@ -38,10 +38,7 @@
 <div class="popup2 hidden"></div>
 
 <script type="application/javascript">
-    //说明页点击关闭
-    $('.myGift').click(function(){
-        $(this).hide();s
-    })
+
     //用户的信息，在外部声名
      var openid = "{{ $user->openid }}";
     //金币总数，在外部声名
@@ -50,6 +47,12 @@
 <script type="text/javascript" src="{{ asset('vip/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vip/js/awardRotate.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vip/js/gift.js') }}"></script>
+<script>
+    //说明页点击关闭
+    $('.myGift').click(function(){
+        $(this).hide();s
+    })
+</script>
 
 </body>
 </html>
