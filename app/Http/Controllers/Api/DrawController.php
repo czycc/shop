@@ -39,17 +39,40 @@ class DrawController extends Controller
     public function coin(Request $request)
     {
         $user = Shop_user::where('openid', $request->openid)->first();
-        if ($user->num <= 3 && $user->updated_at >= Carbon::today()){
 
+        //限制每人每天3次抽奖
+        if ($user->num < 3 && $user->draw_time >= Carbon::today()){
+            //保存信息
+            $user->draw_time = Carbon::now();
+            $user->num += 1;
+            $user->coin += $request->count;
+            $user->save();
+            //记录日志
+            event(new CoinChange($request->openid, $request->count, '抽中金币', '+'));
+
+            return response()->json([
+                'code' => 1,
+                'coin' => $user->coin
+            ]);
+
+        }elseif ($user->draw_time<Carbon::today()){
+            //保存信息
+            $user->draw_time = Carbon::now();
+            $user->num =1;
+            $user->coin += $request->count;
+            $user->save();
+            //记录日志
+            event(new CoinChange($request->openid, $request->count, '抽中金币', '+'));
+
+            return response()->json([
+                'code' => 1,
+                'coin' => $user->coin
+            ]);
         }
-        //保存中奖金币
-        $user->coin += $request->count;
-        $user->save();
-        //记录日志
-        event(new CoinChange($request->openid, $request->count, '抽中金币', '+'));
+
 
         return response()->json([
-            'code' => 1,
+            'code' => 0,
             'coin' => $user->coin
         ]);
     }

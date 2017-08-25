@@ -99,20 +99,18 @@
         });
 
         //表单验证
-        $("form").submit(function () {
-            var text = $(this).val();
+        $("form").submit(function(){
+            var text = $(".relation_input input").val();
+            text = text.toUpperCase();
             var reg = /^[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]$/;
-            if (!reg.test(text)) {
+            if(!reg.test(text)){
                 alert('请填写正确的MAC地址(冒号必须在英文状态下输入)')
                 return false;
-            } else {
+            }else{
                 return true;
             }
         });
-
     })
-
-
 </script>
 </body>
 </html>
