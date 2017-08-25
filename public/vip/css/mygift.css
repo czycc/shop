@@ -1,0 +1,48 @@
+@font-face{
+    font-family: 'font1';
+    src: url('HYHeiLiZhiTiJ 1.ttf');
+}
+body{
+    font-family: 'font1';
+}
+.mygift{
+   width: 640px;
+    height: 1038px;
+    background: url("../images/myGift/bg.jpg") no-repeat center center;
+}
+ul{
+    position: absolute;
+    top:306px;
+
+}
+ul li{
+    width: 640px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    font-size: 34px;
+    color: #8988d3;
+    position: absolute;
+}
+ul li:nth-child(2){
+    top:124px;
+}
+ul li:nth-child(3){
+    top:250px;
+}
+ul li:nth-child(4){
+    top:372px;
+}
+.mygift .homeBtn{
+    position: absolute;
+    left:100px;
+    bottom:200px;
+}
+.mygift .btn{
+    position: absolute;
+    left:0;
+    right: 0;
+    margin:auto;
+    width: 146px;
+    bottom: 200px;
+}
