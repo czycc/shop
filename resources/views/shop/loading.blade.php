@@ -10,29 +10,50 @@
 <body>
 <div class="loading">
     <p class="loadText"><span class="number">0</span><span>%</span></p>
-    <img src="{{asset('vip/images/loading/dog.png')}}" alt="" class="dog1">
-    <img src="{{asset('vip/images/loading/dog2.png')}}" alt="" class="dog2">
     <div class="load">
         <p class="grey"></p>
         <p class="orange"></p>
     </div>
+    <canvas id='canvas'></canvas>
 </div>
 </body>
 <script src="{{asset('vip/js/jquery.min.js')}}"></script>
+<script src="{{asset('vip/js/sequenceFrame.js')}}"></script>
+
 <script>
     var num = 0;
     var wid = 0;
-
     var timer = setInterval(function () {
         num++;
         wid = num / 100;
         $('.loading .loadText .number').html(num);
-        $('.loading .load .orange').css('width', 500 * wid + "px")
-        if (num >= 100) {
+        $('.loading .load .orange').css('width',500*wid + "px")
+        if(num >= 100){
             clearInterval(timer);
             //当数据为100的时候，调转的连接
-            window.location.href = '{{ url('shop/index') }}'
+          window.location.href = '{{ url('shop/index') }}'
         }
-    }, 50)
+    },10)
+    var imgarr = [];
+    for(var i = 1 ;i < 10;i ++){
+        imgarr.push('../vip/images/loading/ladingpage/loding page_0000'+i+'.png')
+    }
+    for(var i = 10 ;i < 69;i ++){
+        imgarr.push('../vip/images/loading/ladingpage/loding page_000'+i+'.png')
+    }
+
+    var frame2 = new SequenceFrame({
+        id: $('#canvas')[0],
+        width: 640,
+        height: 1038,
+        speed: 50,
+        loop: false,
+        callback: function() {
+
+            $('.essence1').show();
+
+        },
+        imgArr: imgarr
+    });
 </script>
 </html>
