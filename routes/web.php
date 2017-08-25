@@ -46,4 +46,6 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_u
     //狗环
     Route::get('dog', 'Front\DogController@index');
     Route::post('relate', 'Front\DogController@relate');
+    Route::get('coin/dog', 'Front\CoinController@dog');
+
 });
