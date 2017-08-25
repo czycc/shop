@@ -21,19 +21,6 @@
 <script src="{{asset('vip/js/sequenceFrame.js')}}"></script>
 
 <script>
-    var num = 0;
-    var wid = 0;
-    var timer = setInterval(function () {
-        num++;
-        wid = num / 100;
-        $('.loading .loadText .number').html(num);
-        $('.loading .load .orange').css('width',500*wid + "px")
-        if(num >= 100){
-            clearInterval(timer);
-            //当数据为100的时候，调转的连接
-          window.location.href = '{{ url('shop/index') }}'
-        }
-    },15)
     var imgarr = [];
     for(var i = 1 ;i < 10;i ++){
         imgarr.push('../vip/images/loading/ladingpage/loding page_0000'+i+'.png')
@@ -55,5 +42,20 @@
         },
         imgArr: imgarr
     });
+
+    var num = 0;
+    var wid = 0;
+    var timer = setInterval(function () {
+        num++;
+        wid = num / 100;
+        $('.loading .loadText .number').html(num);
+        $('.loading .load .orange').css('width',500*wid + "px")
+        if(num >= 100){
+            clearInterval(timer);
+            //当数据为100的时候，调转的连接
+          window.location.href = '{{ url('shop/index') }}'
+        }
+    },30)
+
 </script>
 </html>
