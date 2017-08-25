@@ -17,7 +17,7 @@
     <a href="{{ url('shop/index') }}" class="home">
         <img src="{{ asset('vip/images/gift/home.png') }}" alt="">
     </a>
-    <a href="mygift.html" class="myGiftBtn">
+    <a href="{{ url('shop/reward') }}" class="myGiftBtn">
         <img src="{{ asset('vip/images/gift/gifyBtn.png') }}" alt="">
     </a>
 </div>
