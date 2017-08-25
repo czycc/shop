@@ -82,6 +82,9 @@ $(function(){
                         dataType: "json",
                         success: function(data) {
                             goldNum = data.coin;
+                            if(data.code == 0){
+                                alert('每天只能抽取3次金币，请明天继续哟')
+                            }
                         },
                         error: function(res) {
 
