@@ -59,10 +59,10 @@ body{
     display: inline-block;
 }
 .makeGood li:nth-child(1){
-    top: 430px;
+    top: 310px;
 }
 .makeGood li:nth-child(2){
-    top: 310px;
+    top: 430px;
 }
 .makeGood li:nth-child(3){
     top: 556px;
