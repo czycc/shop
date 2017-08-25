@@ -30,19 +30,17 @@
     <a href="{{ url('shop/coin/dog') }}" class="getGoldBtn"><img src="{{ asset('vip/images/rank/getGold.png') }}"></a>
 @endif
 
-@if(!is_null(session('dogCoin')))
+
     <div class="mask mask_gold">
         <p>恭喜今日获得<span>{{ floor(($relate->machine->num)/1000) }}</span>金币</p>
     </div>
-@endif
+
 
 
 <!-- script -->
 <script type="text/javascript" src="{{ asset('vip/js/jquery.min.js') }}"></script>
 <script type="text/javascript">
-    // $('.getGoldBtn').click(function(e){
-     	$('.mask_gold').show();
-    // })
+
 
     //点击弹窗消失
     $('.mask').click(function (e) {
