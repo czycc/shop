@@ -35,6 +35,6 @@ class UserController extends Controller
             ->orderBy('created_at','desc')
             ->limit(4)
             ->get();
-        return view('shop.mygift');
+        return view('shop.mygift',compact('rewards'));
     }
 }

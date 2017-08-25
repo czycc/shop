@@ -16,10 +16,10 @@ class CreateShopUsersTable extends Migration
         Schema::create('shop_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('openid', 100)->unique();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('mobile', 11);
             $table->date('birthday');
-            $table->text('location');
+            $table->text('location')->nullable();
             $table->mediumInteger('coin')->default(0)
                 ->comment('持有金币数量');
             $table->dateTime('sign')->comment('签到时间');
