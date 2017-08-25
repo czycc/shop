@@ -37,12 +37,13 @@
 @if(isset($user))
     @if($user->type)
         <a href="javascript:void(0)" class="btnDown"><img src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
-
     @else
         <a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
+        <a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
     @endif
 @else
     <a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
+    <a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
 @endif
 <a href="javascript:void(0)" class="ok"><img src="{{ asset('vip/images/personal_info/ok.png') }}"></a>
 <!-- btn end-->
