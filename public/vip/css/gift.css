@@ -23,7 +23,7 @@
     left:0;
     right: 0;
     margin:auto;
-    top:552px;
+    top:549px;
     z-index: 1;
     animation: pointer 0.6s infinite linear alternate;
 
@@ -58,10 +58,19 @@
 }
 .rta .home img{
     position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
+    left: 76px;
     top: 944px;
+}
+.rta .myGiftBtn{
+    position: absolute;
+    width: 180px;
+    left:0;
+    right: 0;
+    margin:auto;
+    bottom:16px;
+}
+.rta .myGiftBtn img{
+    width: 220px;
 }
 .popup{
     position: absolute;
@@ -93,7 +102,7 @@
     position: absolute;
     width: 249px;
     height: 146px;
-    background: url("../images/gift/goldBg2.png") no-repeat center center;
+    background: url("../images/gift/goldBg.png") no-repeat center center;
     left: 340px;
     top:130px;
 }
@@ -111,4 +120,10 @@
     height: 1038px;
     background: url("../images/gift/11.png") no-repeat center center;
     
+}
+.myGift{
+    position: absolute;
+    width: 640px;
+    height: 1038px;
+    z-index: 10000;
 }

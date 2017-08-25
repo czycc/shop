@@ -17,7 +17,11 @@
     <a href="{{ url('shop/index') }}" class="home">
         <img src="{{ asset('vip/images/gift/home.png') }}" alt="">
     </a>
+    <a href="mygift.html" class="myGiftBtn">
+        <img src="{{ asset('vip/images/gift/gifyBtn.png') }}" alt="">
+    </a>
 </div>
+<img src="{{ asset('vip/images/gift/illusPopup.png') }}" alt="" class="myGift">
 <!--抽奖回调的弹窗-->
 <div class="popup hidden">
     <img src="{{ asset('vip/images/gift/0.png') }}" alt="" class="popupBg">
@@ -34,6 +38,10 @@
 <div class="popup2 hidden"></div>
 
 <script type="application/javascript">
+    //说明页点击关闭
+    $('.myGift').click(function(){
+        $(this).hide();s
+    })
     //用户的信息，在外部声名
      var openid = "{{ $user->openid }}";
     //金币总数，在外部声名
@@ -42,5 +50,6 @@
 <script type="text/javascript" src="{{ asset('vip/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vip/js/awardRotate.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vip/js/gift.js') }}"></script>
+
 </body>
 </html>
