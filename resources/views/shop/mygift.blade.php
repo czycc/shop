@@ -24,7 +24,7 @@
                 @endif
             @endforeach
         </ul>
-        <a href="{{ url('shop/index') }}" class="homeBtn"><img src="{{ asset('vip/images/myGift/home.png') }}" alt=""></a>
+        <a href="{{ url('shop/index') }}" class="homeBtn"><img src="{{ asset('vip/images/myGift/home2.png') }}" alt=""></a>
         <a href="{{ url('shop/user') }}" class="btn"><img src="{{ asset('vip/images/myGift/btn.png') }}" alt=""></a>
     </div>
 
