@@ -32,6 +32,7 @@ class UserController extends Controller
             return view('shop.personal_info');
         }
         $rewards = Order::select('type')
+            ->where('shop_user_id', $user->id)
             ->orderBy('created_at','desc')
             ->limit(4)
             ->get();
