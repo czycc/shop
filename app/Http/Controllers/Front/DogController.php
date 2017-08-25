@@ -45,7 +45,7 @@ class DogController extends Controller
         $relate = new Relate;
         $relate->openid = $userInfo->id;
         $relate->avatar = $userInfo->avatar;
-
+        $relate->nickname = $userInfo->name;
         //查找设备
         $machine = Machine::where('mac', $request->mac)
             ->where('type', '0')
