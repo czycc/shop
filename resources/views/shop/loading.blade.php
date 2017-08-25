@@ -25,7 +25,7 @@
     for(var i = 1 ;i < 5;i ++){
         imgarr.push('../vip/images/loading/ladingpage/loding page_0000'+2*i+'.png')
     }
-    for(var i = 10 ;i < 68;i ++){
+    for(var i = 10 ;i < 87;i ++){
         imgarr.push('../vip/images/loading/ladingpage/loding page_000'+i+'.png')
     }
 
