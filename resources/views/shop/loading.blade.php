@@ -17,7 +17,7 @@
     <canvas id='canvas'></canvas>
 </div>
 </body>
-<script src="../vip/js/jquery.min.js"></script>
+<script src="{{asset('vip/js/jquery.min.js')}}"></script>
 <script src="{{asset('vip/js/sequenceFrame.js')}}"></script>
 
 <script>
@@ -33,13 +33,13 @@
             //当数据为100的时候，调转的连接
           window.location.href = '{{ url('shop/index') }}'
         }
-    },30)
+    },15)
     var imgarr = [];
     for(var i = 1 ;i < 10;i ++){
-        imgarr.push('../vip/images/loading/ladingpage/loding page_0000'+i+'.png')
+        imgarr.push('vip/images/loading/ladingpage/loding page_0000'+i+'.png')
     }
     for(var i = 10 ;i < 69;i ++){
-        imgarr.push('../vip/images/loading/ladingpage/loding page_000'+i+'.png')
+        imgarr.push('vip/images/loading/ladingpage/loding page_000'+i+'.png')
     }
 
     var frame2 = new SequenceFrame({
