@@ -79,6 +79,7 @@ $(function(){
                             'openid': openid,
                             'count':txt
                         },
+                        async:false,
                         dataType: "json",
                         success: function(data) {
                             goldNum = data.coin;
@@ -99,6 +100,7 @@ $(function(){
                         data: {
                             'openid': openid,
                         },
+                        async:false,
                         dataType: "json",
                         success: function(data) {
                             goldNum = data.coin;
@@ -126,6 +128,7 @@ $(function(){
                 url: "https://weixin.touchworld-sh.com/api/draw/reward",
                 data: data,
                 dataType: "json",
+                async:false,
                 success: function(data) {
                     goldNum = data.coin;
                     if(data.code == 0){
