@@ -8,7 +8,7 @@ body{
 .loading{
     width: 640px;
     height: 1038px;
-    background: url("../images/loading/bg2.jpg") no-repeat center center;
+    background: url("../images/loading/bg3.jpg") no-repeat center center;
 }
 .loading .loadText{
     font-size: 100px;
