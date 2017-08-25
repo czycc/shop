@@ -12,6 +12,10 @@ use Validator;
 
 class DogController extends Controller
 {
+    /**
+     * 爱犬大步走
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function index()
     {
         //判断是否注册
@@ -25,7 +29,6 @@ class DogController extends Controller
         if (is_null($relate)){
             return view('shop.dog_step');
         }
-        $machine = $relate->machine;
 
         $machines = Machine::with('relate')
             ->where('type','1')
@@ -35,6 +38,11 @@ class DogController extends Controller
         return view('shop.rank', compact('relate', 'machines'));
     }
 
+    /**
+     * 爱犬大步走关联计步器
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function relate(Request $request)
     {
         Validator::make($request->all(), [

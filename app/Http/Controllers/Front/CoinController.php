@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Shop_user;
+use App\Models\Relate;
 
 class CoinController extends Controller
 {
@@ -35,6 +36,10 @@ class CoinController extends Controller
         return redirect('shop/index')->with('sign_error', 'true');
     }
 
+    /**
+     * 展示个人金币信息
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function log()
     {
         //判断是否注册
@@ -49,5 +54,34 @@ class CoinController extends Controller
             ->limit(4)
             ->get();
         return view('shop.makeGood', compact('user', 'logs'));
+    }
+
+    public function dog()
+    {
+        //判断是否注册
+        $user_info = session('wechat.oauth_user');
+        $user = Shop_user::where('openid', $user_info->id)->first();
+        if (is_null($user)) {
+            return redirect('shop/user');
+        }
+        //查找指定用户信息
+        $relate = Relate::where('openid', $user_info->id)->first();
+        if (is_null($relate)) {
+            return view('shop.dog_step');
+        }
+        if ($relate->day < Carbon::today()) {
+            //更新兑换时间
+            $coin = floor(($relate->machine->num) / 1000);
+            $relate->day = Carbon::now();
+            $relate->save();
+            //更新金币数量
+            $user->coin += $coin;
+            $user->save();
+            //录入日志
+            event(new CoinChange($user_info->id, $coin, '步数兑换', '+'));
+
+            return redirect('shop/dog')->with('dayCoin', 'true');
+        }
+        return redirect('shop/dog');
     }
 }
