@@ -75,6 +75,7 @@ class ShopController extends Controller
 
             //第二次完善信息，发放5金币
             $user->type = '1';
+            $user->coin += 5;
             $user->save();
             event(new CoinChange($request->openid,'5','注册奖励','+'));
 
