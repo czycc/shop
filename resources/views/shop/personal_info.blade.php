@@ -39,7 +39,8 @@
         <a href="javascript:void(0)" class="btnDown"><img src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
     @else
         <a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
-        <a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
+        <a href="javascript:void(0)" class="btnDown hidden"><img
+                src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
     @endif
 @else
     <a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
@@ -173,18 +174,42 @@
                         },
                         success: function (data) {
                             //提交成功
-                            if (data.type == 2) {
-                                $('.text span').text('10');
-                                $('.mask_gold').show();
-                                //领取金币按钮变灰
-                                $('.btnDown').show();
-                                $('.btn').hide();
-                            } else if (data.type == 1) {
-                                $('.text span').text('5');
-                                $('.mask_gold').show();
-                            } else if (data.type == 0) {
-                                {{--window.location.href = "{{ url('shop/index') }}";--}}
-                                alert('修改成功');
+                            if (data.is_new == 1) {
+                                //$('.mask_ok').show();
+
+                                if (data.type == 2) {
+                                    $('.text span').text('10');
+                                    $('.mask_gold').show();
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
+                                } else if (data.type == 1) {
+                                    $('.text span').text('5');
+                                    $('.mask_gold').show();
+                                } else if (data.type == 0) {
+                                    {{--window.location.href = "{{ url('shop/index') }}";--}}
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
+                                    alert('修改成功');
+                                }
+                            } else if (data.is_new == 0) {
+                                if (data.type == 2) {
+                                    $('.text span').text('10');
+                                    $('.mask_gold').show();
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
+                                } else if (data.type == 1) {
+                                    $('.text span').text('5');
+                                    $('.mask_gold').show();
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
+                                } else if (data.type == 0) {
+                                    {{--window.location.href = "{{ url('shop/index') }}";--}}
+                                    alert('修改成功');
+                                }
                             }
                         },
                         error: function (data) {
