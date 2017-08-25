@@ -26,6 +26,7 @@ class CreateShopUsersTable extends Migration
             $table->tinyInteger('num')
                 ->default(0)
                 ->comment('抽奖次数');
+            $table->dateTime('draw_time')->nullable()->comment('抽奖日期');
             $table->boolean('type')->default('0')
                 ->comment('是否完善信息');
             $table->timestamps();
