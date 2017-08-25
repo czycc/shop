@@ -19,13 +19,18 @@ class MachineController extends Controller
         ])->validate();
 
         $machine = Machine::where('mac', $request->mac)->first();
-        $today =Carbon::today()->toDateTimeString();
+        //找不到设备时保存信息
         if ($machine == null) {
-            return response()->json([
-                'code' => 0,
-                'desc' => '未找到指定记录'
-            ]);
+            $machine = new Machine;
+            $machine->date = $request->date;
+            $machine->num = $request->num;
+            $machine->mac = $request->mac;
+            $machine->save();
 
+            return response()->json([
+                'code' => 1,
+                'desc' => 'success'
+            ]);
         }
 //        elseif ($request->date < $today) {
 //            return response()->json([
