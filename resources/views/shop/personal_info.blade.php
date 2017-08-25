@@ -39,11 +39,11 @@
         <a href="javascript:void(0)" class="btnDown"><img src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
     @else
         <a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
-        <a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
+        <a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
     @endif
 @else
     <a href="javascript:void(0)" class="btn"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
-    <a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/personal_info/getGold.png') }}"></a>
+    <a href="javascript:void(0)" class="btnDown hidden"><img src="{{ asset('vip/images/personal_info/btnDown.png') }}"></a>
 @endif
 <a href="javascript:void(0)" class="ok"><img src="{{ asset('vip/images/personal_info/ok.png') }}"></a>
 <!-- btn end-->
@@ -131,6 +131,9 @@
                                     $('.mask_gold').show();
                                 } else if (data.type == 0) {
                                     {{--window.location.href = "{{ url('shop/index') }}";--}}
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
                                     alert('修改成功');
                                 }
 
@@ -149,6 +152,9 @@
                                     $('.btn').hide();
                                 } else if (data.type == 0) {
                                     {{--window.location.href = "{{ url('shop/index') }}";--}}
+                                    //领取金币按钮变灰
+                                    $('.btnDown').show();
+                                    $('.btn').hide();
                                     alert('修改成功');
                                 }
                             }
@@ -182,6 +188,9 @@
                                 $('.mask_gold').show();
                             } else if (data.type == 0) {
                                 {{--window.location.href = "{{ url('shop/index') }}";--}}
+                                //领取金币按钮变灰
+                                $('.btnDown').show();
+                                $('.btn').hide();
                                 alert('修改成功');
                             }
                         },
