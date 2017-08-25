@@ -54,7 +54,9 @@ body{
     text-align: right;
 }
 .makeGood li .number{
-    margin-left: 70px;
+    text-align: right;
+    width: 120px;
+    display: inline-block;
 }
 .makeGood li:nth-child(1){
     top: 430px;
