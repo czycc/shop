@@ -41,7 +41,7 @@
 <script type="text/javascript" src="{{ asset('vip/js/jquery.min.js') }}"></script>
 <script type="text/javascript">
     // $('.getGoldBtn').click(function(e){
-    // 	$('.mask_gold').show();
+     	$('.mask_gold').show();
     // })
 
     //点击弹窗消失
