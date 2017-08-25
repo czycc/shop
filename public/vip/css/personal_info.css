@@ -10,6 +10,31 @@ body{
 	font-family: 'font1';
 	src: url('HYHeiLiZhiTiJ 1.ttf');
 }
+.pannel{
+    position: absolute;
+    left: 74px;
+    top: 60px;
+    width: 552px;
+}
+.avatar{
+    position: absolute;
+    left: -80px;
+    right: 0;
+    top: -20px;
+    margin: auto;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+}
+.love{
+    position: absolute;
+    left: 90px;
+    top: 70px;
+}
+.pannel_bg{
+    position: absolute;
+    top: 150px;
+}
 .nickName{
 	position: absolute;
 	top: 310px;

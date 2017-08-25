@@ -10,6 +10,11 @@
 </head>
 <body>
 <img src="{{ asset('vip/images/personal_info/personal_info_bg.jpg') }}">
+<div class="pannel">
+    <img class="avatar" src="{{ asset('vip/images/personal_info/confirm.png') }}">
+    <img class="love" src="{{ asset('vip/images/personal_info/love.png') }}">
+    <img class="pannel_bg" src="{{ asset('vip/images/personal_info/pannel_bg.png') }}">
+</div>
 <div class="nickName">微信昵称：<span>{{ session('wechat.oauth_user')->nickname }}</span></div>
 <div class="info">
     <p>姓名:
