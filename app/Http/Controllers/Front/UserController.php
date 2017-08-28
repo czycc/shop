@@ -22,7 +22,7 @@ class UserController extends Controller
         $info = session('wechat.oauth_user');
         $user = Shop_user::where('openid', $info->id)->first();
         if (is_null($user)) {
-            return view('shop.personal_info','js');
+            return view('shop.personal_info',compact('js'));
         }
         return view('shop.personal_info', compact('user','js'));
     }
@@ -32,7 +32,7 @@ class UserController extends Controller
         $info = session('wechat.oauth_user');
         $user = Shop_user::where('openid', $info->id)->first();
         if (is_null($user)) {
-            return view('shop.personal_info', 'js');
+            return view('shop.personal_info', compact('js'));
         }
         $rewards = Order::select('type')
             ->where('shop_user_id', $user->id)
