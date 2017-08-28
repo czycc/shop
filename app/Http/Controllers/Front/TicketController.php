@@ -7,9 +7,21 @@ use App\Models\Shop_user_ticket;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use EasyWeChat\Foundation\Application;
 
 class TicketController extends Controller
 {
+    public $js;
+
+    /**
+     * ConverseController constructor.
+     * @param $app
+     */
+    public function __construct(Application $app)
+    {
+        $this->js = $app->js;
+    }
+
     /**
      *优惠券显示
      *
@@ -31,6 +43,6 @@ class TicketController extends Controller
             return Ticket::find($item->ticket_id);
         })->all();
 
-        return view('shop.coupon', compact('tickets'));
+        return view('shop.coupon', compact('tickets', 'js'));
     }
 }

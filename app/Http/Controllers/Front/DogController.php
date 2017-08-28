@@ -9,9 +9,21 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Shop_user;
 use Validator;
+use EasyWeChat\Foundation\Application;
 
 class DogController extends Controller
 {
+    public $js;
+
+    /**
+     * ConverseController constructor.
+     * @param $app
+     */
+    public function __construct(Application $app)
+    {
+        $this->js = $app->js;
+    }
+
     /**
      * 爱犬大步走
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
@@ -27,7 +39,7 @@ class DogController extends Controller
         //查找指定用户信息
         $relate = Relate::where('openid', $user_info->id)->first();
         if (is_null($relate)){
-            return view('shop.dog_step');
+            return view('shop.dog_step', 'js');
         }
 
         $machines = Machine::with('relate')
@@ -35,7 +47,7 @@ class DogController extends Controller
             ->orderBy('num', 'desc')
             ->limit(7)
             ->get();
-        return view('shop.rank', compact('relate', 'machines'));
+        return view('shop.rank', compact('relate', 'machines', 'js'));
     }
 
     /**

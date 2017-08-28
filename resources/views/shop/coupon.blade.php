@@ -27,4 +27,8 @@
 </div>
 
 </body>
+
+{{--引入分享设置--}}
+@include('shop.share')
+
 </html>

@@ -9,9 +9,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Shop_user;
 use App\Models\Relate;
+use EasyWeChat\Foundation\Application;
 
 class CoinController extends Controller
 {
+    public $js;
+
+    /**
+     * ConverseController constructor.
+     * @param $app
+     */
+    public function __construct(Application $app)
+    {
+        $this->js = $app->js;
+    }
 
     public function day()
     {
@@ -53,7 +64,7 @@ class CoinController extends Controller
             ->orderBy('created_at', 'desc')
             ->limit(4)
             ->get();
-        return view('shop.makeGood', compact('user', 'logs'));
+        return view('shop.makeGood', compact('user', 'logs','js'));
     }
 
     public function dog()
@@ -67,7 +78,7 @@ class CoinController extends Controller
         //查找指定用户信息
         $relate = Relate::where('openid', $user_info->id)->first();
         if (is_null($relate)) {
-            return view('shop.dog_step');
+            return view('shop.dog_step','js');
         }
         if ($relate->day < Carbon::today()) {
             //更新兑换时间

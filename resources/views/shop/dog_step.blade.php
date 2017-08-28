@@ -75,6 +75,10 @@
 
 <!-- script -->
 <script type="text/javascript" src="{{ asset('vip/js/jquery.min.js') }}"></script>
+
+{{--引入分享设置--}}
+@include('shop.share')
+
 <script type="text/javascript">
     //提示错误信息
     @if(!is_null(session('error')))
