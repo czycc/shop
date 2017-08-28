@@ -39,7 +39,7 @@ class DogController extends Controller
         //查找指定用户信息
         $relate = Relate::where('openid', $user_info->id)->first();
         if (is_null($relate)){
-            return view('shop.dog_step', 'js');
+            return view('shop.dog_step',compact('js'));
         }
 
         $machines = Machine::with('relate')
