@@ -12,7 +12,6 @@
 */
 
 
-
 Route::get('/test', function () {
     return redirect('shop/users/create');
 });
@@ -29,8 +28,9 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_u
     Route::get('/', function () {
         return view('shop.loading');
     });
-    Route::get('index',function (){
-        return view('shop.index');
+    Route::get('index', function () {
+        $js = WeChat::js();
+        return view('shop.index', compact('js'));
     });
 
     //相关金币
