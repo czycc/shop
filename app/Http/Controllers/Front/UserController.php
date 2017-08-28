@@ -10,7 +10,7 @@ use EasyWeChat\Foundation\Application;
 
 class UserController extends Controller
 {
-    public $js;
+    public $js=1;
 
 
     /**
