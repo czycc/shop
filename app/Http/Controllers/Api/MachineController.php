@@ -30,7 +30,7 @@ class MachineController extends Controller
         $machine->save();
         return response()->json([
             'code' => 1,
-            'desc' => 'success'
+            'desc' => $request->mac
         ]);
 
     }
