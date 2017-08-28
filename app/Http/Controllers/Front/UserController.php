@@ -12,15 +12,6 @@ class UserController extends Controller
 {
     public $js;
 
-    /**
-     * ConverseController constructor.
-     * @param $app
-     */
-    public function __construct(Application $app)
-    {
-        $this->js = $app->js;
-    }
-
 
     /**
      * 用户信息页面
