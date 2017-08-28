@@ -29,7 +29,7 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_u
         return view('shop.loading');
     });
     Route::get('index', function () {
-        $js = WeChat::js();
+        $js = EasyWeChat::js();
         return view('shop.index', compact('js'));
     });
 
