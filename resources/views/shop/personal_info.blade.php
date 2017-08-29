@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/personal_info.css') }}">
 </head>
 <body>
+<audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <img src="{{ asset('vip/images/personal_info/personal_info_bg.jpg') }}">
 <div class="pannel">
     <img class="avatar" src="{{ session('wechat.oauth_user')->avatar }}">
@@ -225,6 +226,20 @@
 
 </script>
 </body>
+<script>
+    //解决ios上不能自动播放声音
+    bgm_init();
+    function bgm_init(){
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+            audio.play();
+            this.removeEventListener('touchstart', firstTouch);
+        });
+    }
+</script>
 
 
 </html>

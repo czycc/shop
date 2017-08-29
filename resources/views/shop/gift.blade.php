@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="rta">
+    <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
     <div class="turntable-bg">
         <div class="pointer"><img src="{{ asset('vip/images/gift/btn.png') }}" alt="pointer"/></div>
         <div class="rotate"><img id="rotate" src="{{ asset('vip/images/gift/rta.png') }}" alt="turntable"/></div>
@@ -55,6 +56,19 @@
     $('.myGift').click(function(){
         $(this).hide();s
     })
+
+    //解决ios上不能自动播放声音
+    bgm_init();
+    function bgm_init(){
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+            audio.play();
+            this.removeEventListener('touchstart', firstTouch);
+        });
+    }
 </script>
 
 </body>

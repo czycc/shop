@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="coupon">
+    <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
     <a href="{{ url('shop/draw') }}" class="btn"><img src="{{asset('vip/images/coupon/btn.png')}}"></a>
     <a href="{{ url('shop/index') }}" class="home"><img src="{{asset('vip/images/coupon/home.png')}}"></a>
     <ul>
@@ -27,6 +28,20 @@
 </div>
 
 </body>
+<script>
+    //解决ios上不能自动播放声音
+    bgm_init();
+    function bgm_init(){
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+            audio.play();
+            this.removeEventListener('touchstart', firstTouch);
+        });
+    }
+</script>
 
 
 

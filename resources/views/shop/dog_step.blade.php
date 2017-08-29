@@ -16,6 +16,7 @@
 
 <!-- mask start -->
 <div class="mask mask_store hidden" id="mask">
+    <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
     <div class="show_store">
         <h1>门店信息</h1>
         <ul>
@@ -143,6 +144,20 @@
             }
         });
     })
+</script>
+<script>
+    //解决ios上不能自动播放声音
+    bgm_init();
+    function bgm_init(){
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+            audio.play();
+            this.removeEventListener('touchstart', firstTouch);
+        });
+    }
 </script>
 </body>
 </html>

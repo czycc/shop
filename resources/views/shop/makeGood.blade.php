@@ -10,6 +10,7 @@
 <body>
 <!--兑换奖品-->
 <div class="makeGood">
+    <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
     <p class="text">$<span>{{ $user->coin }}</span></p>
     <ul>
         @foreach( $logs as $log)
@@ -25,6 +26,20 @@
     <a href="{{ url('shop/index') }}" class="home"><img src="{{ asset('vip/images/makeGood/home.png') }}"></a>
 </div>
 </body>
+<script>
+    //解决ios上不能自动播放声音
+    bgm_init();
+    function bgm_init(){
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+            audio.play();
+            this.removeEventListener('touchstart', firstTouch);
+        });
+    }
+</script>
 
 
 </html>
