@@ -109,7 +109,7 @@
             text = text.toUpperCase();
             var reg = /^[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]:[0-9A-F][0-9A-F]$/;
             if(!reg.test(text)){
-                alert('请填写正确的MAC地址(冒号必须在英文状态下输入)')
+                alert('格式输入错误(例:E1:EB:22:05:5A:FE)')
                 return false;
             }else{
                 return true;
