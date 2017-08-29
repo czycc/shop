@@ -21,8 +21,6 @@
 <script src="{{asset('vip/js/jquery.min.js')}}"></script>
 <script src="{{asset('vip/js/sequenceFrame.js')}}"></script>
 
-{{--引入分享设置--}}
-@include('shop.share')
 
 <script>
     var imgarr = [];
