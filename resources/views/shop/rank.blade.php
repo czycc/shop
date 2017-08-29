@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/rank.css') }}">
 </head>
 <body>
+<audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <img src="{{ asset('vip/images/rank/rank_bg.jpg') }}">
 <div class="myStep">{{ $relate->machine->num }}</div>
 <div class="getGold">今日得到<span>{{ floor(($relate->machine->num)/1000) }}</span>金币</div>
@@ -50,4 +51,18 @@
     });
 </script>
 </body>
+<script>
+    //解决ios上不能自动播放声音
+    bgm_init();
+    function bgm_init(){
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+            audio.play();
+            this.removeEventListener('touchstart', firstTouch);
+        });
+    }
+</script>
 </html>
