@@ -84,7 +84,7 @@
     wx.ready(function () {
         // 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
         wx.onMenuShareTimeline({
-            title: '暇步士拍党俱乐部', // 分享标题
+            title: '暇步士拍党俱乐部1', // 分享标题
             link: "https://weixin.touchworld-sh.com/shop",
             imgUrl: "{{asset('vip/images/share.jpg')}}", // 分享图标
             success: function () {
@@ -93,7 +93,7 @@
         });
         // 获取“分享给朋友”按钮点击状态及自定义分享内容接口
         wx.onMenuShareAppMessage({
-            title: '暇步士拍党俱乐部', // 分享标题
+            title: '暇步士拍党俱乐部1', // 分享标题
             desc: "加入拍拍与小巴，赚金币，赢惊喜！", // 分享描述
             link: "https://weixin.touchworld-sh.com/shop",
             imgUrl: "{{asset('vip/images/share.jpg')}}", // 分享图标
@@ -105,8 +105,7 @@
         });
     });
 </script>
-{{--引入分享设置--}}
-@include('shop.share')
+
 
 <script type="text/javascript">
     //提示错误信息
