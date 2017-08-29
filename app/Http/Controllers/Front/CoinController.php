@@ -64,6 +64,8 @@ class CoinController extends Controller
             ->orderBy('created_at', 'desc')
             ->limit(4)
             ->get();
+
+        $js = $this->js;
         return view('shop.makeGood', compact('user', 'logs','js'));
     }
 
@@ -77,8 +79,11 @@ class CoinController extends Controller
         }
         //查找指定用户信息
         $relate = Relate::where('openid', $user_info->id)->first();
+
+        $js = $this->js;
+
         if (is_null($relate)) {
-            return view('shop.dog_step','js');
+            return view('shop.dog_step',compact('js'));
         }
         if ($relate->day < Carbon::today()) {
             //更新兑换时间

@@ -29,7 +29,8 @@
 
 </body>
 
-
+{{--引入分享设置--}}
+@include('shop.share')
 
 <script>
     //解决ios上不能自动播放声音

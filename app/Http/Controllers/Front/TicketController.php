@@ -42,7 +42,7 @@ class TicketController extends Controller
         $tickets = $tickets->map(function ($item, $key) {
             return Ticket::find($item->ticket_id);
         })->all();
-
+        $js = $this->js;
         return view('shop.coupon', compact('tickets', 'js'));
     }
 }

@@ -28,7 +28,7 @@ class DrawController extends Controller
         if (is_null($user)) {
             return redirect('shop/user');
         }
-
+        $js = $this->js;
         return view('shop.gift',compact('user', 'js'));
     }
 }

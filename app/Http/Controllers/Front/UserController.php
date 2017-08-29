@@ -10,8 +10,16 @@ use EasyWeChat\Foundation\Application;
 
 class UserController extends Controller
 {
-    public $js=1;
+    public $js;
 
+    /**
+     * ConverseController constructor.
+     * @param $app
+     */
+    public function __construct(Application $app)
+    {
+        $this->js = $app->js;
+    }
 
     /**
      * 用户信息页面
@@ -21,6 +29,7 @@ class UserController extends Controller
     {
         $info = session('wechat.oauth_user');
         $user = Shop_user::where('openid', $info->id)->first();
+        $js = $this->js;
         if (is_null($user)) {
             return view('shop.personal_info',compact('js'));
         }
@@ -31,6 +40,7 @@ class UserController extends Controller
     {
         $info = session('wechat.oauth_user');
         $user = Shop_user::where('openid', $info->id)->first();
+        $js = $this->js;
         if (is_null($user)) {
             return view('shop.personal_info', compact('js'));
         }
