@@ -45,6 +45,7 @@ class DogController extends Controller
 
         $machines = Machine::with('relate')
             ->where('type','1')
+            ->where('date','>',Carbon::today())
             ->orderBy('num', 'desc')
             ->limit(7)
             ->get();

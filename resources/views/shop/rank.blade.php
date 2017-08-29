@@ -10,8 +10,8 @@
 <body>
 <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <img src="{{ asset('vip/images/rank/rank_bg.jpg') }}">
-<div class="myStep">{{ $relate->machine->num }}</div>
-<div class="getGold">今日得到<span>{{ floor(($relate->machine->num)/1000) }}</span>金币</div>
+<div class="myStep">{{ $relate->machine->date >= Carbon\Carbon::today() ? $relate->machine->num : '0' }}</div>
+<div class="getGold">今日得到<span>{{ $relate->machine->date >= Carbon\Carbon::today() ? floor(($relate->machine->num)/1000) : '0' }}</span>金币</div>
 
 <ul class="ranking">
     @foreach($machines as $machine)
