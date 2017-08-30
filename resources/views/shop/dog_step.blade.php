@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/dog_step.css') }}">
 </head>
 <body>
+<img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
+<audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <img src="{{ asset('vip/images/dog_step/step_bg.jpg') }}">
 <a href="javascript:void(0)" class="storeList"><img src="{{ asset('vip/images/dog_step/storeList.png') }}"></a>
 <a href="javascript:void(0)" class="showList"><img src="{{ asset('vip/images/dog_step/showList.png') }}"></a>
@@ -16,8 +18,6 @@
 
 <!-- mask start -->
 <div class="mask mask_store hidden" id="mask">
-    <img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
-    <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
     <div class="show_store">
         <h1>门店信息</h1>
         <ul>
