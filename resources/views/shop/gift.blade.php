@@ -65,10 +65,10 @@
         document.addEventListener("WeixinJSBridgeReady", function () {
             audio.play();
         }, false);
-        window.addEventListener('touchstart', function firstTouch(){
-            audio.play();
-            this.removeEventListener('touchstart', firstTouch);
-        });
+//        window.addEventListener('touchstart', function firstTouch(){
+//            audio.play();
+//            this.removeEventListener('touchstart', firstTouch);
+//        });
 
         var audioMusic = document.getElementsByClassName('audioMusic')[0];
 
