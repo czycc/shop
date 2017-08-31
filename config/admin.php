@@ -53,7 +53,7 @@ return [
             'file'   => 'file',
         ],
 
-        'host' => env('APP_URL').'/upload/',
+        'host' => env('APP_URL').'/storage/',
     ],
 
     /*
