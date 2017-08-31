@@ -9,6 +9,7 @@
 </head>
 <body>
 <!-- nav start -->
+<img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
 <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <nav>
     <ul>
@@ -72,9 +73,24 @@
         document.addEventListener("WeixinJSBridgeReady", function () {
             audio.play();
         }, false);
-        window.addEventListener('touchstart', function firstTouch(){
-            audio.play();
-            this.removeEventListener('touchstart', firstTouch);
+//        window.addEventListener('touchstart', function firstTouch(){
+//            audio.play();
+//            this.removeEventListener('touchstart', firstTouch);
+//        });
+
+        var audioMusic = document.getElementsByClassName('audioMusic')[0];
+
+        audioMusic.addEventListener('touchstart', function (){
+            if(audio.paused){
+                audio.play();
+                audioMusic.src = '{{asset('vip/images/audio/audio2.png')}}'
+            }else{
+                audio.pause();
+                audioMusic.src = '{{asset('vip/images/audio/audio1.png')}}'
+
+            }
+
+
         });
     }
 </script>

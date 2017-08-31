@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/dog_step.css') }}">
 </head>
 <body>
+<img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
+<audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <img src="{{ asset('vip/images/dog_step/step_bg.jpg') }}">
 <a href="javascript:void(0)" class="storeList"><img src="{{ asset('vip/images/dog_step/storeList.png') }}"></a>
 <a href="javascript:void(0)" class="showList"><img src="{{ asset('vip/images/dog_step/showList.png') }}"></a>
@@ -16,7 +18,6 @@
 
 <!-- mask start -->
 <div class="mask mask_store hidden" id="mask">
-    <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
     <div class="show_store">
         <h1>门店信息</h1>
         <ul>
@@ -125,9 +126,24 @@
         document.addEventListener("WeixinJSBridgeReady", function () {
             audio.play();
         }, false);
-        window.addEventListener('touchstart', function firstTouch(){
-            audio.play();
-            this.removeEventListener('touchstart', firstTouch);
+//        window.addEventListener('touchstart', function firstTouch(){
+//            audio.play();
+//            this.removeEventListener('touchstart', firstTouch);
+//        });
+
+        var audioMusic = document.getElementsByClassName('audioMusic')[0];
+
+        audioMusic.addEventListener('touchstart', function (){
+            if(audio.paused){
+                audio.play();
+                audioMusic.src = '{{asset('vip/images/audio/audio2.png')}}'
+            }else{
+                audio.pause();
+                audioMusic.src = '{{asset('vip/images/audio/audio1.png')}}'
+
+            }
+
+
         });
     }
 </script>

@@ -23,3 +23,10 @@ input{
 .hidden{
 	display: none;
 }
+.audioMusic{
+	position: absolute;
+	width: 60px;
+	right: 41px;
+	top:48px;
+	z-index: 100;
+}

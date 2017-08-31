@@ -28,6 +28,16 @@ body{
 	text-align: center;
 	font-size: 26px;
 }
+.tips{
+    position: absolute;
+    top: 260px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+    font-family: "幼圆"
+}
 .ranking{
 	position: absolute;
 	top: 325px;
