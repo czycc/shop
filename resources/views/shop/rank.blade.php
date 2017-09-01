@@ -13,7 +13,7 @@
 <img src="{{ asset('vip/images/rank/rank_bg.jpg') }}">
 <div class="myStep">{{ $relate->machine->date >= Carbon\Carbon::today() ? $relate->machine->num : '0' }}</div>
 <div class="getGold">今日得到<span>{{ $relate->machine->date >= Carbon\Carbon::today() ? floor(($relate->machine->num)/1000) : '0' }}</span>金币</div>
-<div class="tips">( 1000步=1金币 )</div>
+<div class="tips">( 还有<span>5000</span>步数可兑换 )</div>
 
 <ul class="ranking">
     @foreach($machines as $machine)
