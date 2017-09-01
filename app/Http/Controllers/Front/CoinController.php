@@ -85,6 +85,7 @@ class CoinController extends Controller
         if (is_null($relate)) {
             return view('shop.dog_step',compact('js'));
         }
+
         //如果今天没有兑换并且今日有同步步数
         if ($relate->day < Carbon::today() && $relate->machine->date >= Carbon::today()) {
             //更新兑换时间

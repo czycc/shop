@@ -16,8 +16,13 @@ class CreateMachinesTable extends Migration
         Schema::create('machines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('mac', 60)->unique();
-            $table->smallInteger('num')->default(0);
-            $table->date('date');
+            $table->Integer('num')->default(0)
+                ->comment('今日步数');
+            $table->Integer('total')->default(0)
+                ->comment('总步数');
+            $table->integer('exchange')->default(0)
+                ->comment('已经兑换步数');
+            $table->dateTime('date')->comment('步数的时间');
             $table->boolean('type')->default('0')
                 ->comment('是否被关联');
         });

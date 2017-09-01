@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>会员商城</title>
+    <title>暇步士拍党俱乐部</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=640,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/reset.css') }}">
