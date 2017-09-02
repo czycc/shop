@@ -45,11 +45,11 @@ class DogController extends Controller
 
         $machines = Machine::with('relate')
             ->where('type','1')
-            ->where('date','>',Carbon::today())
-            ->orderBy('num', 'desc')
+            ->orderBy('total', 'desc')
             ->limit(7)
             ->get();
-        return view('shop.rank', compact('relate', 'machines', 'js'));
+        $sub = $relate->machine->total - $relate->machine->exchange;
+        return view('shop.rank', compact('relate', 'machines', 'js', 'sub'));
     }
 
     /**

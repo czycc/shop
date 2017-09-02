@@ -11,31 +11,32 @@
 <img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
 <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <img src="{{ asset('vip/images/rank/rank_bg.jpg') }}">
-<div class="myStep">{{ $relate->machine->date >= Carbon\Carbon::today() ? $relate->machine->num : '0' }}</div>
-<div class="getGold">今日得到<span>{{ $relate->machine->date >= Carbon\Carbon::today() ? floor(($relate->machine->num)/1000) : '0' }}</span>金币</div>
-<div class="tips">( 还有<span>5000</span>步数可兑换 )</div>
+<div class="myStep">{{ $machine->total }}</div>
+<div class="getGold">今日得到<span>{{ floor($sub/1000) }}</span>金币</div>
+<div class="tips">( 还有<span>{{ $sub }}</span>步数可兑换 )</div>
 
+{{--展示排行榜--}}
 <ul class="ranking">
     @foreach($machines as $machine)
         <li>
             <div class="no">1</div>
             <img class="user_avatar" src="{{ $machine->relate->avatar }}">
             <div class="user_name">{{ $machine->relate->nickname }}</div>
-            <div class="user_step"><span>{{ $machine->num }}</span>步</div>
+            <div class="user_step"><span>{{ $machine->total }}</span>步</div>
         </li>
     @endforeach
 </ul>
 
 <a href="{{ url('shop/index') }}" class="home"><img src="{{ asset('vip/images/rank/home.png') }}"></a>
-@if( $relate->day>= \Carbon\Carbon::today())
+@if( $sub < 1000)
     <a href="javascript:void(0)" class="btnDown"><img src="{{ asset('vip/images/rank/btnDown.png') }}"></a>
 @else
     <a href="{{ url('shop/coin/dog') }}" class="getGoldBtn"><img src="{{ asset('vip/images/rank/getGold.png') }}"></a>
 @endif
 
-@if(!is_null(session('day')))
+@if(!is_null(session('coin')))
     <div class="mask mask_gold">
-        <p>恭喜今日获得<span>{{ floor(($relate->machine->num)/1000) }}</span>金币</p>
+        <p>恭喜今日获得<span>{{ session('coin') }}</span>金币</p>
     </div>
 @endif
 

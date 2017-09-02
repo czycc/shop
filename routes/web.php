@@ -13,7 +13,7 @@
 
 
 Route::get('/test', function () {
-    return 'test';
+
 });
 
 Route::post('sms', 'Test\SmsController@index');

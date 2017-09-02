@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Events\CoinChange;
 use App\Models\Coin_log;
+use App\Models\Machine;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -66,7 +67,7 @@ class CoinController extends Controller
             ->get();
 
         $js = $this->js;
-        return view('shop.makeGood', compact('user', 'logs','js'));
+        return view('shop.makeGood', compact('user', 'logs', 'js'));
     }
 
     public function dog()
@@ -83,23 +84,30 @@ class CoinController extends Controller
         $js = $this->js;
 
         if (is_null($relate)) {
-            return view('shop.dog_step',compact('js'));
+            return view('shop.dog_step', compact('js'));
         }
 
-        //如果今天没有兑换并且今日有同步步数
-        if ($relate->day < Carbon::today() && $relate->machine->date >= Carbon::today()) {
-            //更新兑换时间
-            $coin = floor(($relate->machine->num) / 1000);
-            $relate->day = Carbon::now();
-            $relate->save();
+        //判断是否有足额步数兑
+        $machine = Machine::find($relate->machine_id);
+
+        $sub = $machine->total - $machine->exchange;
+        if ($sub >= 1000) {
+            $coin = floor($sub / 1000);
             //更新金币数量
             $user->coin += $coin;
             $user->save();
-            //录入日志
             event(new CoinChange($user_info->id, $coin, '步数兑换', '+'));
 
-            return redirect('shop/dog')->with('day', 'true');
+            //调整步数信息，增加已经兑换步数
+            $machine->exchange += $coin * 1000 ;
+            $machine->save();
+
+            //录入日志
+
+            return redirect('shop/dog')->with('coin', $coin);
+        } else {
+            //没有足额金币
+            return view('shop.dog_step', compact('js'));
         }
-        return redirect('shop/dog');
     }
 }
