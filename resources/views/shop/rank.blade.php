@@ -11,7 +11,7 @@
 <img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
 <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <img src="{{ asset('vip/images/rank/rank_bg.jpg') }}">
-<div class="myStep">{{ $machine->total }}</div>
+<div class="myStep">{{ $relate->machine->total }}</div>
 <div class="getGold">今日得到<span>{{ floor($sub/1000) }}</span>金币</div>
 <div class="tips">( 还有<span>{{ $sub }}</span>步数可兑换 )</div>
 
@@ -60,7 +60,8 @@
 <script>
     //解决ios上不能自动播放声音
     bgm_init();
-    function bgm_init(){
+
+    function bgm_init() {
         var audio = document.getElementById('audio');
         document.addEventListener("WeixinJSBridgeReady", function () {
             audio.play();
@@ -72,11 +73,11 @@
 
         var audioMusic = document.getElementsByClassName('audioMusic')[0];
 
-        audioMusic.addEventListener('touchstart', function (){
-            if(audio.paused){
+        audioMusic.addEventListener('touchstart', function () {
+            if (audio.paused) {
                 audio.play();
                 audioMusic.src = '{{asset('vip/images/audio/audio2.png')}}'
-            }else{
+            } else {
                 audio.pause();
                 audioMusic.src = '{{asset('vip/images/audio/audio1.png')}}'
 
