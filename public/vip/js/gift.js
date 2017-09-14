@@ -57,7 +57,7 @@ $(function(){
                 globalAwards = awards;
                 globalTxt = txt;
                 bRotate = !bRotate;
-
+                $('.popup .popupBg').show();
                 $('.popup .popupBg').attr('src','../vip/images/gift/'+awards+'.png');
                 //确认兑换 和 取消兑换按钮显示，在抽到金币，代金券的情况下影藏；
                 $('.popup .btn').show();
@@ -84,7 +84,8 @@ $(function(){
                         success: function(data) {
                             goldNum = data.coin;
                             if(data.code == 0){
-                                alert('每天只能抽取3次金币，请明天继续哟')
+                                alert('每天只能抽取3次金币，请明天继续哟');
+                                $('.popup .popupBg').hide();
                             }
                         },
                         error: function(res) {
