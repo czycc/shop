@@ -69,12 +69,12 @@ body{
 .coupon ul li div{
     position: absolute;
     left: 96px;
-    top: 10px;
+    top: 30px;
     color:#f8a85e;
 
 }
 .coupon ul li div .textNum{
-    font-size: 50px;
+    font-size: 30px;
 }
 .coupon ul li div .dataText{
     font-size: 20px;
