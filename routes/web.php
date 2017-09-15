@@ -49,3 +49,8 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_u
     Route::get('coin/dog', 'Front\CoinController@dog');
 
 });
+
+Route::get('juli', function () {
+    $js = EasyWeChat::js();
+    return view('jl', compact('js'));
+});
