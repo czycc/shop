@@ -35,7 +35,7 @@ $(function(){
             case 6:
                 rotateFn(6, 22, '压缩T');
                 break;
-               禁止抽取优惠券
+
             case 7:
                 rotateFn(7, 337, '100元券');
                 break;
