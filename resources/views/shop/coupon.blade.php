@@ -13,7 +13,7 @@
     <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
     <a href="{{ url('shop/draw') }}" class="btn"><img src="{{asset('vip/images/coupon/btn.png')}}"></a>
     <a href="{{ url('shop/index') }}" class="home"><img src="{{asset('vip/images/coupon/home.png')}}"></a>
-    <ul>
+    <ul class="cjText">
         {{--循环输出优惠券信息，NO.最多6位数--}}
         @foreach($tickets as $ticket)
             <li>
