@@ -14,6 +14,7 @@
 
 </head>
 <body>
+<audio id="audio" src="../jl/1.mp3" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <!-------------slide1----------------->
@@ -62,7 +63,7 @@
                     <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s"
                          swiper-animate-delay="0.5s" src="../jl/images/P4_1/text1.png" alt="">
                     <img class="pos pos3 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="1s" src="../jl/images/back2.png" alt="">
+                         swiper-animate-delay="1s" src="../jl/images/1.png" alt="">
                 </li>
                 <li>
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
@@ -78,7 +79,7 @@
                     <img class=" pos6 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s"
                          swiper-animate-delay="2.5s" src="../jl/images/P4_2/text1.png" alt="">
                     <img class="pos pos7 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="3s" src="../jl/images/back1.png" alt="">
+                         swiper-animate-delay="3s" src="../jl/images/2.png" alt="">
                 </li>
                 <li class="li3">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
@@ -86,7 +87,7 @@
                     <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s"
                          swiper-animate-delay="0.5s" src="../jl/images/P4_3/text.png" alt="">
                     <img class="pos pos3 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
-                         swiper-animate-delay="1s" src="../jl/images/back2.png" alt="">
+                         swiper-animate-delay="1s" src="../jl/images/1.png" alt="">
                 </li>
                 <li class="li4">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
@@ -94,7 +95,7 @@
                     <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s"
                          swiper-animate-delay="0.5s" src="../jl/images/P4_4/text.png" alt="">
                     <img class="pos pos3 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="1s" src="../jl/images/back2.png" alt="">
+                         swiper-animate-delay="1s" src="../jl/images/1.png" alt="">
                 </li>
 
             </ul>
@@ -228,6 +229,15 @@
         });
 
     }
+    
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+              audio.play();
+              this.removeEventListener('touchstart', firstTouch);
+          });
 
 
 </script>
