@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
 use App\Models\Ticket;
+use App\Models\Shop_user_ticket;
 
 class ShopController extends Controller
 {
