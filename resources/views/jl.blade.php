@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>聚力共享</title>
+    <title>聚力共赢</title>
     <meta name="viewport" content="width=640,user-scalable=no">
     <link rel="stylesheet" href="../jl/css/swiper.min.css">
     <link rel="stylesheet" href="../jl/css/animate.css">
@@ -135,7 +135,7 @@
     wx.ready(function () {
         // 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
         wx.onMenuShareTimeline({
-            title: '聚力共享', // 分享标题
+            title: '聚力共赢', // 分享标题
             link: "https://weixin.touchworld-sh.com/juli",
             imgUrl: "{{asset('jl/images/juli.jpg')}}", // 分享图标
             success: function () {
@@ -144,7 +144,7 @@
         });
         // 获取“分享给朋友”按钮点击状态及自定义分享内容接口
         wx.onMenuShareAppMessage({
-            title: '聚力共享', // 分享标题
+            title: '聚力共赢', // 分享标题
             desc: "互联网CEO分享会内容峰会", // 分享描述
             link: "https://weixin.touchworld-sh.com/juli",
             imgUrl: "{{asset('jl/images/juli.jpg')}}", // 分享图标
