@@ -11,7 +11,7 @@ body{
 .coupon{
     width: 640px;
     height: 1038px;
-    background: url("../images/coupon/bj.jpg") no-repeat center center;
+    background: url("../images/coupon/bg.png") no-repeat center center;
 }
 .coupon .btn{
     position: absolute;
@@ -27,13 +27,18 @@ body{
     top:920px;
     width:88px ;
 }
-
+.coupon .ruleBtn{
+    position: absolute;
+    left: 490px;
+    top:920px;
+    width:88px ;
+}
 .coupon .text{
     position: absolute;
     top: 372px;
 }
 
-.coupon ul{
+.coupon .cjText{
     width: 450px;
     height: 370px;
     position: absolute;
@@ -55,28 +60,56 @@ body{
 .coupon ul::-o-scrollbar {
     display: none;
 }
-.coupon ul li{
+.coupon .cjText li{
     width: 460px;
     height: 124px;
     position: relative;
     border-bottom: 5px dashed #8887d2;
 }
-.coupon ul li img{
+.coupon .cjText li img{
     position: absolute;
     top: 24px;
     left: 8px;
 }
-.coupon ul li div{
+.coupon .cjText li div{
     position: absolute;
     left: 96px;
     top: 30px;
     color:#f8a85e;
 
 }
-.coupon ul li div .textNum{
+.coupon .cjText li div .textNum{
     font-size: 30px;
 }
-.coupon ul li div .dataText{
+.coupon .cjText li div .dataText{
     font-size: 20px;
     margin-left: 34px;
+}
+.coupon .popup{
+    position: absolute;
+    width: 640px;
+    height: 1038px;
+    z-index: 1000;
+    background: url("../images/coupon/popup.png");
+    display: none;
+}
+.coupon .popup .ruleText{
+    position: absolute;
+    width: 376px;
+    height: 276px;
+    left:120px;
+    top:410px;
+    color: #8988d3;
+    font-size: 17px;
+    overflow: scroll;
+}
+.coupon .popup .ruleText .ma{
+    margin-left: 10px;
+}
+.coupon .popup .ruleText li{
+    height: 34px;
+    line-height: 34px;
+}
+.coupon .popup .ruleText .maText{
+    margin-top: 40px;
 }
