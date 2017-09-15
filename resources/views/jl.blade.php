@@ -229,15 +229,14 @@
         });
 
     }
-    
-        var audio = document.getElementById('audio');
-        document.addEventListener("WeixinJSBridgeReady", function () {
-            audio.play();
-        }, false);
-        window.addEventListener('touchstart', function firstTouch(){
-              audio.play();
-              this.removeEventListener('touchstart', firstTouch);
-          });
+	var audio = document.getElementById('audio');
+	document.addEventListener("WeixinJSBridgeReady", function () {
+	    audio.play();
+	}, false);
+	window.addEventListener('touchstart', function firstTouch(){
+	      audio.play();
+	      this.removeEventListener('touchstart', firstTouch);
+	  });
 
 
 </script>
