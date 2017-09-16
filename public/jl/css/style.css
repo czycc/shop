@@ -12,7 +12,6 @@ canvas{
 	height: 1038px;
 	display: block;
 	position: absolute;
-	z-index: 100;
 }
 
 .swiper-slide2{
@@ -217,6 +216,22 @@ canvas{
 		height: 58px;
 	}
 
+}
+.arrow{
+	position: absolute;
+	animation: arrow 2s ease-in infinite;
+}
+
+@keyframes arrow{
+	0%{
+		top: -30px;
+	}
+	50%{
+		top: 0px;
+	}
+	100%{
+		top: -30px;
+	}
 }
 
 

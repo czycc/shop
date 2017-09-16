@@ -20,15 +20,18 @@
         <!-------------slide1----------------->
         <section class="swiper-slide swiper-slide1">
             <canvas id="canvas1"></canvas>
+            <img class="arrow" src="../jl/images/arrow1.png" alt="">
         </section>
         <!-------------slide2----------------->
         <section class="swiper-slide swiper-slide2">
             <canvas id="canvas2"></canvas>
+            <img class="arrow" src="../jl/images/arrow2.png" alt="">
         </section>
         <!-------------slide3----------------->
         <section class="swiper-slide swiper-slide3">
             <img  class="ani timeText" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="0s" src="../jl/images/P3/time.png" alt="">
             <img  class="ani text1" swiper-animate-effect="slideInRight" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P3/t.png" alt="">
+            <img class="arrow" src="../jl/images/arrow1.png" alt="">
         </section>
         <!-------------slide4----------------->
         <section class="swiper-slide swiper-slide4">
@@ -38,6 +41,7 @@
             <img  class="ani text text3 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="1.5s" src="../jl/images/P4/text3.png" alt="">
             <img  class="ani text text4 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="2s" src="../jl/images/P4/text4.png" alt="">
             <img  class="ani text text5" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="2.5s" src="../jl/images/P4/text5.png" alt="">
+            <img class="arrow" src="../jl/images/arrow1.png" alt="">
             <ul class="swiper-no-swiping">
                 <li>
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_1/ti.png" alt="">
