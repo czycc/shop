@@ -28,8 +28,6 @@ canvas{
 }
 .swiper-slide3 .text1{
 	position: absolute;
-	left:74px;
-	top:127px;
 }
 .swiper-slide3 .text2{
 	position: absolute;
@@ -99,27 +97,18 @@ canvas{
 
 .swiper-slide4 ul li .pos{
 	position: absolute;
-	left: 74px;
 }
-.swiper-slide4 ul li:nth-child(1) .pos1{
-	top:55px;
-}
-.swiper-slide4 ul li:nth-child(1) .pos2{
-	top:150px;
-}
+
 .swiper-slide4 ul li:nth-child(1) .pos3{
 	top:470px;
 }
 
-.swiper-slide4 ul li:nth-child(2) .pos1{
-	top:55px;
-}
+
 .swiper-slide4 ul li:nth-child(2) .pos2{
 	position: absolute;
 	left:0;
 	right: 0;
 	margin:auto;
-	top:134px;
 }
 .swiper-slide4 ul li:nth-child(2) .pos3{
 	position: absolute;
@@ -147,15 +136,8 @@ canvas{
 	top:992px;
 	z-index: 1000;
 }
-.swiper-slide4 ul .li3 .pos1,.swiper-slide4 ul .li4 .pos1{
-	top:55px;
-}
-.swiper-slide4 ul .li3 .pos2,.swiper-slide4 ul .li4 .pos2{
-	top:150px;
-}
-.swiper-slide4 ul .li3 .pos3{
-	top:404px;
-}
+
+
 .swiper-slide4 ul .li4 .pos3{
 	top:446px;
 }
@@ -174,9 +156,7 @@ canvas{
 .swiper-slide5 .pos1{
 	top:55px;
 }
-.swiper-slide5 .pos2,.swiper-slide5 .pos3{
-	top:150px;
-}
+
 .swiper-slide5 .pos4,.swiper-slide5 .pos5{
 	 top:336px;
  }

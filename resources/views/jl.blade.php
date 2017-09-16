@@ -27,99 +27,47 @@
         </section>
         <!-------------slide3----------------->
         <section class="swiper-slide swiper-slide3">
-
-            <img class="ani timeText" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="0s" src="../jl/images/P3/time.png" alt="">
-            <img class="ani text1" swiper-animate-effect="slideInRight" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="0.5s" src="../jl/images/P3/text2.png" alt="">
-            <div class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="1.0s">
-                <img class="text2" src="../jl/images/P3/text3.png" alt="">
-                <img class="text3" src="../jl/images/P3/line.png" alt="">
-                <img class="text4" src="../jl/images/P3/text1.png" alt="">
-            </div>
-            <img class="ani text5" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="1.5s" src="../jl/images/P3/map.png" alt="">
-
+            <img  class="ani timeText" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="0s" src="../jl/images/P3/time.png" alt="">
+            <img  class="ani text1" swiper-animate-effect="slideInRight" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P3/t.png" alt="">
         </section>
         <!-------------slide4----------------->
         <section class="swiper-slide swiper-slide4">
-            <img class="ani text text0" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="0s" src="../jl/images/P4/text6.png" alt="">
-            <img class="ani text text1 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="0.5s" src="../jl/images/P4/text1.png" alt="">
-            <img class="ani text text2 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="1.0s" src="../jl/images/P4/text2.png" alt="">
-            <img class="ani text text3 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="1.5s" src="../jl/images/P4/text3.png" alt="">
-            <img class="ani text text4 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="2s" src="../jl/images/P4/text4.png" alt="">
-            <img class="ani text text5" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                 swiper-animate-delay="2.5s" src="../jl/images/P4/text5.png" alt="">
+            <img  class="ani text text0" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="0s" src="../jl/images/P4/text6.png" alt="">
+            <img  class="ani text text1 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P4/text1.png" alt="">
+            <img  class="ani text text2 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="1.0s" src="../jl/images/P4/text2.png" alt="">
+            <img  class="ani text text3 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="1.5s" src="../jl/images/P4/text3.png" alt="">
+            <img  class="ani text text4 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="2s" src="../jl/images/P4/text4.png" alt="">
+            <img  class="ani text text5" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="2.5s" src="../jl/images/P4/text5.png" alt="">
             <ul class="swiper-no-swiping">
-
                 <li>
-                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
-                         swiper-animate-delay="0s" src="../jl/images/P4_1/title.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="0.5s" src="../jl/images/P4_1/text1.png" alt="">
-                    <img class="pos pos3 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="1s" src="../jl/images/1.png" alt="">
+                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_1/ti.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P4_1/text.png" alt="">
                 </li>
                 <li>
-                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
-                         swiper-animate-delay="0s" src="../jl/images/P4_2/title.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect=" fadeIn" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="0.5s" src="../jl/images/P4_2/squ.png" alt="">
-                    <img class=" pos3 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="1.0s" src="../jl/images/P4_2/moring.png" alt="">
-                    <img class=" pos4 ani" swiper-animate-effect="slideInRight" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="1.5s" src="../jl/images/P4_2/line.png" alt="">
-                    <img class=" pos5 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="2s" src="../jl/images/P4_2/afternoon.png" alt="">
-                    <img class=" pos6 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="2.5s" src="../jl/images/P4_2/text1.png" alt="">
-                    <img class="pos pos7 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="3s" src="../jl/images/2.png" alt="">
+                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_2/ti.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect=" fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_2/text.png" alt="">
+
                 </li>
                 <li class="li3">
-                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
-                         swiper-animate-delay="0s" src="../jl/images/P4_3/title.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="0.5s" src="../jl/images/P4_3/text.png" alt="">
-                    <img class="pos pos3 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
-                         swiper-animate-delay="1s" src="../jl/images/1.png" alt="">
+                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_3/ti.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P4_3/text.png" alt="">
+                    
                 </li>
                 <li class="li4">
-                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s"
-                         swiper-animate-delay="0s" src="../jl/images/P4_4/title.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="0.5s" src="../jl/images/P4_4/text.png" alt="">
-                    <img class="pos pos3 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s"
-                         swiper-animate-delay="1s" src="../jl/images/1.png" alt="">
+                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_4/ti.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P4_4/text.png" alt="">
                 </li>
 
             </ul>
         </section>
         <!-------------slide5----------------->
         <section class="swiper-slide swiper-slide5">
-            <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.5s"
-                 swiper-animate-delay="0s" src="../jl/images/P5/hTitle.png" alt="">
-            <div class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s">
-                <img class="pos pos2 " src="../jl/images/P5/line1.png" alt="">
-                <img class="pos0 pos3 " src="../jl/images/P5/text1.png" alt="">
+            <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0s" src="../jl/images/P5/hTitle.png" alt="">
+            <div class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.4s" >
+                <img class="pos2 "src="../jl/images/P5/text.png" alt="">
             </div>
-            <div class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s">
-                <img class="pos pos4 " src="../jl/images/P5/line2.png" alt="">
-                <img class="pos0 pos5 " src="../jl/images/P5/text3.png" alt="">
-            </div>
-            <div class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.6s">
-                <img class="pos pos6 " src="../jl/images/P5/line3.png" alt="">
-                <img class="pos0 pos7 " src="../jl/images/P5/text2.png" alt="">
-            </div>
-            <img class="center pos8 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.8s"
-                 swiper-animate-delay="2s" src="../jl/images/P5/ewm.png" alt="">
-            <img class="center pos9 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
-                 swiper-animate-delay="2.4s" src="../jl/images/P5/text4.png" alt="">
+            <img class="center pos8 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.8s" swiper-animate-delay="0.8s" src="../jl/images/P5/ewm.png" alt="">
+            <img class="center pos9 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.6s" src="../jl/images/P5/text4.png" alt="">
         </section>
     </div>
 </div>
