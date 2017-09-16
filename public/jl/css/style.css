@@ -219,22 +219,30 @@ canvas{
 }
 .arrow{
 	position: absolute;
-	animation: arrow 2s ease-in infinite;
+	width: 520px;
+	left: 0;
+	right: 0;
+	margin:auto;
+	bottom: 20px;
+	animation: arrow 2s ease-in-out infinite;
 }
 
 @keyframes arrow{
 	0%{
-		top: -30px;
+		bottom: 40px;
 	}
 	50%{
-		top: 0px;
+		bottom: 20px;
 	}
 	100%{
-		top: -30px;
+		bottom: 40px;
 	}
 }
 
-
-
-
+.arr{
+	display: none;
+}
+.arr1{
+	display: none;
+}
 

@@ -20,12 +20,12 @@
         <!-------------slide1----------------->
         <section class="swiper-slide swiper-slide1">
             <canvas id="canvas1"></canvas>
-            <img class="arrow" src="../jl/images/arrow1.png" alt="">
+            <img class="arrow arr" src="../jl/images/arrow1.png" alt="">
         </section>
         <!-------------slide2----------------->
         <section class="swiper-slide swiper-slide2">
             <canvas id="canvas2"></canvas>
-            <img class="arrow" src="../jl/images/arrow2.png" alt="">
+            <img class="arrow arr1" src="../jl/images/arrow2.png" alt="">
         </section>
         <!-------------slide3----------------->
         <section class="swiper-slide swiper-slide3">
@@ -45,7 +45,7 @@
             <ul class="swiper-no-swiping">
                 <li>
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_1/ti.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P4_1/text.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_1/text.png" alt="">
                 </li>
                 <li>
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_2/ti.png" alt="">
@@ -54,12 +54,12 @@
                 </li>
                 <li class="li3">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_3/ti.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P4_3/text.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_3/text.png" alt="">
                     
                 </li>
                 <li class="li4">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_4/ti.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P4_4/text.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_4/text.png" alt="">
                 </li>
 
             </ul>
@@ -161,7 +161,10 @@
             height: 1038,
             speed: 50,
             loop: false,
-            imgArr: imgarr
+            imgArr: imgarr,
+            callback:function(){
+                 $('.arr').show();
+            }
         });
     }
 
@@ -176,7 +179,10 @@
             height: 1038,
             speed: 50,
             loop: false,
-            imgArr: imgarr2
+            imgArr: imgarr2,
+            callback:function(){
+                 $('.arr1').show();
+            }
 
         });
 
