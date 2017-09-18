@@ -81,6 +81,7 @@
 </body>
 <script src="../jl/js/jquery-1.11.3.min.js"></script>
 <script src="../jl/js/sequenceFrame.js"></script>
+<script src="../jl/js/pxloader-all.min.js"></script>
 
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="application/javascript">
