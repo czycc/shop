@@ -14,7 +14,7 @@
 <body>
 <audio id="audio" src="../jl/1.mp3" preload="auto" loop="loop" autoplay="autoplay"></audio>
 <div class="load-container">
-    <img class='loading' src="c/images/loading.png">
+    <img class='loading' src="../jl/images/loading.png">
     <span class='loadNum'>0%</span>
 </div>
 <div class="swiper-container">
@@ -150,10 +150,10 @@
     var realLoadingNum = 0;
     var fileList = [];
     for (var i = 2; i < 52; i++) {
-        fileList.push('c/images/home/'+i+'.jpg');
+        fileList.push('../jl/images/home/'+i+'.jpg');
     }
     for(var i = 1; i < 52; i++){
-        fileList.push('c/images/intruText/'+ i +'.jpg');
+        fileList.push('../jl/images/intruText/'+ i +'.jpg');
     }
     for(var i = 0; i < fileList.length; i++){
         var pxImage = new PxLoaderImage(BASE_PATH + fileList[i]);
