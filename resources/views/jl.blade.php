@@ -57,7 +57,7 @@
                 <li class="li3">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_3/ti.png" alt="">
                     <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_3/text2.png" alt="">
-                    
+
                 </li>
                 <li class="li4">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_4/ti.png" alt="">
@@ -110,18 +110,33 @@
         });
     });
 
+    var audio = document.getElementById('audio');
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        audio.play();
+    }, false);
+    window.addEventListener('touchstart', function firstTouch(){
+        audio.play();
+        this.removeEventListener('touchstart', firstTouch);
+    });
+
+
+</script>
+<script>
+    var frame1;
+    var frame2;
     //加载序列帧动画
     //第一页
     var imgarr = [];
     for(var i = 2 ;i < 52;i ++){
-        imgarr.push('c/images/home/'+i+'.jpg');
+        imgarr.push('../jl/images/home/'+i+'.jpg');
     }
-    var frame1 = new SequenceFrame({
+    frame1 = new SequenceFrame({
         id: $('#canvas1')[0],
         width: 640,
         height: 1038,
         speed: 50,
         loop: false,
+        autoplay: false,
         imgArr: imgarr,
         callback:function(){
             $('.arr').show();
@@ -130,14 +145,15 @@
     //第二页
     var imgarr2 = [];
     for(var z = 1 ;z < 52;z++){
-        imgarr2.push('c/images/intruText/'+z+'.jpg')
+        imgarr2.push('../jl/images/intruText/'+z+'.jpg')
     }
-    var frame2 = new SequenceFrame({
+    frame2 = new SequenceFrame({
         id: $('#canvas2')[0],
         width: 640,
         height: 1038,
         speed: 50,
         loop: false,
+        autoplay: false,
         imgArr: imgarr2,
         callback:function(){
             $('.arr1').show();
@@ -210,18 +226,6 @@
         $('ul').fadeOut(1000);
         $(this).hide();
     })
-
-
-	var audio = document.getElementById('audio');
-	document.addEventListener("WeixinJSBridgeReady", function () {
-	    audio.play();
-	}, false);
-	window.addEventListener('touchstart', function firstTouch(){
-	      audio.play();
-	      this.removeEventListener('touchstart', firstTouch);
-	  });
-
-
 </script>
 
 </html>
