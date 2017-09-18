@@ -33,9 +33,9 @@ class HomeController extends Controller
 
             $content->row(function ($row) {
                 $ticket = Shop_user_ticket::all()->last();
-                $ticketDay = Ticket::where('created_at', '>', Carbon::today())->count();
-                $row->column(3, new InfoBox('已领优惠券总数', 'users', 'aqua', '', $ticket->ticket_id));
-                $row->column(3, new InfoBox('今日已领优惠券', 'shopping-cart', 'green', '/admin/orders', $ticketDay));
+                $ticketDay = Shop_user_ticket::where('created_at', '>', Carbon::today())->count();
+                $row->column(3, new InfoBox('已领优惠券总数', 'ticket', 'aqua', '', $ticket->ticket_id));
+                $row->column(3, new InfoBox('今日已领优惠券', 'ticket', 'green', '', $ticketDay));
             });
 
         });

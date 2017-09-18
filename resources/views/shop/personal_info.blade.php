@@ -63,8 +63,10 @@
 <div class="mask mask_confirm hidden"></div>
 <!-- mask end -->
 
+{{--引入分享设置--}}
+@include('shop.share')
+
 <!-- script -->
-<script type="text/javascript" src="{{ asset('vip/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vip/js/date.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vip/js/iscroll_date.js') }}"></script>
 <script type="text/javascript">
@@ -229,8 +231,7 @@
 </script>
 </body>
 
-{{--引入分享设置--}}
-@include('shop.share')
+
 
 <script>
     //解决ios上不能自动播放声音

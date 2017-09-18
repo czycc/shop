@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //狗环更新步数接口
 Route::post('shop/step', 'Api\MachineController@update');
 
+//会员商城分享次数统计
+Route::post('shop/share', 'Api\ShopController@share');
+
 //礼品抽奖接口
 //    Route::post('draw/spend','Api\DrawController@draw');
 Route::post('draw/coin', 'Api\DrawController@coin');

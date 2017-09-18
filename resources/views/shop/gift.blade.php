@@ -41,6 +41,9 @@
 <!--抽奖抽到实物的弹窗-->
 <div class="popup2 hidden"></div>
 
+{{--引入分享设置--}}
+@include('shop.share')
+
 <script type="application/javascript">
 
     //用户的信息，在外部声名
@@ -48,11 +51,9 @@
     //金币总数，在外部声名
      var goldNum = '{{ $user->coin }}';
 </script>
-<script type="text/javascript" src="{{ asset('vip/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vip/js/awardRotate.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vip/js/gift.js') }}"></script>
-{{--引入分享设置--}}
-@include('shop.share')
+
 
 <script>
     //说明页点击关闭

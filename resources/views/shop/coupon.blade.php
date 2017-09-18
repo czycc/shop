@@ -67,7 +67,6 @@
 {{--引入分享设置--}}
 @include('shop.share')
 
-<script src="{{asset('vip/js/jquery.min.js')}}"></script>
 <script>
     //解决ios上不能自动播放声音
     bgm_init();

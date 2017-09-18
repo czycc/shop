@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Events\CoinChange;
+use App\Models\Share;
 use App\Models\Shop_user;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -115,5 +116,13 @@ class ShopController extends Controller
             'is_new' => 0,
             'type' => 0
         ]);
+    }
+
+    public function share()
+    {
+        $share = Share::find(1);
+        $share->share += 1;
+        $share->save();
+        return 'true';
     }
 }
