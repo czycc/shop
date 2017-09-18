@@ -50,7 +50,7 @@ class HomeController extends Controller
                 $row->column(3, new InfoBox('钥匙扣', 'gift', 'blue', '', $gift4));
                 $row->column(3, new InfoBox('徽章', 'gift', 'blue', '', $gift5));
                 $row->column(3, new InfoBox('已领优惠券总数', 'ticket', 'aqua', '', $ticket->ticket_id));
-                $row->column(3, new InfoBox('今日已领优惠券', 'ticket', 'green', '', $ticketDay));
+                $row->column(3, new InfoBox('今日已领优惠券', 'ticket', 'aqua', '', $ticketDay));
                 $row->column(3, new InfoBox('分享次数', 'share-alt', 'green', '', $share->share));
             });
 
