@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Shop_user_ticket;
 use App\Models\Ticket;
 use Carbon\Carbon;
 use Encore\Admin\Facades\Admin;
@@ -31,7 +32,7 @@ class HomeController extends Controller
             $content->description('首页');
 
             $content->row(function ($row) {
-                $ticket = Ticket::get()->last();
+                $ticket = Shop_user_ticket::all()->last();
                 $ticketDay = Ticket::where('created_at', '>', Carbon::today())->count();
                 $row->column(3, new InfoBox('已领优惠券总数', 'users', 'aqua', '', $ticket->ticket_id));
                 $row->column(3, new InfoBox('今日已领优惠券', 'shopping-cart', 'green', '/admin/orders', $ticketDay));
