@@ -1,4 +1,4 @@
-<script src="{{asset('vip/js/jquery.min.js')}}"></script>
+<script src="https://weixin.touchworld-sh.com/vip/js/jquery.min.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="application/javascript">
     wx.config(<?php echo $js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage'), false) ?>);
