@@ -51,6 +51,9 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_u
 });
 
 Route::get('juli', function () {
+    return response()->redirectTo('jul');
+});
+Route::get('jul', function (){
     $js = EasyWeChat::js();
     return view('jl', compact('js'));
 });
