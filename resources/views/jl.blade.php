@@ -13,6 +13,7 @@
 </head>
 <body>
 <audio id="audio" src="../jl/1.mp3" preload="auto" loop="loop" autoplay="autoplay"></audio>
+<img src="../jl/images/on.png" class="music">
 <div class="load-container">
     <img class='loading' src="../jl/images/loading.png">
     <span class='loadNum'>0%</span>
@@ -118,6 +119,19 @@
         audio.play();
         this.removeEventListener('touchstart', firstTouch);
     });
+
+    var musicState = true;
+    $('.music').click(function(){
+        if(musicState){
+            $(this).attr('src','../jl/images/off.png')
+            musicState = false;
+            audio.pause();
+        }else{
+            $(this).attr('src','./jl/images/on.png')
+            musicState = true;
+            audio.play();
+        }
+    })
 
 
 </script>

@@ -1,11 +1,20 @@
-﻿.load-container{
+﻿.music{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: circle 2s infinite linear ;
+    z-index: 999999;
+}
+.load-container{
     position: absolute;
     left: 0;
     top: 0;
     width: 640px;
     height: 1040px;
     background: #fff;
-    z-index: 999999;
+    z-index: 6666;
 }
 .loading{
     position: absolute;
