@@ -1,4 +1,37 @@
-﻿.swiper-container{
+﻿.load-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 640px;
+    height: 1040px;
+    background: #fff;
+    z-index: 999999;
+}
+.loading{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-animation: circle 2s infinite linear ;
+}
+@-webkit-keyframes circle{
+    0%{ transform:rotate(0deg); }
+    100%{ transform:rotate(-360deg); }
+}
+.loadNum{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 1040px;
+    text-align: center;
+    font-size: 50px;
+}
+.swiper-container{
 	width: 640px;
 	height: 1038px;
 }

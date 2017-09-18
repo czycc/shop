@@ -10,28 +10,30 @@
     <link rel="stylesheet" href="../jl/css/style.css">
     <script src="../jl/js/swiper.min.js"></script>
     <script src="../jl/js/swiper.animate.min.js"></script>
-
-
 </head>
 <body>
 <audio id="audio" src="../jl/1.mp3" preload="auto" loop="loop" autoplay="autoplay"></audio>
+<div class="load-container">
+    <img class='loading' src="c/images/loading.png">
+    <span class='loadNum'>0%</span>
+</div>
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <!-------------slide1----------------->
         <section class="swiper-slide swiper-slide1">
             <canvas id="canvas1"></canvas>
-            <img class="arrow arr" src="../jl/images/arrow1.png" alt="">
+            <img class="arrow arr" src="../jl/images/arr1.png" alt="">
         </section>
         <!-------------slide2----------------->
         <section class="swiper-slide swiper-slide2">
             <canvas id="canvas2"></canvas>
-            <img class="arrow arr1" src="../jl/images/arrow2.png" alt="">
+            <img class="arrow arr1" src="../jl/images/arr2.png" alt="">
         </section>
         <!-------------slide3----------------->
         <section class="swiper-slide swiper-slide3">
             <img  class="ani timeText" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="0s" src="../jl/images/P3/time.png" alt="">
-            <img  class="ani text1" swiper-animate-effect="slideInRight" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P3/t.png" alt="">
-            <img class="arrow" src="../jl/images/arrow1.png" alt="">
+            <img  class="ani text1" swiper-animate-effect="slideInRight" swiper-animate-duration="0.6s" swiper-animate-delay="0.5s" src="../jl/images/P3/t2.png" alt="">
+            <img class="arrow" src="../jl/images/arr1.png" alt="">
         </section>
         <!-------------slide4----------------->
         <section class="swiper-slide swiper-slide4">
@@ -41,20 +43,20 @@
             <img  class="ani text text3 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="1.5s" src="../jl/images/P4/text3.png" alt="">
             <img  class="ani text text4 location" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="2s" src="../jl/images/P4/text4.png" alt="">
             <img  class="ani text text5" swiper-animate-effect="slideInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="2.5s" src="../jl/images/P4/text5.png" alt="">
-            <img class="arrow" src="../jl/images/arrow1.png" alt="">
+            <img class="arrow" src="../jl/images/arr1.png" alt="">
             <ul class="swiper-no-swiping">
                 <li>
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_1/ti.png" alt="">
                     <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_1/text.png" alt="">
                 </li>
                 <li>
-                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_2/ti.png" alt="">
+                    <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_2/ti2.png" alt="">
                     <img class="pos pos2 ani" swiper-animate-effect=" fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_2/text.png" alt="">
 
                 </li>
                 <li class="li3">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_3/ti.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_3/text.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_3/text2.png" alt="">
                     
                 </li>
                 <li class="li4">
@@ -107,86 +109,108 @@
         });
     });
 
+    //加载序列帧动画
+    //第一页
+    var imgarr = [];
+    for(var i = 2 ;i < 52;i ++){
+        imgarr.push('c/images/home/'+i+'.jpg');
+    }
+    var frame1 = new SequenceFrame({
+        id: $('#canvas1')[0],
+        width: 640,
+        height: 1038,
+        speed: 50,
+        loop: false,
+        imgArr: imgarr,
+        callback:function(){
+            $('.arr').show();
+        }
+    });
+    //第二页
+    var imgarr2 = [];
+    for(var z = 1 ;z < 52;z++){
+        imgarr2.push('c/images/intruText/'+z+'.jpg')
+    }
+    var frame2 = new SequenceFrame({
+        id: $('#canvas2')[0],
+        width: 640,
+        height: 1038,
+        speed: 50,
+        loop: false,
+        imgArr: imgarr2,
+        callback:function(){
+            $('.arr1').show();
+        }
+    });
 
+    //loading
+    var loader = new PxLoader();
+    var URL = window.location.href;
+    var BASE_PATH = URL.substring(0, URL.lastIndexOf('/') + 1);
+    var realLoadingNum = 0;
+    var fileList = [];
+    for (var i = 2; i < 52; i++) {
+        fileList.push('c/images/home/'+i+'.jpg');
+    }
+    for(var i = 1; i < 52; i++){
+        fileList.push('c/images/intruText/'+ i +'.jpg');
+    }
+    for(var i = 0; i < fileList.length; i++){
+        var pxImage = new PxLoaderImage(BASE_PATH + fileList[i]);
+        pxImage.imageNumber = i + 1;
+        loader.add(pxImage);
+    }
+    loader.addCompletionListener(function(){
+        console.log("预加载图片："+fileList.length+"张");
+    });
+    loader.addProgressListener(function(e){
+        var percent = Math.round( (e.completedCount / e.totalCount) * 100); //正序, 1-100
+        realLoadingNum = percent;
+        $('.loadNum').text(realLoadingNum + '%');
+        if(realLoadingNum >= 100){
+            $('.load-container').hide();
+            frame1.play();
+        }
+    });
+    loader.start();
+
+    //swiper
     var status = 0;
-    var mySwiper = new Swiper('.swiper-container', {
-        speed: 500,
-        direction: 'vertical',
+    var mySwiper = new Swiper ('.swiper-container', {
+        speed:500,
+        direction : 'vertical',
         pagination: '.swiper-pagination',
-        mousewheelControl: true,
-        allowSwipeToNext: true,
-        onInit: function (swiper) { //Swiper2.x的初始化是onFirstInit
+        mousewheelControl : true,
+        allowSwipeToNext : true,
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
             swiperAnimateCache(swiper); //隐藏动画元素
             swiperAnimate(swiper); //初始化完成开始动画
-            canvas1();
         },
-        onSlideChangeStart: function (swiper) {
-            var index = mySwiper.activeIndex;
-            if (status == 0 && index == 1) {
-                canvas2();
+        onSlideChangeStart:function(swiper){
+            var index =  mySwiper.activeIndex;
+            if(status == 0 && index == 1){
+                frame2.play();
                 status = 1
             }
         },
-        onSlideChangeEnd: function (swiper) {
+        onSlideChangeEnd: function(swiper){
             swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
         }
     })
 
-    $('.swiper-slide4 .location').click(function () {
+    $('.swiper-slide4 .location').click(function(){
         var index = $(this).index();
         $('ul').fadeIn(200);
-        $('ul li').eq(index - 1).show().siblings().hide();
+        $('ul li').eq(index-1).show().siblings().hide();
 
     })
 
-    $('li').click(function () {
+    $('li').click(function(){
         $('ul').fadeOut(1000);
         $(this).hide();
     })
 
-    function canvas1() {
-        var imgarr = [];
-        for (var i = 2; i < 52; i++) {
-            imgarr.push('../jl/images/home/' + i + '.jpg');
-        }
-//            for(var j = 10 ;j < 100;j ++){
-//                imgarr.push('../jl/images/home/1_000'+j+'.jpg');
-//            }
-//            for(var k = 100 ;k < 102;k ++){
-//                imgarr.push('../jl/images/home/1_00'+k+'.jpg');
-//            }
-        var frame2 = new SequenceFrame({
-            id: $('#canvas1')[0],
-            width: 640,
-            height: 1038,
-            speed: 50,
-            loop: false,
-            imgArr: imgarr,
-            callback:function(){
-                 $('.arr').show();
-            }
-        });
-    }
 
-    function canvas2() {
-        var imgarr2 = [];
-        for (var z = 1; z < 52; z++) {
-            imgarr2.push('../jl/images/intruText/' + z + '.jpg')
-        }
-        var frame1 = new SequenceFrame({
-            id: $('#canvas2')[0],
-            width: 640,
-            height: 1038,
-            speed: 50,
-            loop: false,
-            imgArr: imgarr2,
-            callback:function(){
-                 $('.arr1').show();
-            }
-
-        });
-
-    }
 	var audio = document.getElementById('audio');
 	document.addEventListener("WeixinJSBridgeReady", function () {
 	    audio.play();
