@@ -27,7 +27,7 @@
     {{--爱犬大步走--}}
     <a href="{{ url('shop/dog') }}"><img src="{{asset('vip/images/index/dog1.png')}}" class="dog1"></a>
     {{--闪耀星派对--}}
-    <a href="" onclick="alert('即将上线！')"><img src="{{asset('vip/images/index/dog2.png')}}" class="dog2"></a>
+    <a href="http://7a214f33dda9.iiih5.cn/idea/TejT7neL?vxparm=/vxid_1/senderid_7ff6bb66a7b32305&source=undefined&suid=76E2BF4C-3FEF-46FB-850A-DC4A0562AD71&sl=0&from=groupmessage"><img src="{{asset('vip/images/index/dog2.png')}}" class="dog2"></a>
     {{--礼品店--}}
     <a href="{{ url('shop/draw') }}"><img src="{{asset('vip/images/index/gift.png')}}" class="gift"></a>
     {{--秋冬新鞋--}}

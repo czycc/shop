@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=640,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/reset.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/gift.css') }}">
+
+    //腾讯分析
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=63691057" charset="UTF-8"></script>
 </head>
 <body>
 <div class="rta">
