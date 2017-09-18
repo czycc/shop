@@ -44,10 +44,10 @@ class HomeController extends Controller
                 $gift4 = Order::where('type', 'gift4')->count();
                 $gift5 = Order::where('type', 'gift5')->count();
 
-                $row->column(3, new InfoBox('压缩T', 'gift', 'blue', '', $gift1));
-                $row->column(3, new InfoBox('狗项圈', 'gift', 'blue', '', $gift2));
-                $row->column(3, new InfoBox('手机壳', 'gift', 'blue', '', $gift3));
-                $row->column(3, new InfoBox('钥匙扣', 'gift', 'blue', '', $gift4));
+                $row->column(3, new InfoBox('已兑换压缩T', 'gift', 'blue', '', $gift1));
+                $row->column(3, new InfoBox('已兑换狗项圈', 'gift', 'blue', '', $gift2));
+                $row->column(3, new InfoBox('已兑换手机壳', 'gift', 'blue', '', $gift3));
+                $row->column(3, new InfoBox('已兑换钥匙扣', 'gift', 'blue', '', $gift4));
                 $row->column(3, new InfoBox('徽章', 'gift', 'blue', '', $gift5));
                 $row->column(3, new InfoBox('已领优惠券总数', 'ticket', 'aqua', '', $ticket->ticket_id));
                 $row->column(3, new InfoBox('今日已领优惠券', 'ticket', 'aqua', '', $ticketDay));
