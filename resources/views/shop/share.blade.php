@@ -20,7 +20,6 @@
             imgUrl: "{{asset('vip/images/share.jpg')}}", // 分享图标
             type: 'link', // 分享类型,music、video或link，不填默认为link
             success: function () {
-                // 用户确认分享后执行的回调函数
 
             }
         });
