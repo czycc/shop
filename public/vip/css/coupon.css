@@ -11,7 +11,7 @@ body{
 .coupon{
     width: 640px;
     height: 1038px;
-    background: url("../images/coupon/bg.png") no-repeat center center;
+    background: url("../images/coupon/bj.jpg") no-repeat center center;
 }
 .coupon .btn{
     position: absolute;
@@ -68,22 +68,22 @@ body{
 }
 .coupon .cjText li img{
     position: absolute;
-    top: 24px;
-    left: 8px;
+    top: 40px;
+    right: 16px;
 }
 .coupon .cjText li div{
     position: absolute;
-    left: 96px;
+    left: 20px;
     top: 30px;
-    color:#f8a85e;
+    color:#8a88d5;
+    font-size: 30px;
 
 }
 .coupon .cjText li div .textNum{
-    font-size: 30px;
+    font-size: 40px;
 }
 .coupon .cjText li div .dataText{
-    font-size: 20px;
-    margin-left: 34px;
+    font-size: 24px;
 }
 .coupon .popup{
     position: absolute;

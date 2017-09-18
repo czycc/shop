@@ -21,11 +21,11 @@
         {{--循环输出优惠券信息，NO.最多6位数--}}
         @foreach($tickets as $ticket)
             <li>
-                <img src="{{asset('vip/images/coupon/bone.png')}}" alt="">
                 <div>
                     <p class="textNum">NO:<span>{{ $ticket->ticket }}</span></p>
                     <p class="dataText">有效期:<span>{{ $ticket->end }}</span></p>
                 </div>
+                <img src="{{asset('vip/images/coupon/hundred.png')}}" alt="">
             </li>
         @endforeach
     </ul>
