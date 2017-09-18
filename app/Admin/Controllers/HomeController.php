@@ -3,6 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\Relate;
+use App\Models\Share;
 use App\Models\Shop_user_ticket;
 use App\Models\Ticket;
 use Carbon\Carbon;
@@ -34,8 +37,21 @@ class HomeController extends Controller
             $content->row(function ($row) {
                 $ticket = Shop_user_ticket::all()->last();
                 $ticketDay = Shop_user_ticket::where('created_at', '>', Carbon::today())->count();
+                $share = Share::find(1);
+                $gift1 = Order::where('type', 'gift1')->count();
+                $gift2 = Order::where('type', 'gift2')->count();
+                $gift3 = Order::where('type', 'gift3')->count();
+                $gift4 = Order::where('type', 'gift4')->count();
+                $gift5 = Order::where('type', 'gift5')->count();
+
+                $row->column(3, new InfoBox('压缩T', 'gift', 'blue', '', $gift1));
+                $row->column(3, new InfoBox('狗项圈', 'gift', 'blue', '', $gift2));
+                $row->column(3, new InfoBox('手机壳', 'gift', 'blue', '', $gift3));
+                $row->column(3, new InfoBox('钥匙扣', 'gift', 'blue', '', $gift4));
+                $row->column(3, new InfoBox('徽章', 'gift', 'blue', '', $gift5));
                 $row->column(3, new InfoBox('已领优惠券总数', 'ticket', 'aqua', '', $ticket->ticket_id));
                 $row->column(3, new InfoBox('今日已领优惠券', 'ticket', 'green', '', $ticketDay));
+                $row->column(3, new InfoBox('分享次数', 'share-alt', 'green', '', $share->share));
             });
 
         });
