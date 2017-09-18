@@ -31,12 +31,10 @@ class HomeController extends Controller
             $content->description('首页');
 
             $content->row(function ($row) {
-                $ticket = Ticket::last();
+                $ticket = Ticket::all()->last();
                 $ticketDay = Ticket::where('created_at', '>', Carbon::today())->count();
                 $row->column(3, new InfoBox('已领优惠券总数', 'users', 'aqua', '', $ticket->ticket_id));
                 $row->column(3, new InfoBox('今日已领优惠券', 'shopping-cart', 'green', '/admin/orders', $ticketDay));
-                $row->column(3, new InfoBox('Articles', 'book', 'yellow', '/admin/articles', '2786'));
-                $row->column(3, new InfoBox('Documents', 'file', 'red', '/admin/files', '698726'));
             });
 
         });
