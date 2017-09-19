@@ -48,21 +48,21 @@
             <ul class="swiper-no-swiping">
                 <li>
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_1/ti.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_1/text2.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_1/te.png" alt="">
                 </li>
                 <li>
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_2/ti2.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect=" fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_2/text2.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect=" fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_2/te.png" alt="">
 
                 </li>
                 <li class="li3">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_3/ti.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_3/text3.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_3/te.png" alt="">
 
                 </li>
                 <li class="li4">
                     <img class="pos pos1 ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="../jl/images/P4_4/ti.png" alt="">
-                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_4/text2.png" alt="">
+                    <img class="pos pos2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="../jl/images/P4_4/te.png" alt="">
                 </li>
 
             </ul>
