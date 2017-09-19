@@ -31,3 +31,6 @@ Route::post('draw/reward', 'Api\DrawController@reward');
 
 //用户注册接口
 Route::post('user/info', 'Api\ShopController@register');
+
+//交换数据
+Route::get('shop/data', 'Api\ShopController@data');
