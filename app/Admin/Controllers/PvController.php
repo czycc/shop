@@ -95,7 +95,7 @@ class PvController extends Controller
             $grid->column('rewardPage', '礼品店');
             $grid->column('date', '日期')->display(function ($date) {
                 return Carbon::parse($date)->toDateString();
-            });
+            })->sortable();
 
 
         });

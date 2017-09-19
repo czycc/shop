@@ -94,7 +94,9 @@ class StatisticController extends Controller
             $grid->column('newPage', '秋冬新品');
             $grid->column('rewardPage','礼品店');
             $grid->column('daySign', '当日签到');
-            $grid->column('date','日期')->sortable();
+            $grid->column('date', '日期')->display(function ($date) {
+                return Carbon::parse($date)->toDateString();
+            })->sortable();
 
         });
     }
