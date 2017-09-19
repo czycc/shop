@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=640,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/reset.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vip/css/rank.css') }}">
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=63691057" charset="UTF-8"></script>
     <script>
         var _hmt = _hmt || [];
         (function() {
