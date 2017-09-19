@@ -21,7 +21,7 @@ Route::post('sms', 'Test\SmsController@index');
 //Route::any('/wechat', 'WechatController@serve');
 //会员商城入口重定向
 Route::get('/', function () {
-    return redirect('shop');
+    return view('shop.loading');
 });
 Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function () {
     //首页
