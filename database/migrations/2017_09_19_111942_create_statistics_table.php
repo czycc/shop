@@ -15,6 +15,8 @@ class CreateStatisticsTable extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('indexPage');
+            $table->integer('rewardPage');
             $table->integer('userPage');
             $table->integer('ticketPage');
             $table->integer('coinPage');
