@@ -288,4 +288,7 @@ canvas{
 .arr1{
 	display: none;
 }
+ul li img:nth-child(1){
+	z-index: 1000;
+}
 
