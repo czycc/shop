@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Relate;
 use App\Models\Share;
+use App\Models\Shop_user;
 use App\Models\Shop_user_ticket;
 use App\Models\Ticket;
 use Carbon\Carbon;
@@ -36,6 +37,7 @@ class HomeController extends Controller
 
             $content->row(function ($row) {
                 $ticket = Shop_user_ticket::all()->last();
+                $user = Shop_user::where('created_at','>', Carbon::today())->count();
                 $ticketDay = Shop_user_ticket::where('created_at', '>', Carbon::today())->count();
                 $share = Share::find(1);
                 $gift1 = Order::where('type', 'gift1')->count();
@@ -51,7 +53,8 @@ class HomeController extends Controller
                 $row->column(3, new InfoBox('已兑换徽章', 'gift', 'blue', '', $gift5));
                 $row->column(3, new InfoBox('已领优惠券总数', 'ticket', 'aqua', '', $ticket->ticket_id));
                 $row->column(3, new InfoBox('今日已领优惠券', 'ticket', 'aqua', '', $ticketDay));
-                $row->column(3, new InfoBox('分享次数', 'share-alt', 'green', '', $share->share));
+                $row->column(3, new InfoBox('总分享次数', 'share-alt', 'green', '', $share->share));
+                $row->column(3, new InfoBox('今日注册用户', 'users', 'red', '', $user));
             });
 
         });

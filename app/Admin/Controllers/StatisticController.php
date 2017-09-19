@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Shop_user;
+use App\Models\Statistic;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class UserController extends Controller
+class StatisticController extends Controller
 {
     use ModelForm;
 
@@ -24,8 +24,8 @@ class UserController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('用户列表');
-            $content->description('用户列表');
+            $content->header('header');
+            $content->description('description');
 
             $content->body($this->grid());
         });
@@ -71,23 +71,31 @@ class UserController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Shop_user::class, function (Grid $grid) {
+        return Admin::grid(Statistic::class, function (Grid $grid) {
+
             $grid->tools(function ($tools) {
                 $tools->batch(function ($batch) {
                     $batch->disableDelete();
                 });
             });
             $grid->disableCreation();
-//            $grid->disableExport();
+            $grid->disableExport();
             $grid->disableActions();
-            $grid->model()->orderBy('id', 'desc');
+            $grid->model()
+                ->where('date','<',Carbon::yesterday())
+                ->orderBy('id', 'desc');
 
-            $grid->id('ID')->sortable();
-            $grid->column('name', '姓名');
-            $grid->column('mobile', '手机号');
-            $grid->column('birthday', '生日');
-            $grid->column('location', '收货地址');
-            $grid->column('created_at','创建时间');
+            $grid->column('indexPage', '首页');
+            $grid->column('userPage','用户页');
+            $grid->column('tickPage','优惠券页');
+            $grid->column('coinPage', '金币页');
+            $grid->column('dogPage','爱犬大步走');
+            $grid->column('starPage','闪耀星');
+            $grid->column('newPage', '秋冬新品');
+            $grid->column('rewardPage','礼品店');
+            $grid->column('daySign', '当日签到');
+            $grid->column('date','日期')->sortable();
+
         });
     }
 
@@ -98,7 +106,7 @@ class UserController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Shop_user::class, function (Form $form) {
+        return Admin::form(Statistic::class, function (Form $form) {
 
             $form->display('id', 'ID');
 
