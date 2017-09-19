@@ -87,13 +87,12 @@ class PvController extends Controller
 
             $grid->column('indexPage', '首页');
             $grid->column('userPage','用户页');
-            $grid->column('tickPage','优惠券页');
+            $grid->column('ticketPage','优惠券页');
             $grid->column('coinPage', '金币页');
             $grid->column('dogPage','爱犬大步走');
             $grid->column('starPage','闪耀星');
             $grid->column('newPage', '秋冬新品');
             $grid->column('rewardPage','礼品店');
-            $grid->column('daySign', '当日签到');
             $grid->column('date','日期')->sortable();
 
 

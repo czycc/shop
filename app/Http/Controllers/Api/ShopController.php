@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Events\CoinChange;
+use App\Models\Pv;
 use App\Models\Share;
 use App\Models\Shop_user;
+use App\Models\Statistic;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -123,6 +125,32 @@ class ShopController extends Controller
         $share = Share::find(1);
         $share->share += 1;
         $share->save();
+        return 'true';
+    }
+
+    public function data()
+    {
+        for($i = 1;$i<68;$i++){
+            $a =Statistic::find($i);
+            $b = Pv::find($i);
+            $c = $a;
+            if ($a->userPage > $b->userPage){
+                $a->userPage =$b->userPage;
+                $b->userPage =$c->userPage;
+                $a->save();
+                $b->save();
+            }elseif ($a->newPage > $b->newPage){
+                $a->newPage =$b->newPage;
+                $b->newPage =$c->newPage;
+                $a->save();
+                $b->save();
+            }elseif ($a->starPage > $b->starPage){
+                $a->starPage =$b->starPage;
+                $b->starPage =$c->starPage;
+                $a->save();
+                $b->save();
+            }
+        }
         return 'true';
     }
 }

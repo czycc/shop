@@ -87,7 +87,7 @@ class StatisticController extends Controller
 
             $grid->column('indexPage', '首页');
             $grid->column('userPage','用户页');
-            $grid->column('tickPage','优惠券页');
+            $grid->column('ticketPage','优惠券页');
             $grid->column('coinPage', '金币页');
             $grid->column('dogPage','爱犬大步走');
             $grid->column('starPage','闪耀星');
