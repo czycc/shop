@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     //用户的信息，在外部声名
     // var openid = 'odh7zsgI75iT8FRh0fGlSojc9PWM';
     //金币总数，在外部声名
@@ -9,10 +9,10 @@ $(function(){
     // 全局的奖品名字
     var globalTxt = null;
     //点击中间按钮开始抽奖
-    $('.pointer').click(function (){
-        if(bRotate) return;
+    $('.pointer').click(function () {
+        if (bRotate) return;
         //优惠券
-        var item = rnd(0,7);
+        var item = rnd(0, 7);
         switch (item) {
             case 0:
                 rotateFn(0, 292, '狗项圈');
@@ -41,74 +41,81 @@ $(function(){
                 break;
         }
     });
+
     //随机数
-	function rnd(n, m){
-        return Math.floor(Math.random()*(m-n+1)+n)
+    function rnd(n, m) {
+        var rr = Math.floor(Math.random() * (m - n + 1) + n);
+        if (rr == 6) {
+            rnd(n, m)
+        } else {
+            return rr
+        }
     }
+
     //抽奖函数
-	function rotateFn(awards, angles, txt){
-		bRotate = !bRotate;
+    function rotateFn(awards, angles, txt) {
+        bRotate = !bRotate;
         $('#rotate').stopRotate();
         $('#rotate').rotate({
-            angle:0,
-            animateTo:angles+1800,
-            duration:8000,
+            angle: 0,
+            animateTo: angles + 1800,
+            duration: 8000,
             easing: $.easing.easeInOutExpo,
             //抽奖完成的回调
-            callback:function (){
+            callback: function () {
                 globalAwards = awards;
                 globalTxt = txt;
                 bRotate = !bRotate;
                 $('.popup .popupBg').show();
-                $('.popup .popupBg').attr('src','../vip/images/gift/'+awards+'.png');
+                $('.popup .popupBg').attr('src', '../vip/images/gift/' + awards + '.png');
                 //确认兑换 和 取消兑换按钮显示，在抽到金币，代金券的情况下影藏；
                 $('.popup .btn').show();
                 //当抽到的是5金币，10金币，100代金券时候的综合情况
-                if(awards == 3 || awards == 5 || awards ==7 ){
+                if (awards == 3 || awards == 5 || awards == 7) {
                     //当抽到的为金币，代金券，按钮影藏
                     $('.popup .btn').hide();
                     //点击弹窗的任何位置。弹窗隐藏
-                    $('.popup').click(function(){
+                    $('.popup').click(function () {
                         $(this).hide();
                     })
                 }
                 // 抽到金币
-                if(awards == 3 || awards == 5){
+                if (awards == 3 || awards == 5) {
                     $.ajax({
                         type: "POST",
                         url: "https://weixin.touchworld-sh.com/api/draw/coin",
                         data: {
                             'openid': openid,
-                            'count':txt
+                            'count': txt
                         },
-                        async:false,
+                        async: false,
                         dataType: "json",
-                        success: function(data) {
+                        success: function (data) {
                             goldNum = data.coin;
-                            if(data.code == 0){
+                            if (data.code == 0) {
                                 alert('每天只能抽取3次金币，请明天继续哟');
                                 $('.popup .popupBg').hide();
                             }
                         },
-                        error: function(res) {
+                        error: function (res) {
 
                         }
                     });
                 }
                 //抽到代金券
-                if(awards == 7){
+                if (awards == 7) {
                     $.ajax({
                         type: "POST",
                         url: "https://weixin.touchworld-sh.com/api/draw/ticket",
                         data: {
                             'openid': openid,
                         },
-                        async:false,
+                        async: false,
                         dataType: "json",
-                        success: function(data) {
+                        success: function (data) {
                             goldNum = data.coin;
                         },
-                        error: function(res) {
+                        error: function (res) {
 
                         }
                     });
@@ -119,30 +126,30 @@ $(function(){
                 $('.popup').show();
             }
         })
-	}
+    }
 
-	//点击确认兑换
-    $('.popup .confirmBtn').click(function(){
-        if(globalAwards == 0 || globalAwards == 1 || globalAwards == 2 || globalAwards == 4 || globalAwards == 6){
+    //点击确认兑换
+    $('.popup .confirmBtn').click(function () {
+        if (globalAwards == 0 || globalAwards == 1 || globalAwards == 2 || globalAwards == 4 || globalAwards == 6) {
 
-            var data = award(openid,globalAwards,globalTxt);
+            var data = award(openid, globalAwards, globalTxt);
             $.ajax({
                 type: "POST",
                 url: "https://weixin.touchworld-sh.com/api/draw/reward",
                 data: data,
                 dataType: "json",
-                async:false,
-                success: function(data) {
+                async: false,
+                success: function (data) {
                     goldNum = data.coin;
-                    if(data.code == 0){
+                    if (data.code == 0) {
                         alert('金币数不够，再攒多一点再来吧！');
                         $('.popup').hide();
-                    }else if(data.code == 1){
+                    } else if (data.code == 1) {
                         $('.popup').hide();
                         $('.popup2').show();
                     }
                 },
-                error: function(res) {
+                error: function (res) {
                     console.log('res')
                 }
             });
@@ -150,17 +157,18 @@ $(function(){
     });
 
     // //点击放弃兑换
-    $('.popup .abandonBtn').click(function(){
+    $('.popup .abandonBtn').click(function () {
         $('.popup').hide();
 
     });
     //点击popup2 当前页面隐藏
-    $('.popup2').click(function(){
+    $('.popup2').click(function () {
         $(this).hide();
     })
+
     //判断传给后台gift 与 实物对应 gift1代表压缩T，gift2狗项圈，gift3手机壳，gift4钥匙扣,gift5代表名牌
-	function award(openid,num,txt) {
-        switch (num){
+    function award(openid, num, txt) {
+        switch (num) {
             case 0:
                 return {
                     'openid': openid,
