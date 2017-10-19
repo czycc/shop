@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var server = require('http').createServer(app);
+var server = require('https').createServer(app);
 var SkyRTC = require('skyrtc').listen(server);
 var path = require("path");
 
