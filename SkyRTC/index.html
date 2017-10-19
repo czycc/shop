@@ -178,6 +178,7 @@
     //创建本地视频流
     rtc.createStream({
       "video": true,
+      "audio": true
     });
   });
   //创建本地视频流成功
@@ -213,7 +214,6 @@
     msgs.appendChild(p);
   });
   //连接WebSocket服务器
-  // rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], window.location.hash.slice(1));
-  rtc.connect("wss://" + location.hostname  + ":3000/", window.location.hash.slice(1));
+  rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], window.location.hash.slice(1));
 </script>
 </html>
