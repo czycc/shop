@@ -95,7 +95,6 @@
 </body>
 <script type="text/javascript" src="/SkyRTC-client.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
   var videos = document.getElementById("videos");
   var sendBtn = document.getElementById("sendBtn");
   var msgs = document.getElementById("msgs");
@@ -225,7 +224,6 @@
   });
   //连接WebSocket服务器
   rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], window.location.hash.slice(1));
-=======
     var videos = document.getElementById("videos");
     var sendBtn = document.getElementById("sendBtn");
     var msgs = document.getElementById("msgs");
@@ -353,8 +351,6 @@
         msgs.appendChild(p);
     });
     //连接WebSocket服务器
-    rtc.connect("wss://weixin.touchworld-sh.com/node/" , window.location.hash.slice(1));
-    console.log(window.location.href.substring(window.location.protocol.length).split('#')[0]);
->>>>>>> origin/master
+    rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0] , window.location.hash.slice(1));
 </script>
 </html>
