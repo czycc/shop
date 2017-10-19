@@ -184,6 +184,7 @@
   //创建本地视频流成功
   rtc.on("stream_created", function(stream) {
     document.getElementById('me').src = URL.createObjectURL(stream);
+    document.getElementById('me').volume = 0;
     document.getElementById('me').play();
   });
   //创建本地视频流失败
