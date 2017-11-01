@@ -26,7 +26,7 @@
 <nav>
     <ul>
         <li><a href="{{ url('shop/user') }}"><img src="{{ asset('vip/images/index/my_info.png') }}"></a></li>
-        <li><a href="{{ url('shop/ticket') }}"><img src="{{ asset('vip/images/index/my_coupon.png') }}"></a></li>
+        <li><img onclick="alert('很抱歉，优惠券已过期')" src="{{ asset('vip/images/index/my_coupon.png') }}"></li>
         <li><a href="{{ url('shop/coin') }}"><img src="{{ asset('vip/images/index/my_gold.png') }}"></a></li>
     </ul>
 </nav>
