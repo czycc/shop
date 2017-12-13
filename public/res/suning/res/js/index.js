@@ -120,9 +120,11 @@ $(function(){
         myLoadingInterval = setInterval(function(){
             fakeLoadingNum++;
             if(realLoadingNum > fakeLoadingNum){
-                $('.loading .num')[0].innerHTML = fakeLoadingNum + "%";
+                // $('.loading .num')[0].innerHTML = fakeLoadingNum + "%";
+                $('.loading .progress span').width(fakeLoadingNum + "%");
             }else{
-                $('.loading .num')[0].innerHTML = realLoadingNum + "%";
+                // $('.loading .num')[0].innerHTML = realLoadingNum + "%";
+                $('.loading .progress span').width(realLoadingNum + "%");
             }
             if(fakeLoadingNum >= 100 && realLoadingNum >= 100){
                 $('.loading').hide();

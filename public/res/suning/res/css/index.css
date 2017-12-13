@@ -31,10 +31,18 @@
 
 /* loading */
 .loading{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 640px;
+    height: 1040px;
+    margin: auto;
+    background: url(../images/frame/1_00001.jpg) no-repeat center center;
     font-size: 48px;
     text-align: center;
+    color: #fff;
 }
-.loading .num{
+/* .loading .num{
     position: absolute;
     left: 0;
     right: 0;
@@ -47,8 +55,53 @@
     right: 0;
     top: 55%;
     margin: auto;
+} */
+.logo{
+    position: absolute;
+    top: 38%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: scale 2s linear infinite;
 }
-
+@keyframes scale{
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.loading .progress{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55%;
+    margin: auto;
+    width: 227px;
+    height: 11px;
+    background: url('../images/progress.png') no-repeat center center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.loading .progress span{
+    display: block;
+    height: 11px;
+    width: 0%;
+    max-width: 227px;
+    background: #f3d906;
+    border-radius: 5px;
+}
 /* page1 */
 .page1{
     background: url(../images/frame/1_00001.jpg)
