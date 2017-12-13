@@ -1,8 +1,7 @@
 $(function(){
     var frame, frame_arr = [];
     init_loading();
-
-    // init_swiper();  //记得删除
+    bgm_init();
 
     function init_loading(){
         var loader = new PxLoader();
@@ -86,6 +85,17 @@ $(function(){
                 $('.next_tips').show();
             }
         })
+    }
+
+    function bgm_init(){
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+            audio.play();
+            this.removeEventListener('touchstart', firstTouch);
+        });
     }
 })
 
