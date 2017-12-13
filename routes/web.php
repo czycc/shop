@@ -13,7 +13,7 @@
 
 
 Route::get('/test', function () {
-
+    echo phpinfo();
 });
 
 Route::post('sms', 'Test\SmsController@index');
@@ -56,4 +56,8 @@ Route::get('juli', function () {
 Route::get('jul', function (){
     $js = EasyWeChat::js();
     return view('jl', compact('js'));
+});
+
+Route::get('suning/end', function (){
+    return redirect('https://weixin.touchworld-sh.com/res/suning/index2.html');
 });

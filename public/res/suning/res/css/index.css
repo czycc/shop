@@ -1,0 +1,263 @@
+/* 公共样式 */
+.hidden{
+    display: none;
+}
+.page{
+    width: 640px;
+    height: 1040px;
+    position: relative;
+}
+.swiper-container{
+    width: 640px;
+    height: 1040px;
+}
+.swiper-slide{
+    width: 640px;
+    height: 1038px;
+    position: relative;
+}
+.layui-layer-dialog .layui-layer-content{
+    font-size: 25px !important;
+}
+.next_tips{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    margin: auto;
+    width: 80px;
+    height: 50px;
+}
+
+/* loading */
+.loading{
+    font-size: 48px;
+    text-align: center;
+}
+.loading .num{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 45%;
+    margin: auto;
+}
+.loading .text{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55%;
+    margin: auto;
+}
+
+/* page1 */
+.page1{
+    background: url(../images/frame/1_00001.jpg)
+}
+.page1 .title{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10px;
+    margin: auto;
+}
+.page1 .title img{
+    display: block;
+    margin: 70px auto;
+}
+.page1 .sub_text{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 165px;
+    margin: auto;
+}
+.page1 p{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    font-family: "黑体";
+    color: #fff;
+}
+
+/* page2 */
+.page2{
+    background: url(../images/page_bg.png) no-repeat center center;
+}
+.page2_title{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+    margin: auto;
+    text-align: center;
+}
+.page2_line{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 220px;
+    margin: auto;
+}
+.page2 .plan p{
+    position: absolute;
+    font-family: "黑体";
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 4px;
+}
+.page2 .plan .left{
+    left: 130px;
+    text-align: right;
+}
+.page2 .plan .right{
+    right: 130px;
+    text-align: left;
+}
+.page2 .plan .text1{
+    top: 215px;
+}
+.page2 .plan .text2{
+    top: 310px;
+}
+.page2 .plan .text3{
+    top: 400px;
+}
+.page2 .plan .text4{
+    top: 490px;
+}
+.page2 .plan .text5{
+    top: 595px;
+}
+.page2 .plan .text6{
+    top: 680px;
+}
+.page2 .plan .text7{
+    top: 792px;
+}
+.page2 .plan .text8{
+    top: 860px;
+}
+
+/* page3 */
+.page3{
+    background: url(../images/page_bg.png) no-repeat center center;
+}
+.page3 from{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    margin: auto;
+    font-size: 36px;
+    color: #fff;
+}
+.page3 p{
+    margin: 60px 0;
+    text-align: center;
+}
+.page3 span{
+    margin-right: 80px;
+}
+.page3 input{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 276px;
+    height: 85px;
+    vertical-align: middle;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    background: url(../images/border.png) no-repeat center center;
+}
+
+/* page4 */
+.page4{
+    background: url(../images/page_bg.png) no-repeat center center;
+}
+.page4 p{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 122px;
+    margin: auto;
+    line-height: 2;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 4px;
+}
+.page4 span{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 690px;
+    margin: auto;
+    line-height: 2;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 4px;
+}
+.page4 .picture{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 228px;
+    margin: auto;
+    width: 348px;
+    height: 442px;
+    border: none;
+}
+.page4 .mask{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 228px;
+    margin: auto;
+    width: 348px;
+    height: 442px;
+    border: none;
+    z-index: 666;
+}
+.page4 .success{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 250px;
+    margin: auto;
+}
+.page4 .success_btn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.page4 .hook{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    margin: auto;
+}
+.page4 .btn_group{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 150px;
+    margin: auto;
+    text-align: center;
+}
+.page4 .btn_group img{
+    margin: 0 20px;
+}
+
+/* page5 */
+.page5{
+    background: url(../images/page5_bg.png) no-repeat center center;
+}
+

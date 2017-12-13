@@ -1,0 +1,19 @@
+html{
+    /* 选择文本 */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    /* 禁止IOS点击元素高亮 */
+    -webkit-tap-highlight-color: transparent;
+}
+body,p,h1,h2,h3,h4,h5,h6,h8{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+input,button{
+    outline: none;
+}

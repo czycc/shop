@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>苏宁智慧零售大开发战略暨合作伙伴签约大会</title>
+    <link rel="stylesheet" href="res/css/normalize.css">
+    <link rel="stylesheet" href="res/css/swiper.min.css">
+    <link rel="stylesheet" href="res/css/animate.min.css">
+    <link rel="stylesheet" href="res/css/index.css">
+    <script src="res/js/swiper.min.js"></script>
+    <script src="res/js/swiper.animate.min.js"></script>
+</head>
+<body>
+<audio src="res/1.mp3" id="audio" preload="auto" loop="loop" autoplay="autoplay"></audio>
+<!-- loading -->
+<section class="loading">
+    <div class="num">0%</div>
+    <div class="text">加载中。。。</div>
+</section>
+<div class="swiper-container hidden">
+    <div class="swiper-wrapper">
+        <!-- page1 -->
+        <section class="swiper-slide swiper-slide1 page1">
+            <canvas id="canvas"></canvas>
+            <div class="title hidden">
+                <img src="res/images/logo.png">
+                <img src="res/images/logo_text.png">
+            </div>
+            <img src="res/images/sub_text.png" class="sub_text hidden">
+            <p class="hidden">2017.12.19&nbsp;&nbsp;中国·南京</p>
+            <img src="res/images/next_tips.png" class="next_tips hidden">
+        </section>
+
+        <!-- page2 -->
+        <section class="swiper-slide swiper-slide2 page2 ">
+            <h2 class="page2_title">
+                <img src="res/images/page2_title.png">
+            </h2>
+            <img src="res/images/page2_line.png" class="page2_line">
+            <div class="plan">
+                <p class="text1 left ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
+                   swiper-animate-delay="0s">嘉宾签到<br/>14:30-15:00</p>
+                <p class="text2 right ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
+                   swiper-animate-delay="0.1s">主持开场<br/>15:00-15:05</p>
+                <p class="text3 left ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
+                   swiper-animate-delay="0.2s">董事长致辞<br/>15:05-15:20</p>
+                <p class="text4 right ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
+                   swiper-animate-delay="0.3s">嘉宾演讲<br/>15:20-15:50</p>
+                <p class="text5 left ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
+                   swiper-animate-delay="0.4s">孙总主题演讲<br/>15:50-16:20</p>
+                <p class="text6 right ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
+                   swiper-animate-delay="0.5s">合作签约仪式<br/>16:20-16:35</p>
+                <p class="text7 left ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
+                   swiper-animate-delay="0.6s" style="left: 110px">启动仪式及合影<br/>16:35-16:45</p>
+                <p class="text8 right ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s"
+                   swiper-animate-delay="0.7s">专访环节<br/>16:45-17:05</p>
+            </div>
+            <img src="res/images/next_tips.png" class="next_tips ani" swiper-animate-effect="zoomIn"
+                 swiper-animate-duration="0.5s" swiper-animate-delay="0.8s">
+        </section>
+
+        <!-- page3 -->
+        <section class="swiper-slide swiper-slide3 page3">
+            <from id="from">
+                <p><span>姓名</span><input type="text" name="username" id="username"></p>
+                <p><span>公司</span><input type="text" name="company" id="company"></p>
+                <p><span>职位</span><input type="text" name="job" id="job"></p>
+                <p style="margin-top: 100px">
+                    <label for="file"><img src="res/images/updata_btn.png"></label>
+                    <input type="file" name="image" id="file" accept="image/*" class="hidden">
+                </p>
+            </from>
+        </section>
+    </div>
+</div>
+
+<!-- page4 -->
+<section class="page page4 hidden">
+    <p>请上传一张你的正面照片<br/>用于后期安全验证</p>
+    <span>请将脸部置于提示框内</span>
+    <img class="picture">
+    <img src="res/images/mask.png" class="mask">
+    <div class="success hidden" id="success">
+        <img src="res/images/success.png" class="success_btn">
+        <img src="res/images/hook.png" class="hook">
+    </div>
+    <div class="btn_group">
+        <label for="file"><img src="res/images/re_updata.png "></label>
+        <img src="res/images/confirm.png" class="confirm">
+    </div>
+</section>
+
+<!-- page5 -->
+<section class="page page5 hidden"></section>
+
+<script src="res/js/pxloader-all.min.js"></script>
+<script src="res/js/sequenceFrame.js"></script>
+<script src="res/js/jquery.js"></script>
+<script src="res/js/layer.js"></script>
+<script src="res/js/index.js"></script>
+</body>
+</html>
