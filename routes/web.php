@@ -13,7 +13,9 @@
 
 
 Route::get('/test', function () {
-    echo phpinfo();
+    $js = EasyWeChat::js();
+    $val=$js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage'), false);
+    dd($val);
 });
 
 Route::post('sms', 'Test\SmsController@index');
