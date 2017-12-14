@@ -49,7 +49,7 @@
                 为了更好的现场购物体验<br/>
                 请先下载APP完成绑脸流程
             </p>
-            <a href="https://weixin.touchworld-sh.com/../../res/suning/res/suning/res/index.html" class="btn"><img
+            <a href="https://weixin.touchworld-sh.com/res/suning/res/index.html" class="btn"><img
                     src="../../res/suning/res/images/again.png"></a>
         </section>
     </div>

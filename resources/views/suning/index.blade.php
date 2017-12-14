@@ -128,7 +128,7 @@
 
 <!-- page8 -->
 <section class="page page8 hidden">
-    <a href="https://weixin.touchworld-sh.com/../../res/suning/res/suning/index2.html" class="go_index2"><img
+    <a href="https://weixin.touchworld-sh.com/res/suning/index2.html" class="go_index2"><img
             src="../../res/suning/res/images/go_index2.png"></a>
 </section>
 
