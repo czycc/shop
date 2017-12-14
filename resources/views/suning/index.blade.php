@@ -150,8 +150,8 @@
         // 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
         wx.onMenuShareTimeline({
             title: '苏宁智慧零售大开发战略暨合作伙伴签约大会邀请函及大会指南', // 分享标题
-            link: "https://weixin.touchworld-sh.com/../../res/suning/res/suning/index1.html",
-            imgUrl: "../../res/suning/res/images/share.jpeg", // 分享图标
+            link: "https://weixin.touchworld-sh.com/suning/index",
+            imgUrl: "https://weixin.touchworld-sh.com/res/suning/res/images/share.jpeg", // 分享图标
             success: function () {
             }
         });
@@ -159,8 +159,8 @@
         wx.onMenuShareAppMessage({
             title: '苏宁智慧零售大开发战略暨合作伙伴签约大会邀请函及大会指南', // 分享标题
             desc: "苏宁智慧零售大开发战略暨合作伙伴签约大会邀请函及大会指南", // 分享描述
-            link: "https://weixin.touchworld-sh.com/../../res/suning/res/suning/index1.html",
-            imgUrl: "../../res/suning/res/images/share.jpeg", // 分享图标
+            link: "https://weixin.touchworld-sh.com/suning/index",
+            imgUrl: "https://weixin.touchworld-sh.com/res/suning/res/images/share.jpeg", // 分享图标
             type: 'link', // 分享类型,music、video或link，不填默认为link
             success: function () {
             }
