@@ -14,11 +14,11 @@ $(function(){
         //加入数组
         for(var i = 0; i < 170; i++){
             if(i < 10){
-                frame_arr.push('res/images/frame2/1_0000'+ i + '.jpg');
+                frame_arr.push('../res/suning/res/images/frame2/1_0000'+ i + '.jpg');
             }else if(i < 100){
-                frame_arr.push('res/images/frame2/1_000'+ i + '.jpg');
+                frame_arr.push('../res/suning/res/images/frame2/1_000'+ i + '.jpg');
             }else if(i < 1000){
-                frame_arr.push('res/images/frame2/1_00'+ i + '.jpg');
+                frame_arr.push('../res/suning/res/images/frame2/1_00'+ i + '.jpg');
             }
         }
         var fileList= [];
@@ -70,7 +70,7 @@ $(function(){
             }
         })
     }
-    
+
     function init_frame(){
         frame = new SequenceFrame({
             id: $('#canvas')[0],

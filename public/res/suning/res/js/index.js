@@ -17,7 +17,7 @@ $(function(){
         $('.page8').show().siblings().hide();
     })
     $('.page8').click(function(){
-        window.location.href= 'http://oss.suning.com/fgo/static/1219fbh/index.html'; 
+        window.location.href= 'http://oss.suning.com/fgo/static/1219fbh/index.html';
     })
 
     $('.go_8page').click(function(){
@@ -35,11 +35,11 @@ $(function(){
         //加入数组
         for(var i = 0; i < 163; i++){
             if(i < 10){
-                frame_arr.push('res/images/frame/1_0000'+ i + '.jpg');
+                frame_arr.push('../res/suning/res/images/frame/1_0000'+ i + '.jpg');
             }else if(i < 100){
-                frame_arr.push('res/images/frame/1_000'+ i + '.jpg');
+                frame_arr.push('../res/suning/res/images/frame/1_000'+ i + '.jpg');
             }else if(i < 1000){
-                frame_arr.push('res/images/frame/1_00'+ i + '.jpg');
+                frame_arr.push('../res/suning/res/images/frame/1_00'+ i + '.jpg');
             }
         }
         var fileList= [];
@@ -92,7 +92,7 @@ $(function(){
             }
         })
     }
-    
+
     function init_frame(){
         frame = new SequenceFrame({
             id: $('#canvas')[0],
@@ -172,13 +172,13 @@ $(function(){
         formdata.append('image', image);
 
         $.ajax({
-            url: 'https://api.shanghaichujie.com/api/suning/userInfo',  
-            type: 'POST',  
+            url: 'https://api.shanghaichujie.com/api/suning/userInfo',
+            type: 'POST',
             data: formdata,
-            async: false,  
-            cache: false,  
-            contentType: false,  
-            processData: false,  
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
             success: function(data){
                 if(data.result == true){
                     layer.closeAll();
@@ -189,7 +189,7 @@ $(function(){
                 }else{
                     layer.msg('上传失败，请重新上传');
                 }
-                
+
             },
             error: function(data){
 

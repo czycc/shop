@@ -14,7 +14,7 @@
 
 Route::get('/test', function () {
     $js = EasyWeChat::js();
-    $val=$js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage'), false);
+    $val = $js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage'), false);
     dd($val);
 });
 
@@ -55,11 +55,16 @@ Route::group(['prefix' => 'shop', 'middleware' => ['web', 'wechat.oauth:snsapi_u
 Route::get('juli', function () {
     return response()->redirectTo('jul');
 });
-Route::get('jul', function (){
+Route::get('jul', function () {
     $js = EasyWeChat::js();
     return view('jl', compact('js'));
 });
 
-Route::get('suning/end', function (){
-    return redirect('https://weixin.touchworld-sh.com/res/suning/index2.html');
+Route::get('suning/index', function () {
+    $js = EasyWeChat::js();
+    return view('suning.index', compact('js'));
+});
+Route::get('suning/end', function () {
+    $js = EasyWeChat::js();
+    return view('suning.index2', compact('js'));
 });
