@@ -61,10 +61,10 @@ Route::get('jul', function () {
 });
 
 Route::get('suning/index', function () {
-    $js = '';
+    $js = EasyWeChat::js();
     return view('suning.index', compact('js'));
 });
 Route::get('suning/end', function () {
-    $js = '';
+    $js = EasyWeChat::js();
     return view('suning.index2', compact('js'));
 });
