@@ -168,7 +168,7 @@ body{
     position: absolute;
     left: 0;
     right: 0;
-    top: 220px;
+    top: 270px;
     margin: auto;
 }
 .page3 .plan p{
@@ -187,30 +187,30 @@ body{
     text-align: left;
 }
 .page3 .plan .text1{
-    top: 215px;
+    top: 265px;
 }
 .page3 .plan .text2{
-    top: 310px;
+    top: 360px;
 }
 .page3 .plan .text3{
-    top: 400px;
+    top: 450px;
 }
 .page3 .plan .text4{
-    top: 488px;
+    top: 538px;
     right: 110px;
 }
 .page3 .plan .text5{
-    top: 580px;
+    top: 630px;
     left: 115px;
 }
 .page3 .plan .text6{
-    top: 680px;
+    top: 730px;
 }
 .page3 .plan .text7{
-    top: 792px;
+    top: 842px;
 }
 .page3 .plan .text8{
-    top: 860px;
+    top: 910px;
 }
 
 /* page4 */

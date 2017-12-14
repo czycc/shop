@@ -71,8 +71,7 @@
                    swiper-animate-delay="1.0s">合作签约仪式<br/>16:20-16:35</p>
                 <p class="text7 left ani" swiper-animate-effect="zoomInLeft" swiper-animate-duration="1.5s"
                    swiper-animate-delay="1.2s" style="left: 110px">启动仪式及合影<br/>16:35-16:45</p>
-                <p class="text8 right ani" swiper-animate-effect="zoomInRight" swiper-animate-duration="1.5s"
-                   swiper-animate-delay="1.4s">专访环节<br/>16:45-17:05</p>
+
             </div>
             <img src="../../res/suning/res/images/next_tips.png" class="next_tips2">
         </section>
