@@ -4,83 +4,24 @@ $(function(){
     var company = '';
     var job = '';
     var image = '';
+    var file;
     bgm_init();
     init_loading();
+    init_photoClip();
 
     $('#file').on('change', function(){
-        username = $('#username').val();
-        company = $('#company').val();
-        job = $('#job').val();
-        if(username != '' && company !='' && job !=''){
-            var file = this.files[0];
-            if(file.size <= 51200){
-                layer.msg('图片清晰度不够，请重新上传');
-            }else if(file.size >= 10485760){
-                layer.msg('图片太大，请重新上传');
-            }else if(window.FileReader){
-                var fr = new FileReader();  
-                fr.onloadend = function(e) {
-                    image = e.target.result;
-                    $('.page4 .picture').attr('src', image); 
-                    $('.swiper-container').hide();
-                    $('.page4').show();
-    
-                };  
-                fr.readAsDataURL(file);  
-            }
-        }else{
-            layer.msg('请将资料填写完整');
-        }
-    })
-    
-    var page4_state = 0;
-    $('.confirm').click(function(){
-        var formdata = new FormData();
-        formdata.append('username', username);
-        formdata.append('company', company);
-        formdata.append('job', job);
-        formdata.append('image', image);
-        layer.msg('资料上传中...',{time:false});
-
-        $.ajax({
-            url: 'https://api.shanghaichujie.com/api/suning/userInfo',  
-            type: 'POST',  
-            data: formdata,
-            async: false,  
-            cache: false,  
-            contentType: false,  
-            processData: false,  
-            success: function(data){
-                if(data.result == true){
-                    layer.closeAll();
-                    layer.msg('点击屏幕任意区域进入下一页');
-                    $('.btn_group').hide();
-                    $('.success').show();
-                    setTimeout(function(){
-                        page4_state = 1;
-                    },500)
-                }else{
-                    layer.msg('上传失败，请重新上传');
-                }
-                
-            },
-            error: function(data){
-
-            }
-        })
+        file = this.files[0];
     })
 
-    $('.page4').click(function(){
-        if(page4_state == 1){
-            if($('#success').css('display') == 'block'){
-                $('.page4').hide();
-                $('.page5').show();
-            }
-        }
+    $('.page7').click(function(){
+        $('.page8').show().siblings().hide();
     })
-
-    $('.page5').click(function(){
+    $('.page8').click(function(){
         window.location.href= 'http://oss.suning.com/fgo/static/1219fbh/index.html'; 
+    })
+
+    $('.go_8page').click(function(){
+        $('.page8').show().siblings().hide();
     })
 
     function init_loading(){
@@ -92,13 +33,14 @@ $(function(){
         var myLoadingInterval = null;
         var tempArr = [];
         //加入数组
-        for(var i = 0; i < 76; i++){
+        for(var i = 0; i < 163; i++){
             if(i < 10){
                 frame_arr.push('res/images/frame/1_0000'+ i + '.jpg');
             }else if(i < 100){
                 frame_arr.push('res/images/frame/1_000'+ i + '.jpg');
+            }else if(i < 1000){
+                frame_arr.push('res/images/frame/1_00'+ i + '.jpg');
             }
-            
         }
         var fileList= [];
         fileList = tempArr.concat(frame_arr);
@@ -120,12 +62,12 @@ $(function(){
         myLoadingInterval = setInterval(function(){
             fakeLoadingNum++;
             if(realLoadingNum > fakeLoadingNum){
-                $('.loading .num')[0].innerHTML = fakeLoadingNum + "%";
+                $('.loading .progress span').width(fakeLoadingNum + "%");
             }else{
-                $('.loading .num')[0].innerHTML = realLoadingNum + "%";
+                $('.loading .progress span').width(realLoadingNum + "%");
             }
             if(fakeLoadingNum >= 100 && realLoadingNum >= 100){
-                $('.loading').hide();
+                $('.loader').hide();
                 $('.swiper-container').show();
                 init_swiper();
                 init_frame();
@@ -142,18 +84,11 @@ $(function(){
         var mySwiper = new Swiper ('.swiper-container', {
             speed: 500,
             direction : 'vertical',
-            // pagination: '.swiper-pagination',
-            // mousewheelControl : true,
-            // allowSwipeToNext : true,
-            onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
-                swiperAnimateCache(swiper); //隐藏动画元素
-                // swiperAnimate(swiper); //初始化完成开始动画
+            onInit: function(swiper){
+                swiperAnimateCache(swiper);
             },
-            // onSlideChangeStart:function(swiper){
-            //     var index =  mySwiper.activeIndex;
-            // },
             onSlideChangeEnd: function(swiper){
-                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+                swiperAnimate(swiper);
             }
         })
     }
@@ -168,9 +103,7 @@ $(function(){
             loop: false,
             autoplay: false,
             callback: function(){
-                $('.page1 .title').fadeIn();
-                $('.page1 .sub_text').fadeIn();
-                $('.page1 p').fadeIn();
+                frame.pause();
                 $('.page1 .next_tips').fadeIn();
                 $('page1').css({
                     'background': 'url(../images/frame/1_00001.jpg)'
@@ -188,6 +121,80 @@ $(function(){
             audio.play();
             this.removeEventListener('touchstart', firstTouch);
         });
+    }
+
+    function init_photoClip(){
+        var pc = new PhotoClip('#clipArea', {
+            size: 450,
+            file: '#file',
+            view: '#view',
+            ok: '#clipBtn',
+            maxZoom: 10,
+            loadStart: function() {
+                console.log('开始读取照片');
+            },
+            loadComplete: function() {
+                console.log('照片读取完成');
+
+                username = $('#username').val();
+                company = $('#company').val();
+                job = $('#job').val();
+                if(username != '' && company !='' && job !=''){
+                    if(file.size <= 51200){
+                        pc.clear();
+                        layer.msg('图片清晰度不够，请重新上传');
+                    }else if(file.size >= 10485760){
+                        pc.clear();
+                        layer.msg('图片太大，请重新上传');
+                    }else{
+                        $('.swiper-container').hide();
+                        $('.page6').show().siblings().hide();
+                    }
+                }else{
+                    layer.msg('请将资料填写完整');
+                }
+            },
+            done: function(dataURL) {
+                updata_ajax(dataURL);
+            },
+            fail: function(msg) {
+                alert(msg);
+            }
+        });
+    }
+
+    function updata_ajax(image){
+        layer.msg('资料上传中...',{time:false});
+        var formdata = new FormData();
+        formdata.append('username', username);
+        formdata.append('company', company);
+        formdata.append('job', job);
+        formdata.append('image', image);
+
+        $.ajax({
+            url: 'https://api.shanghaichujie.com/api/suning/userInfo',  
+            type: 'POST',  
+            data: formdata,
+            async: false,  
+            cache: false,  
+            contentType: false,  
+            processData: false,  
+            success: function(data){
+                if(data.result == true){
+                    layer.closeAll();
+                    $('#view').show();
+                    $('#clipArea').hide();
+                    $('.page7').show().siblings().hide();
+                    layer.msg('点击任意区域进入下一页');
+                }else{
+                    layer.msg('上传失败，请重新上传');
+                }
+                
+            },
+            error: function(data){
+
+            }
+        })
     }
 })
 

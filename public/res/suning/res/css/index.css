@@ -27,28 +27,89 @@
     margin: auto;
     width: 80px;
     height: 50px;
+    animation: jump 1.5s ease-out infinite;
+}
+.next_tips2{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    margin: auto;
+    width: 80px;
+    height: 50px;
+    animation: jump 1.2s ease-out infinite;
+}
+@keyframes jump{
+    0%{
+        bottom: 10px;
+    }
+    50%{
+        bottom: 20px;
+    }
+    100%{
+        bottom: 10px;
+    }
 }
 
 /* loading */
 .loading{
-    font-size: 48px;
-    text-align: center;
-}
-.loading .num{
     position: absolute;
     left: 0;
-    right: 0;
-    top: 45%;
+    top: 0;
+    width: 640px;
+    height: 1040px;
     margin: auto;
+    background: url(../images/frame/1_00001.jpg) no-repeat center center;
+    font-size: 48px;
+    text-align: center;
+    color: #fff;
 }
-.loading .text{
+.logo{
+    position: absolute;
+    top: 38%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: scale 2s linear infinite;
+}
+@keyframes scale{
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.loading .progress{
     position: absolute;
     left: 0;
     right: 0;
     top: 55%;
     margin: auto;
+    width: 227px;
+    height: 11px;
+    background: url('../images/progress.png') no-repeat center center;
+    border-radius: 5px;
+    overflow: hidden;
 }
-
+.loading .progress span{
+    display: block;
+    height: 11px;
+    width: 0%;
+    max-width: 227px;
+    background: #f3d906;
+    border-radius: 5px;
+}
 /* page1 */
 .page1{
     background: url(../images/frame/1_00001.jpg)
@@ -85,9 +146,14 @@
 
 /* page2 */
 .page2{
+    background: url(../images/page2_bg.jpg) no-repeat center center;
+}
+
+/* page3 */
+.page3{
     background: url(../images/page_bg.png) no-repeat center center;
 }
-.page2_title{
+.page3_title{
     position: absolute;
     left: 0;
     right: 0;
@@ -95,74 +161,88 @@
     margin: auto;
     text-align: center;
 }
-.page2_line{
+.page3_line{
     position: absolute;
     left: 0;
     right: 0;
     top: 220px;
     margin: auto;
 }
-.page2 .plan p{
+.page3 .plan p{
     position: absolute;
     font-family: "黑体";
     font-size: 22px;
     color: #fff;
     letter-spacing: 4px;
 }
-.page2 .plan .left{
+.page3 .plan .left{
     left: 130px;
     text-align: right;
 }
-.page2 .plan .right{
+.page3 .plan .right{
     right: 130px;
     text-align: left;
 }
-.page2 .plan .text1{
+.page3 .plan .text1{
     top: 215px;
 }
-.page2 .plan .text2{
+.page3 .plan .text2{
     top: 310px;
 }
-.page2 .plan .text3{
+.page3 .plan .text3{
     top: 400px;
 }
-.page2 .plan .text4{
-    top: 490px;
+.page3 .plan .text4{
+    top: 488px;
+    right: 110px;
 }
-.page2 .plan .text5{
-    top: 595px;
+.page3 .plan .text5{
+    top: 580px;
+    left: 115px;
 }
-.page2 .plan .text6{
+.page3 .plan .text6{
     top: 680px;
 }
-.page2 .plan .text7{
+.page3 .plan .text7{
     top: 792px;
 }
-.page2 .plan .text8{
+.page3 .plan .text8{
     top: 860px;
 }
 
-/* page3 */
-.page3{
+/* page4 */
+.page4{
+    background: url(../images/page4_bg.jpg) no-repeat center center;
+}
+
+/* page5 */
+.page5{
     background: url(../images/page_bg.png) no-repeat center center;
 }
-.page3 from{
+.page5 from{
     position: absolute;
     left: 0;
     right: 0;
-    top: 100px;
+    top: 50px;
     margin: auto;
     font-size: 36px;
     color: #fff;
 }
-.page3 p{
-    margin: 60px 0;
+h3{
+    text-align: center;
+    font-size: 32px;
+    font-family: "微软雅黑";
+    font-weight: lighter;
+    letter-spacing: 4px;
+}
+.page5 p{
+    margin: 50px 0;
     text-align: center;
 }
-.page3 span{
+.page5 span{
     margin-right: 80px;
 }
-.page3 input{
+.page5 input{
     box-sizing: border-box;
     padding: 10px;
     width: 276px;
@@ -175,11 +255,25 @@
     background: url(../images/border.png) no-repeat center center;
 }
 
-/* page4 */
-.page4{
-    background: url(../images/page_bg.png) no-repeat center center;
+/* page6 */
+.page6 .bg{
+    position: absolute;
+    width: 640px;
+    height: 1040px;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    pointer-events: none;
 }
-.page4 p{
+.page6_container{
+    position: absolute;
+    width: 640px;
+    height: 1040px;
+    left: 0;
+    top: 0;
+    z-index: 50;
+}
+.page6 p{
     position: absolute;
     left: 0;
     right: 0;
@@ -190,8 +284,9 @@
     font-size: 20px;
     color: #fff;
     letter-spacing: 4px;
+    z-index: 50;
 }
-.page4 span{
+.page6 span{
     position: absolute;
     left: 0;
     right: 0;
@@ -202,62 +297,144 @@
     font-size: 20px;
     color: #fff;
     letter-spacing: 4px;
+    z-index: 50;
 }
-.page4 .picture{
+.page6 .mask{
     position: absolute;
     left: 0;
     right: 0;
     top: 228px;
     margin: auto;
     width: 348px;
-    height: 442px;
+    height: 448px;
     border: none;
+    z-index: 40;
+    pointer-events: none;
 }
-.page4 .mask{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 228px;
-    margin: auto;
-    width: 348px;
-    height: 442px;
-    border: none;
-    z-index: 666;
-}
-.page4 .success{
+.page6 .success{
     position: absolute;
     left: 0;
     right: 0;
     bottom: 250px;
     margin: auto;
+    z-index: 50;
 }
-.page4 .success_btn{
+.page6 .success_btn{
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
+    z-index: 50;
 }
-.page4 .hook{
+.page6 .hook{
     position: absolute;
     left: 0;
     right: 0;
     top: 100px;
     margin: auto;
+    z-index: 50;
 }
-.page4 .btn_group{
+.page6 .btn_group{
     position: absolute;
     left: 0;
     right: 0;
     bottom: 150px;
     margin: auto;
     text-align: center;
+    z-index: 50;
 }
-.page4 .btn_group img{
+.page6 .btn_group img{
     margin: 0 20px;
+    z-index: 50;
+}
+.page6 #clipArea{
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    top: 100px;
+    z-index: 10;
+    margin: auto;
+    height: 700px;
 }
 
-/* page5 */
-.page5{
-    background: url(../images/page5_bg.png) no-repeat center center;
+/* page7 */
+.page7 .bg{
+    position: absolute;
+    width: 640px;
+    height: 1040px;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+.page7 .picture{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 228px;
+    margin: auto;
+    width: 450px;
+    height: 450px;
+    border: none;
+    z-index: 10;
+}
+.page7_container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 640px;
+    height: 1040px;
+    z-index: 30;
+}
+.page7 p{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 122px;
+    margin: auto;
+    line-height: 2;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 4px;
+    z-index: 50;
+}
+.page7 span{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 690px;
+    margin: auto;
+    line-height: 2;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 4px;
+    z-index: 50;
+}
+
+.page7 .success{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 250px;
+    margin: auto;
+}
+.page7 .success_btn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.page7 .hook{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    margin: auto;
+}
+
+/* page6 */
+.page8{
+    background: url(../images/page8_bg.png) no-repeat center center;
 }
 
