@@ -38,7 +38,7 @@ Route::get('shop/data', 'Api\ShopController@data');
 //jssdk 分享接口
 Route::get('wechat/share', function (){
     $js = EasyWeChat::js();
-    $val=$js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage'), false);
+    $val=$js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage'), true);
     return $val;
 
 });
