@@ -2,6 +2,9 @@
 .hidden{
     display: none;
 }
+body{
+    background: #000;
+}
 .page{
     width: 640px;
     height: 1040px;
