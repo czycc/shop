@@ -82,8 +82,13 @@
             <img src="../../res/suning/res/images/next_tips.png" class="next_tips">
         </section>
 
+        <section class="swiper-slide swiper-slide5 page4_5">
+            <canvas id="frame2"></canvas>
+            <img src="../../res/suning/res/images/next_tips.png" class="next_tips hidden">
+        </section>
+
         <!-- page5 -->
-        <section class="swiper-slide swiper-slide5 page5">
+        <section class="swiper-slide swiper-slide6 page5">
             <from id="from">
                 <h3>请您领取通向未来的护照</h3>
                 <p><span>姓名</span><input type="text" name="username" id="username"></p>
@@ -144,7 +149,6 @@
 
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="application/javascript">
-    wx.config(<?php echo $js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage'), false) ?>);
     // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在 页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready 函数中。
     wx.ready(function () {
         // 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口

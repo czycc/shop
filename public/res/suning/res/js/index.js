@@ -1,5 +1,6 @@
 $(function(){
     var frame, frame_arr = [];
+    var frame2, frame_arr2 = [];
     var username = '';
     var company = '';
     var job = '';
@@ -42,9 +43,17 @@ $(function(){
                 frame_arr.push('../res/suning/res/images/frame/1_00'+ i + '.jpg');
             }
         }
+        for(var i = 0; i < 170; i++){
+            if(i < 10){
+                frame_arr2.push('../res/suning/res/images/frame2/1_0000'+ i + '.jpg');
+            }else if(i < 100){
+                frame_arr2.push('../res/suning/res/images/frame2/1_000'+ i + '.jpg');
+            }else if(i < 1000){
+                frame_arr2.push('../res/suning/res/images/frame2/1_00'+ i + '.jpg');
+            }
+        }
         var fileList= [];
-        fileList = tempArr.concat(frame_arr);
-
+        fileList = tempArr.concat(frame_arr,frame_arr2);
         for(var i = 0, len = fileList.length; i < len; i++){
             var pxImage = new PxLoaderImage(BASE_PATH + fileList[i]);
             pxImage.imageNumber = i + 1;
@@ -89,6 +98,13 @@ $(function(){
             },
             onSlideChangeEnd: function(swiper){
                 swiperAnimate(swiper);
+            },
+            onSlideChangeStart:function(swiper){
+                var index =  mySwiper.activeIndex;
+                if(status == 0 && index == 4){
+                    frame2.play();
+                    status = 1
+                }
             }
         })
     }
@@ -109,7 +125,24 @@ $(function(){
                     'background': 'url(../images/frame/1_00001.jpg)'
                 })
             }
-        })
+        });
+
+        frame2 = new SequenceFrame({
+            id: $('#frame2')[0],
+            width: 640,
+            height: 1040,
+            imgArr: frame_arr2,
+            speed: 50,
+            loop: false,
+            autoplay: false,
+            callback: function(){
+                frame2.pause();
+                $('.page4_5 .next_tips').fadeIn();
+                $('page4_5').css({
+                    'background': 'url(../images/frame2/1_00169.jpg)'
+                })
+            }
+        });
     }
 
     function bgm_init(){
