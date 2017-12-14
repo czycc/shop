@@ -12,7 +12,7 @@ $(function(){
         var myLoadingInterval = null;
         var tempArr = [];
         //加入数组
-        for(var i = 0; i < 165; i++){
+        for(var i = 0; i < 170; i++){
             if(i < 10){
                 frame_arr.push('res/images/frame2/1_0000'+ i + '.jpg');
             }else if(i < 100){

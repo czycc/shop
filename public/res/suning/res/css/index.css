@@ -437,4 +437,12 @@ h3{
 .page8{
     background: url(../images/page8_bg.png) no-repeat center center;
 }
+.page8 .go_index2{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+    margin: auto;
+    text-align: center;
+}
 
