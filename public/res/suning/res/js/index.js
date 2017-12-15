@@ -63,7 +63,7 @@ $(function(){
             }
         }
         var fileList= [];
-        fileList = tempArr.concat(frame_arr,frame_arr2);
+        fileList = tempArr.concat(frame_arr,frame_arr2,frame_arr3);
         for(var i = 0, len = fileList.length; i < len; i++){
             var pxImage = new PxLoaderImage(BASE_PATH + fileList[i]);
             pxImage.imageNumber = i + 1;
