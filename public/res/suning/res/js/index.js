@@ -1,6 +1,7 @@
 $(function(){
     var frame, frame_arr = [];
     var frame2, frame_arr2 = [];
+    var frame3, frame_arr3 = [];
     var username = '';
     var company = '';
     var job = '';
@@ -50,6 +51,15 @@ $(function(){
                 frame_arr2.push('../res/suning/res/images/frame2/1_000'+ i + '.jpg');
             }else if(i < 1000){
                 frame_arr2.push('../res/suning/res/images/frame2/1_00'+ i + '.jpg');
+            }
+        }
+        for(var i = 0; i < 201; i++){
+            if(i < 10){
+                frame_arr3.push('../res/suning/res/images/frame3/1_0000'+ i + '.jpg');
+            }else if(i < 100){
+                frame_arr3.push('../res/suning/res/images/frame3/1_000'+ i + '.jpg');
+            }else if(i < 1000){
+                frame_arr3.push('../res/suning/res/images/frame3/1_00'+ i + '.jpg');
             }
         }
         var fileList= [];
@@ -142,6 +152,16 @@ $(function(){
                     'background': 'url(../images/frame2/1_00169.jpg)'
                 })
             }
+        });
+
+        frame3 = new SequenceFrame({
+            id: $('#frame3')[0],
+            width: 640,
+            height: 1040,
+            imgArr: frame_arr3,
+            speed: 50,
+            loop: true,
+            autoplay: true,
         });
     }
 

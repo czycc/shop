@@ -78,6 +78,7 @@
 
         <!-- page4 -->
         <section class="swiper-slide swiper-slide4 page4">
+            <canvas id="frame3"></canvas>
             <img src="../../res/suning/res/images/next_tips.png" class="next_tips">
         </section>
 
