@@ -55,11 +55,11 @@ $(function(){
         }
         for(var i = 0; i < 201; i++){
             if(i < 10){
-                frame_arr3.push('../res/suning/res/images/frame3/1_0000'+ i + '.jpg');
+                frame_arr3.push('../res/suning/res/images/frame5/2_0000'+ i + '.jpg');
             }else if(i < 100){
-                frame_arr3.push('../res/suning/res/images/frame3/1_000'+ i + '.jpg');
+                frame_arr3.push('../res/suning/res/images/frame5/2_000'+ i + '.jpg');
             }else if(i < 1000){
-                frame_arr3.push('../res/suning/res/images/frame3/1_00'+ i + '.jpg');
+                frame_arr3.push('../res/suning/res/images/frame5/2_00'+ i + '.jpg');
             }
         }
         var fileList= [];
