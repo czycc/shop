@@ -13,9 +13,8 @@
 
 
 Route::get('/test', function () {
-    $js = EasyWeChat::js();
-    $val = $js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage'), false);
-    dd($val);
+    $category = \App\Models\Category::first()->Images;
+    dd($category);
 });
 
 Route::post('sms', 'Test\SmsController@index');
@@ -68,3 +67,5 @@ Route::get('suning/end', function () {
     $js = EasyWeChat::js();
     return view('suning.index2', compact('js'));
 });
+
+Route::get('image/index', 'Image\IndexController@index');

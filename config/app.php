@@ -181,6 +181,7 @@ return [
         Encore\Admin\Providers\AdminServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -233,6 +234,7 @@ return [
         'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
         'SmsManager' => Toplan\Sms\Facades\SmsManager::class,
         'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
+        'Img' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

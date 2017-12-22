@@ -15,5 +15,7 @@ Route::group([
     $router->resource('users', UserController::class);
     $router->resource('statistics', StatisticController::class);
     $router->resource('pvs', PvController::class);
+    $router->resource('categories', CategoryController::class);
+    $router->resource('images', ImageController::class);
 
 });

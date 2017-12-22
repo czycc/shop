@@ -5,12 +5,12 @@ return [
     /*
      * Laravel-admin name.
      */
-    'name'      => '会员商城后台',
+    'name'      => '后台',
 
     /*
      * Logo in admin panel header.
      */
-    'logo'      => '<b>会员商城</b> 后台',
+    'logo'      => '<b>LALA</b> 后台',
 
     /*
      * Mini-logo in admin panel header.
@@ -46,14 +46,14 @@ return [
      */
     'upload'  => [
 
-        'disk' => 'public',
+        'disk' => 'public_upload',
 
         'directory'  => [
             'image'  => 'image',
             'file'   => 'file',
         ],
 
-        'host' => env('APP_URL').'/storage/',
+        'host' => env('APP_URL').'/upload/',
     ],
 
     /*
