@@ -13,8 +13,7 @@
 
 
 Route::get('/test', function () {
-    $category = \App\Models\Category::first()->Images;
-    dd($category);
+    return phpinfo();
 });
 
 Route::post('sms', 'Test\SmsController@index');
