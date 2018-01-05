@@ -1,0 +1,53 @@
+html{
+    overflow: hidden;
+}
+body{
+    width: 1920px;
+    height: 1080px;
+    background: url(../images/bg.png) no-repeat;
+}
+.introduce{
+    width: 1920px;
+    height: 1080px;
+}
+.introduce video{
+    width: 1920px;
+    height: 1080px;
+}
+.choose{
+    display: flex;
+    flex-direction: column;
+}
+header{
+    position: relative;
+    margin: 66px auto 0;
+}
+.small_title{
+    position: absolute;
+    bottom: 0;
+    right: -250px;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 272px 0;
+}
+.tips{
+    position: absolute;
+    left: 150px;
+}
+.doctor_info{
+    position: relative;
+    width: 388px;
+    height: 694px;
+    background: url(../images/doctor_bg.png) no-repeat center;
+}
+.line_state{
+    position: absolute;
+    bottom: 65px;
+    left: 0;
+    right: 20px;
+    margin: auto;
+}
