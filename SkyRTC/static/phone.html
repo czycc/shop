@@ -47,8 +47,8 @@
         //接收到其他用户的视频流
         rtc.on('pc_add_stream', function (stream, socketId) {
             console.log(socketId)
-            // var id = 'other_video1'
-            // rtc.attachStream(stream, id);
+            var id = 'other_video1'
+            rtc.attachStream(stream, id);
         });
         //删除其他用户
         rtc.on('remove_peer', function (socketId) {
