@@ -47,7 +47,7 @@
         //接收到其他用户的视频流
         rtc.on('pc_add_stream', function (stream, socketId) {
             console.log(socketId)
-            var id = 'other_video1'
+            var id = document.getElementById('other_video1')
             rtc.attachStream(stream, id);
         });
         //删除其他用户
@@ -58,20 +58,6 @@
         });
         //连接WebSocket服务器
         rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0], window.location.hash.slice(1));
-
-        function GetQueryString(name) {
-            var after = window.location.search.split("?")[1];
-            if (after) {
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-                var r = after.match(reg);
-                if (r != null) {
-                    return decodeURIComponent(r[2]);
-                }
-                {
-                    return null;
-                }
-            }
-        }
     </script>
 </body>
 
