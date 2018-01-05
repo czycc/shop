@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 SkyRTC.rtc.on('new_connect', function(socket) {
-	socket.id = platfrom;
+	//socket.id = platfrom;
 	console.log('创建新连接');
 });
 
