@@ -9,8 +9,9 @@ server.listen(port);
 
 app.use(express.static(path.join(__dirname, 'static')));
 
+//通过get参数判断设备
 let platfrom = '';
-app.get('/phone', (req, res) => {
+app.get('/', (req, res) => {
 	platfrom = req.query.platfrom
 	res.sendfile(__dirname + '/static/phone.html');
 });
