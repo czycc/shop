@@ -12,6 +12,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 let uid = '';
 app.use('/', function(req, res) {
 	if(req.query.scene === "0"){
+        uid = 0
         res.sendfile(__dirname + '/static/pc.html');
     }else if(req.query.scene === "1"){
 		uid = req.query.uid

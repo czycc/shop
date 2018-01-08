@@ -1,11 +1,18 @@
 {
-	"name": "SkyRTC-demo",
-	"description": "A simple SkyRTC demo",
-	"dependencies": {
-		"express": "^4.16.2",
-		"node-uuid": "^1.4.8",
-		"skyrtc": "0.0.2",
-		"ws": "^4.0.0"
-	},
-	"readmeFilename": "README.md"
+  "name": "demo02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-uuid": "^1.4.8",
+    "skyrtc": "0.0.2",
+    "ws": "^4.0.0"
+  }
 }

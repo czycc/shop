@@ -50,7 +50,6 @@
 
 	//接收到其他用户的视频流
 	rtc.on('pc_add_stream', function (stream, socketId) {
-		alert('pc_add_stream:' + socketId)
 		if(uid === '1'){
 			if(socketId === '2'){
 				rtc.attachStream(stream, 'other_video1');
@@ -66,7 +65,7 @@
 				rtc.attachStream(stream, 'other_video2');
 			}
 		}else if(uid === '3'){
-			if(soc.ketId === '1'){
+			if(socketId === '1'){
 				rtc.attachStream(stream, 'other_video1');
 			}
 			if(socketId === '2'){
@@ -77,15 +76,15 @@
 
 	//删除其他用户
 	rtc.on('remove_peer', function (socketId) {
-		var video = document.getElementById('other-' + socketId);
-		if (video) {
-			video.parentNode.removeChild(video);
-		}
+		// var video = document.getElementById('other-' + socketId);
+		// if (video) {
+		// 	video.parentNode.removeChild(video);
+		// }
 	});
 
 	//连接WebSocket服务器
 	
-	rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0], window.location.hash.slice(1), uid);
+	rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], window.location.hash.slice(1), uid);
 
 	function GetQueryString(name) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -93,5 +92,4 @@
 		if (r != null) return (r[2]); return null;
 	}
 </script>
-
 </html>
