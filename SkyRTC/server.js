@@ -9,24 +9,25 @@ server.listen(port);
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-//通过get参数判断设备
-let platfrom = '';
-app.get('/', (req, res) => {
-	platfrom = req.query.platfrom
-	res.sendfile(__dirname + '/static/phone.html');
+app.get('/', function(req, res) {
+	// res.sendfile(__dirname + '/index.html');
+	if(req.query.scene === "0"){
+        res.sendfile(__dirname + '/static/pc.html');
+    }else if(req.query.scene === "1"){
+        res.sendfile(__dirname + '/static/phone.html');
+    }
 });
 
 SkyRTC.rtc.on('new_connect', function(socket) {
-	socket.uid = platfrom;
 	console.log('创建新连接');
-});
-
-SkyRTC.rtc.on('new_peer', function(socket, room) {
-	console.log("新用户" + socket.id + "加入房间" + room);
 });
 
 SkyRTC.rtc.on('remove_peer', function(socketId) {
 	console.log(socketId + "用户离开");
+});
+
+SkyRTC.rtc.on('new_peer', function(socket, room) {
+	console.log("新用户" + socket.id + "加入房间" + room);
 });
 
 SkyRTC.rtc.on('socket_message', function(socket, msg) {
@@ -48,4 +49,3 @@ SkyRTC.rtc.on('answer', function(socket, answer) {
 SkyRTC.rtc.on('error', function(error) {
 	console.log("发生错误：" + error.message);
 });
-
