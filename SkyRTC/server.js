@@ -7,17 +7,17 @@ var path = require("path");
 var port = process.env.PORT || 3000;
 server.listen(port);
 
+//静态路由
 app.use(express.static(path.join(__dirname, 'static')));
 
+//路由参数跳转
 app.get('/', function(req, res) {
 	// res.sendfile(__dirname + '/index.html');
 	if(req.query.scene === "0"){
         res.sendfile(__dirname + '/static/pc.html');
     }else if(req.query.scene === "1"){
         res.sendfile(__dirname + '/static/phone.html');
-    }else{
-		res.sendfile(__dirname + '/static/phone.html');
-	}
+    }
 });
 
 SkyRTC.rtc.on('new_connect', function(socket) {
