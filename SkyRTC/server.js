@@ -15,7 +15,9 @@ app.get('/', function(req, res) {
         res.sendfile(__dirname + '/static/pc.html');
     }else if(req.query.scene === "1"){
         res.sendfile(__dirname + '/static/phone.html');
-    }
+    }else{
+		res.sendfile(__dirname + '/static/phone.html');
+	}
 });
 
 SkyRTC.rtc.on('new_connect', function(socket) {
