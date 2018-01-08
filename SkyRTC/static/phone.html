@@ -50,22 +50,26 @@
 
 	//接收到其他用户的视频流
 	rtc.on('pc_add_stream', function (stream, socketId) {
+		alert(socketId)
 		if(uid === '1'){
 			if(socketId === '2'){
 				rtc.attachStream(stream, 'other_video1');
-			}else if(socketId === '3'){
+			}
+			if(socketId === '3'){
 				rtc.attachStream(stream, 'other_video2');
 			}
 		}else if(uid === '2'){
 			if(socketId === '1'){
 				rtc.attachStream(stream, 'other_video1');
-			}else if(socketId === '3'){
+			}
+			if(socketId === '3'){
 				rtc.attachStream(stream, 'other_video2');
 			}
 		}else if(uid === '3'){
 			if(soc.ketId === '1'){
 				rtc.attachStream(stream, 'other_video1');
-			}else if(socketId === '2'){
+			}
+			if(socketId === '2'){
 				rtc.attachStream(stream, 'other_video2');
 			}
 		}
