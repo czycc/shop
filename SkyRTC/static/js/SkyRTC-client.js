@@ -194,8 +194,8 @@ var SkyRTC = function() {
     skyrtc.prototype.createStream = function(options) {
         var that = this;
 
-        options.video = !!options.video;
-        options.audio = !!options.audio;
+        options.video = options['video'];
+        options.audio = options['audio'];
 
         if (getUserMedia) {
             this.numStreams++;

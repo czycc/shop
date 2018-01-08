@@ -32,7 +32,9 @@
 	rtc.on("connected", function (socket) {
 		//创建本地视频流
 		rtc.createStream({
-			"video": true,
+			"video": {
+				frameRate: { ideal: 50, max: 50 }
+			},
 			"audio": true
 		});
 	});
