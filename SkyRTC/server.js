@@ -1,26 +1,26 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
-var SkyRTC = require('skyrtc').listen(server);
+var SkyRTC = require('skyrtc').listen(server,app);
 var path = require("path");
 
 var port = process.env.PORT || 3000;
 server.listen(port);
 
-//静态路由
 app.use(express.static(path.join(__dirname, 'static')));
 
-//路由参数跳转
-app.get('/', function(req, res) {
-	// res.sendfile(__dirname + '/index.html');
+let uid = '';
+app.use('/', function(req, res) {
 	if(req.query.scene === "0"){
         res.sendfile(__dirname + '/static/pc.html');
     }else if(req.query.scene === "1"){
+		uid = req.query.uid
         res.sendfile(__dirname + '/static/phone.html');
-    }
+	}
 });
 
 SkyRTC.rtc.on('new_connect', function(socket) {
+	socket.id = uid
 	console.log('创建新连接');
 });
 
