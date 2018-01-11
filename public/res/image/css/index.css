@@ -99,7 +99,7 @@ header img{
 
 }
 /*.main img{*/
-    /*height: 213px;*/
+/*height: 213px;*/
 /*}*/
 .main::-webkit-scrollbar {
     display: none;
@@ -177,9 +177,21 @@ footer .puzzleAll{
 footer .puzzle{
     color: white;
     height: 70px;
+    width: 240px;
+    display: inline-block;
     line-height: 70px;
     font-size: 22px;
     margin-left: 80px;
+}
+footer .file_input{
+    display: inline-block;
+    width: 296px;
+    color: white;
+    font-size: 22px;
+    background-color: #01AAED;
+    height: 70px;
+    line-height: 70px;
+    padding-left: 20px;
 }
 footer .puzzle svg{
     font-size: 30px;
@@ -321,4 +333,162 @@ body .demo-class .layui-layer-title{
 }
 body .demo-class .layui-layer-btn a{
     font-size: 20px;
+}
+.popup_select{
+    position: absolute;
+    z-index: 1000;
+    width: 500px;
+    height: 800px;
+    background-color: black;
+    left:0;
+    right: 0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    border:4px solid white;
+    border-radius: 20px;
+}
+.popup_select .popup_cancel{
+    display: block;
+    color: white;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    background-color: black;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 40px;
+    position: absolute;
+    right: -35px;
+    top:-35px;
+    border:3px solid white;
+
+}
+.popup_select .list_ul{
+    width: 400px;
+    height: 516px;
+    position: absolute;
+    left:0;
+    right: 0;
+    margin:auto;
+    top:134px;
+    overflow-y: auto;
+}
+
+.popup_select .list_ul li{
+    width: 400px;
+    height: 80px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    line-height: 80px;
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+
+}
+.popup_select ul::-webkit-scrollbar {
+    display: none;
+}
+.popup_select ul::-moz-scrollbar {
+    display: none;
+}
+.popup_select ul::-ms-scrollbar {
+    display: none;
+}
+.popup_select ul::-o-scrollbar {
+    display: none;
+}
+
+.select_list p{
+    color:white;
+    text-align: center;
+    font-size: 34px;
+    margin-top: 70px;
+    font-weight: bold;
+}
+.select_list div{
+    color: white;
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background-color: #01AAED;
+    border:3px solid #01AAED;
+    position: absolute;
+    bottom:46px;
+    border-radius: 60px;
+    left:0;
+    right: 0;
+    margin:auto;
+    font-size: 30px;
+}
+.popup_select ul .select{
+    background-color: #01AAED;
+    color: white;
+}
+.popup_select .upload_list label{
+    display: block;
+    color: white;
+    font-size: 30px;
+    width: 300px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: #01AAED;
+    position: absolute;
+    left:0;
+    right: 0;
+    margin:auto;
+    top:450px;
+    border-radius: 80px;
+}
+.popup_select .reselect,.popup_select .upload_comfirm{
+    display: block;
+    color: white;
+    font-size: 30px;
+    width: 300px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: #01AAED;
+    position: absolute;
+    left:0;
+    right: 0;
+    margin:auto;
+    top:30px;
+    border-radius: 80px;
+
+}
+.popup_select .reselect{
+    top:554px;
+}
+.popup_select .upload_comfirm{
+    top: 660px;
+}
+.image_list{
+    background-color: white;
+    top:160px;
+}
+.image_list img{
+    width: 330px;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+}
+.image_list{
+    width: 330px;
+    height: 300px;
+    position: absolute;
+    left:0;
+    right: 0;
+    margin:auto;
+    top:80px;
+    overflow: hidden;
 }

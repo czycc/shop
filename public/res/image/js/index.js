@@ -74,6 +74,7 @@ window.onload = function () {
 
         $('.main').addClass('activity-puzzle-select');
         $('.puzzle').hide();
+        $('.file_input').hide();
         $('.puzzle_cancel_confirm').show();
     });
     // 取消
@@ -83,6 +84,7 @@ window.onload = function () {
         $('.main').removeClass('activity-puzzle-select');
         $('.box').removeClass('active');
         $('.puzzle').show();
+        $('.file_input').show();
         $('.puzzle_cancel_confirm').hide();
         console.log(puzzleArr);
 
@@ -149,6 +151,7 @@ window.onload = function () {
         $('.main').removeClass('activity-puzzle-select');
         $('.box').removeClass('active');
         $('.puzzle').show();
+        $('.file_input').show();
         $('.puzzle_cancel_confirm').hide();
         $('.popup').show();
         $('#compound').hide();

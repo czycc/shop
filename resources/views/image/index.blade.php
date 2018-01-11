@@ -55,6 +55,10 @@
                 </svg>
                 <span>拼图</span>
             </div>
+            <label class="file_input">
+                <span>点击选择图片上传</span>
+                <!--<input style="display: none" id="file" type="file" accept="image/*" multiple/>-->
+            </label>
         </div>
         <div class="puzzle_cancel_confirm hidden">
             <span class="puzzle_cancel">取消</span>
@@ -102,6 +106,36 @@
         图片生成中...
     </div>
 </div>
+<div class="popup_select hidden">
+    <div class="popup_cancel">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-iconfontshequyijujue"></use>
+        </svg>
+
+    </div>
+    <div class="select_list ">
+        <p>请选择上传的类型</p>
+        <ul class="list_ul">
+            <li index="0">空景</li>
+            <li index="1">签到到达</li>
+            <li index="2">明星展车</li>
+            <li index="3">明星背板</li>
+            <li index="4">嘉宾美图</li>
+            <li index="5">主流程</li>
+        </ul>
+        <div class="confirm_list">确 定</div>
+    </div>
+    <div class="upload_list hidden">
+        <label for="file_input">
+            <span>点击上传图片</span>
+            <input style="display: none" id="file_input" type="file" accept="image/*" />
+        </label>
+        <p class="upload_comfirm">确定</p>
+        <p class="reselect">重新选择</p>
+        <div class="image_list">
+        </div>
+    </div>
+</div>
 
 
 </body>
@@ -123,5 +157,112 @@
 <script src="../../res/image/js/swiper.min.js"></script>
 
 <script src="../../res/image/js/index.js"></script>
+<script>
+    var selectIndex;
+    var formData;
+
+    var input = document.getElementById("file_input");
+    //用来判断用户有没有选择图片
+    var result = null;
+    var picture_type;
+    if(typeof FileReader==='undefined'){
+        alert = "抱歉，你的浏览器不支持 FileReader";
+        input.setAttribute('disabled','disabled');
+    }else{
+        input.addEventListener('change',readFile,false);
+    }
+
+    function readFile() {
+        $('.image_list').html('');
+        if (!input['value'].match(/.jpg|.gif|.png|.bmp/i)) {　　//判断上传文件格式
+            return alert("上传的图片格式不正确，请重新选择")
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(this.files[0]);
+        reader.onload = function (e) {
+            result = e.currentTarget.result;
+            $('.image_list').append('<img src="' + this.result+ '" alt="">')
+        };
+        var reader2 = new FileReader();
+        reader2.readAsBinaryString(this.files[0]);
+        reader2.onload = function () {
+            picture_type = this.result;
+        }
+
+    }
+
+    $('.file_input').click(function () {
+        $('.popup_select').show();
+
+    });
+    $('.select_list ul li').click(function () {
+        selectIndex = $(this).index();
+        $(this).addClass('select').siblings().removeClass('select');
+        console.log(selectIndex);
+    });
+    $('.popup_cancel').click(function () {
+        result = null;
+        $('.popup_select').hide();
+        $('.select_list ul li').removeClass('select');
+        $('.upload_list').hide();
+        $('.select_list').show();
+        $('.image_list').html('');
+
+    })
+    $('.confirm_list').click(function () {
+
+        if($('.select_list ul li').hasClass('select')){
+            $('.upload_list').show();
+            $('.select_list').hide();
+        }else{
+            alert('请选择上传图片的类型');
+        }
+    });
+    $('.reselect').click(function () {
+        result = null;
+        $('.select_list ul li').removeClass('select');
+        $('.image_list').html('');
+        $('.upload_list').hide();
+        $('.select_list').show();
+    })
+    $('.upload_comfirm').click(function () {
+        if(result == null){
+            alert('请上传图片');
+
+        }else{
+            $('.image_list').html('');
+            $('.popup_select').hide();
+            $('.select_list ul li').removeClass('select');
+            $('.upload_list').hide();
+            $('.select_list').show();
+            var index = $('.select_list ul li').eq(selectIndex).attr('index');
+
+            formData = {
+                index:index,
+                result:picture_type
+            }
+
+            doUpload();
+            result = null;
+
+        }
+    })
+    function doUpload() {
+        $.ajax({
+            url: '' ,
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+            },
+            error: function (returndata) {
+            }
+        });
+    }
+
+</script>
 
 </html>
