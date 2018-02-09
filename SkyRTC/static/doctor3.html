@@ -65,7 +65,7 @@
             }
         });
         //连接WebSocket服务器
-        rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor3');
+        rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor3');
     </script>
 </body>
 </html>
