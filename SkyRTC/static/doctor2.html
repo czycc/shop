@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大医精诚</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <img src="images/title.png">
+        <img src="images/small_title.png" class="small_title">
+    </header>
+    <section>
+        <div class="doctor_info">
+            <img src="images/doc1_info.png" alt="">
+            <img src="images/online.png" class="line_state">
+        </div>
+        <div class="chat">
+            <div class="box1">
+                <video src="" id='other_video' autoplay></video>
+            </div>
+            <div class="box2">
+                <video src="" id='my_video' autoplay></video>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/SkyRTC-client.js"></script>
+    <script>
+        var my_video = document.getElementById("my_video");
+        var other_video = document.getElementById("other_video");
+        var rtc = SkyRTC();
+        //自己的视频禁音
+        my_video.volume = 0;
+
+        //成功创建WebSocket连接
+        rtc.on("connected", function(socket) {
+            //创建本地视频流
+            rtc.createStream({
+            "video": true,
+            "audio": true
+            });
+        });
+        //创建本地视频流成功
+        rtc.on("stream_created", function(stream) {
+            my_video.src = URL.createObjectURL(stream);
+            my_video.play();
+        });
+        //创建本地视频流失败
+        rtc.on("stream_create_error", function() {
+            alert("create stream failed!");
+        });
+        //接收到其他用户的视频流
+        rtc.on('pc_add_stream', function(stream, socketId) {
+            console.log(socketId);
+            var id = 'other_video';
+            rtc.attachStream(stream, id);
+        });
+        //删除其他用户
+        rtc.on('remove_peer', function(socketId) {
+            if(other_video){
+                other_video.setAttribute('src','')
+            }
+        });
+        //连接WebSocket服务器
+        rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor2');
+    </script>
+</body>
+</html>

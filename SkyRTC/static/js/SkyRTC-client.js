@@ -2,6 +2,7 @@ var SkyRTC = function() {
     var PeerConnection = (window.PeerConnection || window.webkitPeerConnection00 || window.webkitRTCPeerConnection || window.mozRTCPeerConnection);
     var URL = (window.URL || window.webkitURL || window.msURL || window.oURL);
     var getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+    var AudioContext = window.AudioContext || window.webkitAudioContext;
     var nativeRTCIceCandidate = (window.mozRTCIceCandidate || window.RTCIceCandidate);
     var nativeRTCSessionDescription = (window.mozRTCSessionDescription || window.RTCSessionDescription); // order is very important: "RTCSessionDescription" defined in Nighly but useless
     var moz = !!navigator.mozGetUserMedia;
@@ -82,7 +83,7 @@ var SkyRTC = function() {
 
 
     //本地连接信道，信道为websocket
-    skyrtc.prototype.connect = function(server, room, uid) {
+    skyrtc.prototype.connect = function(server, room) {
         var socket,
             that = this;
         room = room || "";
@@ -91,8 +92,7 @@ var SkyRTC = function() {
             socket.send(JSON.stringify({
                 "eventName": "__join",
                 "data": {
-                    "room": room,
-                    "uid": uid
+                    "room": room
                 }
             }));
             that.emit("socket_opened", socket);
@@ -194,8 +194,8 @@ var SkyRTC = function() {
     skyrtc.prototype.createStream = function(options) {
         var that = this;
 
-        options.video = options['video'];
-        options.audio = options['audio'];
+        options.video = !!options.video;
+        options.audio = !!options.audio;
 
         if (getUserMedia) {
             this.numStreams++;
