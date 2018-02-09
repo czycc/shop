@@ -60,7 +60,7 @@
                             layer.msg('您选择的医生不在线，请重新选择');
                         }else{
                             //跳转视频聊天室
-                            window.location.href = "http://localhost:3000/doc1?uid=0";
+                            window.location.href = "https://weixin.touchworld-sh.com/node/doc1?uid=0";
                         }
                         break;
                     case 50:
@@ -68,7 +68,7 @@
                             layer.msg('您选择的医生不在线，请重新选择');
                         }else{
                             //跳转视频聊天室
-                            window.location.href = "http://localhost:3000/doc2?uid=0";
+                            window.location.href = "https://weixin.touchworld-sh.com/node/doc2?uid=0";
                         }
                         break;
                     case 51:
@@ -76,7 +76,7 @@
                             layer.msg('您选择的医生不在线，请重新选择');
                         }else{
                             //跳转视频聊天室
-                            window.location.href = "http://localhost:3000/doc3?uid=0";
+                            window.location.href = "https://weixin.touchworld-sh.com/node/doc3?uid=0";
                         }
                         break;
                     default:
@@ -101,12 +101,11 @@
             },1000)
         }
 
-        
         function getdocState(){
             setTimeout(function(){
                 $.ajax({
                     type : "GET",
-                    url : "http://localhost:3000/docState",
+                    url : "https://weixin.touchworld-sh.com/node/docState",
                     success : function(data){
                         var state = JSON.parse(data);
                         //判断医生一是否在线
