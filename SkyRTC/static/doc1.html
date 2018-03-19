@@ -101,9 +101,10 @@
     });
     //接收到其他用户的视频流
     rtc.on('pc_add_stream', function(stream, socketId) {
-        var id = 'other_video';
-        other_stream = stream;
-        //rtc.attachStream(stream, id);
+      console.log('接受到视频流');
+      var id = 'other_video';
+      other_stream = stream;
+      //rtc.attachStream(stream, id);
     });
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
