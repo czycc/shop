@@ -1,138 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>大医精诚</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="layui/css/layui.css">
-    <link rel="stylesheet" href="css/choose.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>大医精诚</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="layui/css/layui.css">
+	<style>
+		html,
+		body,
+		#video {
+			width: 100%;
+			height: 100%;
+		}
+
+		#video {
+			object-fit: fill;
+		}
+	</style>
 </head>
+
 <body>
-    <div class="introduce" id="introduce">
-        <video id="video" src="images/video.mp4" autoplay loop></video>
-    </div>
-    <div class="choose">
-        <header>
-            <img src="images/title.png">
-            <img src="images/small_title.png" class="small_title">
-        </header>
-        <section>
-            <img src="images/tips.png" class='tips'>
-            <div class="doctor_info">
-                <img src="images/doc1_info.png" alt="">
-                <img src="images/offline.png" class="line_state" id="doctor1">
-            </div>
-            <div class="doctor_info">
-                <img src="images/doc1_info.png" alt="">
-                <img src="images/offline.png" class="line_state" id="doctor2">
-            </div>
-            <div class="doctor_info">
-                <img src="images/doc1_info.png" alt="">
-                <img src="images/offline.png" class="line_state" id="doctor3">    
-            </div>
-        </section>
-    </div>
-    <script src="js/jquery.js"></script>
-    <script src="layui/layui.all.js"></script>
-    <script>
-        var layer = layui.layer;
-        var introduce = document.getElementById('introduce');
-        var video = document.getElementById('video');
-        var timer = null;
-        var serverTimer = null;
-        var doctor1 = document.getElementById('doctor1');
-        var doctor2 = document.getElementById('doctor2');
-        var doctor3 = document.getElementById('doctor3');
-        
-        //键盘事件
-        document.onkeydown = function(e){
-            if(introduce.style.display !== 'none'){
-                //退出视频
-                introduce.style.display = 'none';
-                video.pause();
-            }else{
-                //选择医生
-                switch(e.keyCode){
-                    case 49:
-                        if(doctor1.src.indexOf('offline') > 0){
-                            layer.msg('您选择的医生不在线，请重新选择');
-                        }else{
-                            //跳转视频聊天室
-                            window.location.href = "http://localhost:3000/doc1?uid=0";
-                        }
-                        break;
-                    case 50:
-                        if(doctor2.src.indexOf('offline') > 0){
-                            layer.msg('您选择的医生不在线，请重新选择');
-                        }else{
-                            //跳转视频聊天室
-                            window.location.href = "http://localhost:3000/doc2?uid=0";
-                        }
-                        break;
-                    case 51:
-                        if(doctor3.src.indexOf('offline') > 0){
-                            layer.msg('您选择的医生不在线，请重新选择');
-                        }else{
-                            //跳转视频聊天室
-                            window.location.href = "http://localhost:3000/doc3?uid=0";
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-            video_replay();
-        }; 
+	<video id="video" src="images/video.mp4" autoplay loop></video>
+	<script>
+			var video = document.getElementById('video');
 
-        function video_replay(){
-            //second秒后未选择医生，重新播放视频
-            var second = 300;
-            var num = 0;
-            clearInterval(timer);
-            timer = setInterval(function(){
-                num++;
-                if(num === second){
-                    introduce.style.display = 'block';
-                    video.load();
-                    clearInterval(timer);
-                }
-            },1000)
-        }
-
-        
-        function getdocState(){
-            setTimeout(function(){
-                $.ajax({
-                    type : "GET",
-                    url : "http://localhost:3000/docState",
-                    success : function(data){
-                        var state = JSON.parse(data);
-                        //判断医生一是否在线
-                        if(state.doc1){
-                            doctor1.src = 'images/online.png'
-                        }else{
-                            doctor1.src = 'images/offline.png'
-                        }
-                        //判断医生二是否在线
-                        if(state.doc2){
-                            doctor2.src = 'images/online.png'
-                        }else{
-                            doctor2.src = 'images/offline.png'
-                        }
-                        //判断医生三是否在线
-                        if(state.doc3){
-                            doctor3.src = 'images/online.png'
-                        }else{
-                            doctor3.src = 'images/offline.png'
-                        }
-                    }
-                })
-                getdocState();
-            },500)
-        }
-        getdocState();
-    </script>
+		//键盘事件
+		document.onkeydown = function (e) {
+			//选择医生
+			console.log(e.keyCode)
+			switch (e.keyCode) {
+				case 49:
+					//跳转视频聊天室
+					window.location.href = "https://weixin.touchworld-sh.com/node/doc1?uid=0";
+					break;
+				case 50:
+					//跳转视频聊天室
+					window.location.href = "https://weixin.touchworld-sh.com/node/doc2?uid=0";
+					break;
+				default:
+					break;
+			}
+		};
+	</script>
 </body>
+
 </html>

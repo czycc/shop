@@ -31,11 +31,10 @@ app.use('/doc1', function(req, res) {
 app.use('/doc2', function(req, res) {
 	uid = req.query.uid
 	if(uid === "2" || uid === "0"){
-		res.sendfile(__dirname + '/static/doctor2.html');
+		res.sendfile(__dirname + '/static/doc2.html');
 	}else{
 		res.sendfile(__dirname + '/static/404.html');
 	}
-	
 });
 
 //返回医生在线状态
