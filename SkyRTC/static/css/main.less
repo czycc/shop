@@ -1,0 +1,153 @@
+html,body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  width: 1024px;
+  height: 768px;
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+header{
+  margin-top: 56px;
+  padding: 30px 0;
+  text-align: center;
+  text-indent: 113px;
+  font-size: 0;
+  img{
+    width: 226px;
+    display: inline-block;
+  }
+  .small_title{
+    width: 134px;
+  }
+}
+section{
+  text-align: center;
+  .doctor_info_doc{
+    display: none;
+  }
+  .chat_doc{
+    position: relative;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 15px 20px;
+    width: 568px;
+    height: 424px;
+    background: url(../images/v_bg.png) no-repeat;
+    background-size: 100% 100%;
+  }
+  .doctor_info_user{
+    display: inline-block;
+    height: 424px;
+    vertical-align: top;
+    background: url(../images/doctor_bg.png) no-repeat;
+    background-size: 100% 100%;
+    img{
+      height: 100%;
+    }
+  }
+  .chat_user{
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: top;
+    padding: 15px 20px;
+    width: 568px;
+    height: 424px;
+    background: url(../images/v_bg.png) no-repeat;
+    background-size: 100% 100%;
+    .box2{
+      z-index: 6666;
+    }
+  }
+  .box1{
+    box-sizing: border-box;
+    padding: 8px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    video{
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .box2{
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    box-sizing: border-box;
+    padding: 8px;
+    width: 118px;
+    height: 90px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    video{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  #call{
+    position: absolute;
+    left: 28px;
+    top: 23px;
+    width: 512px;
+    height: 378px;
+    background: #000;
+  }
+  .call_doc{
+    p{
+      padding: 10px 0;
+      font-size: 30px;
+      line-height: 60px;
+      letter-spacing: 10px;
+      color: #fff;
+    }
+    .btn_group{
+      text-align: center;
+      img{
+        display: inline-block;
+        padding: 30px 50px;
+      }
+    }
+  }
+  .call_user{
+    position: absolute;
+    left: 28px;
+    top: 23px;
+    width: 512px;
+    height: 378px;
+    background: #000;
+    p{
+      padding: 50px;
+      font-size: 30px;
+      line-height: 100px;
+      letter-spacing: 10px;
+      color: #fff;
+    }
+    .btn_group{
+      display: none;
+    }
+  }
+  .control{
+    display: none;
+    position: absolute;
+    left: 20px;
+    right: 20px; 
+    bottom: 15px;
+    z-index: 99999;
+    text-align: center;
+    img{
+      width: 62px;
+      height: 62px;
+      margin-bottom: 15px;
+    }
+    p{
+      padding: 8px 0;
+      background: #000;
+      color: #fff;
+      font-size: 22px;
+    }
+  }
+}

@@ -11,7 +11,6 @@ server.listen(port);
 let doctors = {
 	doc1: false,
 	doc2: false,
-	doc3: false
 }
 
 app.use(express.static(path.join(__dirname, 'static')));
@@ -22,7 +21,7 @@ let uid = '';
 app.use('/doc1', function(req, res) {
 	uid = req.query.uid
 	if(uid === "1" || uid === "0"){
-		res.sendfile(__dirname + '/static/doctor1.html');
+		res.sendfile(__dirname + '/static/doc1.html');
 	}else{
 		res.sendfile(__dirname + '/static/404.html');
 	}
@@ -37,16 +36,6 @@ app.use('/doc2', function(req, res) {
 		res.sendfile(__dirname + '/static/404.html');
 	}
 	
-});
-
-//三号医生页面
-app.use('/doc3', function(req, res) {
-	uid = req.query.uid
-	if(uid === "3" || uid === "0"){
-		res.sendfile(__dirname + '/static/doctor3.html');
-	}else{
-		res.sendfile(__dirname + '/static/404.html');
-	}
 });
 
 //返回医生在线状态
@@ -64,8 +53,6 @@ SkyRTC.rtc.on('remove_peer', function(socketId) {
 		doctors.doc1 = false
 	}else if(socketId === '2'){
 		doctors.doc2 = false
-	}else if(socketId === '3'){
-		doctors.doc3 = false
 	}
 	console.log(socketId + "用户离开");
 });
@@ -76,14 +63,12 @@ SkyRTC.rtc.on('new_peer', function(socket, room) {
 		doctors.doc1 = true
 	}else if(socket.id === '2'){
 		doctors.doc2 = true
-	}else if(socket.id === '3'){
-		doctors.doc3 = true
 	}
 });
 
-// SkyRTC.rtc.on('socket_message', function(socket, msg) {
-// 	// console.log("接收到来自" + socket.id + "的新消息：" + msg);
-// });
+SkyRTC.rtc.on('socket_message', function(socket, msg) {
+	console.log("接收到来自" + socket.id + "的新消息：" + msg);
+});
 
 // SkyRTC.rtc.on('ice_candidate', function(socket, ice_candidate) {
 // 	// console.log("接收到来自" + socket.id + "的ICE Candidate");

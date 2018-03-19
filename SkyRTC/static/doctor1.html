@@ -33,11 +33,11 @@
         var other_video = document.getElementById("other_video");
         var rtc = SkyRTC();
         //自己的视频禁音
-        my_video.volume = 0;
+        // my_video.volume = 0;
 
         //按任意键返回医生选择界面
         document.onkeydown = function(e){
-            window.location.href = "https://weixin.touchworld-sh.com/node/choose.html";
+            // window.location.href = "http://localhost:3000/choose.html";
         }; 
 
         //成功创建WebSocket连接
@@ -68,8 +68,11 @@
                 other_video.setAttribute('src','')
             }
         });
+        rtc.on('socket_receive_message',function(socket,json){
+            console.log(1)
+        })
         //连接WebSocket服务器
-        rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor1');
+        rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor1');
     </script>
 </body>
 </html>

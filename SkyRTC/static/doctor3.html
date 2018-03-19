@@ -35,17 +35,12 @@
         //自己的视频禁音
         my_video.volume = 0;
 
-        //按任意键返回医生选择界面
-        document.onkeydown = function(e){
-            window.location.href = "https://weixin.touchworld-sh.com/node/choose.html";
-        };
-
         //成功创建WebSocket连接
         rtc.on("connected", function(socket) {
             //创建本地视频流
             rtc.createStream({
-                "video": true,
-                "audio": true
+            "video": true,
+            "audio": true
             });
         });
         //创建本地视频流成功
@@ -59,6 +54,7 @@
         });
         //接收到其他用户的视频流
         rtc.on('pc_add_stream', function(stream, socketId) {
+            console.log(socketId);
             var id = 'other_video';
             rtc.attachStream(stream, id);
         });
@@ -69,7 +65,7 @@
             }
         });
         //连接WebSocket服务器
-        rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor3');
+        rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor3');
     </script>
 </body>
 </html>
