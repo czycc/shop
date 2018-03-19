@@ -98,11 +98,19 @@
     });
     //创建本地视频流失败
     rtc.on("stream_create_error", function() {
-        alert("不支持webRTC, 请在非IOS的chrome下运行");
+        alert("不支持webRTC, 请更新浏览器并保持确保摄像头能够使用");
     });
     //接收到其他用户的视频流
     rtc.on('pc_add_stream', function(stream, socketId) {
       console.log('接受到视频流');
+      //用户呼叫医生
+      if(isDoc){
+        other_video.style.display = 'none';
+      }else{
+        setTimeout(function(){
+          rtc.broadcast(state_1);
+        },1000)
+      }
       var id = 'other_video';
       other_stream = stream;
       //rtc.attachStream(stream, id);
@@ -133,14 +141,6 @@
     var state_2 = 'doc answer';   //接听电话
     var state_3 = 'doc hang up';  //挂断电话
     var phone_audio = document.querySelector('.phone_audio');
-    //用户呼叫医生
-    if(isDoc){
-      other_video.style.display = 'none';
-    }else{
-      setTimeout(function(){
-        rtc.broadcast(state_1);
-      },1000)
-    }
 
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
