@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <audio class="phone_audio" loop src="images/phone.mp3"></audio>
+  <audio class="phone_audio" loop preload src="images/phone.mp3"></audio>
   <header>
     <img src="images/title.png">
     <img src="images/small_title.png" class="small_title">
@@ -35,6 +35,9 @@
           <img id="no" src="images/no.png">
           <img id="yes" src="images/yes.png">
         </div>
+      </div>
+      <div class="breaklink">
+        <p>断开链接<span class="breaktime">5</span>秒后退出</p>
       </div>
     </div>
   </section>
@@ -143,11 +146,18 @@
           call.style.display = 'none';
           other_video.muted = false;
           control.style.display = 'block';
+          //添加视频流
+          rtc.attachStream(other_stream, 'other_video');
           start_time();
         }
         if(message === state_3){
           stop_time();
-          alert('医生挂断了电话');
+          //删除视频流
+          if(other_video){
+            other_video.setAttribute('src','')
+            stop_time();
+          }
+          breaklink();
         }
       }
     });
@@ -228,7 +238,23 @@
       clearInterval(timer);
       control.style.display = 'none';
     }
+    //断开链接
+    function breaklink(){
+      var breaklinkDOM = document.querySelector('.breaklink');
+      var breaktime = document.querySelector('.breaktime');
+      var t = 5;
 
+      breaklinkDOM.style.display = 'block';
+      var break_timer = setInterval(function(){
+        t--;
+        breaktime.innerHTML = t;
+        if(t === 0){
+          clearInterval(break_timer);
+          window.location.href = 'https://www.baidu.com/';
+        }
+      },1000)
+
+    }
   </script>
 </body>
 </html>
