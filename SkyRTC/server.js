@@ -20,7 +20,6 @@ let uid = '';
 //一号医生页面
 app.use('/doc1', function(req, res) {
 	uid = req.query.uid
-	console.log('/doc1_uid:' + uid)
 	if(uid === "1" || uid === "0"){
 		res.sendfile(__dirname + '/static/doc1.html');
 	}else{

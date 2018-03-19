@@ -56,6 +56,7 @@
     var doctor_info = document.querySelector('#doctor_info');
     var chat = document.querySelector('#chat');
     var call = document.querySelector('#call');
+    var control = document.querySelector('.control');
     var control_btn = document.querySelector('.control_btn');
     if(isDoc){
       //医生界面样式
@@ -111,10 +112,20 @@
       if(other_video){
         other_video.setAttribute('src','')
       }
+      //断开链接
+      if(isDoc){
+        //医生界面样式
+        control.style.display = 'none';
+        stop_time();
+      }else{
+        //用户界面样式
+        stop_time();
+        breaklink();
+      }
     });
     
     //连接WebSocket服务器
-    rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor1');
+    rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor1');
 
     /********** 电话流程 **********/
     //接收到文字信息, 判断呼叫流程
@@ -163,7 +174,6 @@
 
     //发出状态
     //电话按钮后的UI变化
-    var control = document.querySelector('.control');
     //接听电话
     var yes = document.querySelector('#yes');
     yes.onclick = function() {
