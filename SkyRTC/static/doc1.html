@@ -133,7 +133,7 @@
     });
     
     //连接WebSocket服务器
-    rtc.connect("ws:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor1');
+    rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor1');
 
     /********** 电话流程 **********/
     //接收到文字信息, 判断呼叫流程
