@@ -81,7 +81,6 @@
     var other_stream = null;
     //默认状态下视频禁音
     my_video.muted = true;
-    other_video.muted = true;
 
     //成功创建WebSocket连接
     rtc.on("connected", function(socket) {
@@ -144,7 +143,6 @@
         //用户
         if(message === state_2) {
           call.style.display = 'none';
-          other_video.muted = false;
           control.style.display = 'block';
           //添加视频流
           rtc.attachStream(other_stream, 'other_video');
@@ -178,7 +176,6 @@
       other_video.style.display = 'block';
       control.style.display = 'block';
       start_time();
-      other_video.muted = false;
     }
     //挂断电话
     var no = document.querySelector('#no');
