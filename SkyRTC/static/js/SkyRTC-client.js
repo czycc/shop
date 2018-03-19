@@ -112,7 +112,6 @@ var SkyRTC = function() {
         };
 
         socket.onclose = function(data) {
-            that.localMediaStream.close();
             var pcs = that.peerConnections;
             for (i = pcs.length; i--;) {
                 that.closePeerConnection(pcs[i]);
@@ -232,9 +231,9 @@ var SkyRTC = function() {
             element.mozSrcObject = stream;
             element.play();
         } else {
-            element.src = webkitURL.createObjectURL(stream);
+            element.srcObject = stream;
         }
-        element.src = webkitURL.createObjectURL(stream);
+        element.srcObject = stream;
     };
 
 
