@@ -128,6 +128,8 @@
         //医生界面样式
         control.style.display = 'none';
         stop_time();
+        call.style.display = 'none';
+        phone_audio.pause();
       }else{
         //用户界面样式
         stop_time();
@@ -269,7 +271,7 @@
         breaktime.innerHTML = t;
         if(t === 0){
           clearInterval(break_timer);
-          window.location.href = 'https://www.baidu.com/';
+          window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
         }
       },1000)
 
