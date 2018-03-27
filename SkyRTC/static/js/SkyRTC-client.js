@@ -431,6 +431,7 @@ var SkyRTC = function() {
             this.emit("data_channel_create_error", socketId, error);
         }
 
+        console.log(channel)
         return this.addDataChannel(socketId, channel);
     };
 
@@ -447,7 +448,6 @@ var SkyRTC = function() {
         };
 
         channel.onmessage = function(message) {
-            console.log('测试===')
             var json;
             json = JSON.parse(message.data);
             if (json.type === '__file') {

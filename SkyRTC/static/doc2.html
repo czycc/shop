@@ -92,7 +92,6 @@
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
       //呼叫中
-      console.log(message)
       if(message === state_1) {
         call_container.style.display = 'block';
         breaklink.style.display = 'none';
