@@ -51,7 +51,7 @@
 
     var rtc = new SkyRTC();
     //连接WebSocket服务器
-    rtc.connect("wss://" + window.location.host, 'user1', 'doc1_room');
+    rtc.connect("wss://" + window.location.host + 'doc1_room', 'user1', 'doc1_room');
 
     //成功创建WebSocket连接
     rtc.on("connected", function(socket) {
