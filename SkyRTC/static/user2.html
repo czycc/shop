@@ -76,9 +76,10 @@
 
     //接收到其他用户的视频流
     rtc.on('pc_add_stream', function(stream, socketId) {
+      console.log('接收到其他用户的视频流')
       setTimeout(function(){
         rtc.broadcast(state_1);
-      },2000)
+      },1000)
       other_stream = stream;
     });
 

@@ -367,6 +367,7 @@ var SkyRTC = function() {
         };
 
         pc.onaddstream = function(evt) {
+            console.log('pc.onaddstream')
             that.emit('pc_add_stream', evt.stream, socketId, pc);
         };
 
@@ -390,16 +391,13 @@ var SkyRTC = function() {
     //消息广播
     skyrtc.prototype.broadcast = function(message) {
         var socketId;
-        console.log('broadcast:'+message)
         for (socketId in this.dataChannels) {
-            console.log('循环：'+message+'...'+socketId)
             this.sendMessage(message, socketId);
         }
     };
 
     //发送消息方法
     skyrtc.prototype.sendMessage = function(message, socketId) {
-        console.log(this.dataChannels[socketId].readyState.toLowerCase())
         if (this.dataChannels[socketId].readyState.toLowerCase() === 'open') {
             this.dataChannels[socketId].send(JSON.stringify({
                 type: "__msg",
