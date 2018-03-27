@@ -1,5 +1,5 @@
 var SkyRTC = function() {
-    var PeerConnection = (window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection ||window.webkitPeerConnection00);
+    var PeerConnection = (window.PeerConnection || window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection ||window.webkitPeerConnection00);
     var URL = (window.URL || window.webkitURL || window.msURL || window.oURL);
     var getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
     var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -13,6 +13,7 @@ var SkyRTC = function() {
             {url:'stun:stun2.l.google.com:19302'},
             {url:'stun:stun3.l.google.com:19302'},
             {url:'stun:stun4.l.google.com:19302'},
+            {url:'stun:stun.voipstunt.com'},
             {url:'stun:stun01.sipphone.com'},
             {url:'stun:stun.ekiga.net'},
             {url:'stun:stun.fwdnet.net'},
@@ -362,13 +363,11 @@ var SkyRTC = function() {
             that.emit("pc_get_ice_candidate", evt.candidate, socketId, pc);
         };
 
-        console.log(pc)
         pc.onopen = function() {
             that.emit("pc_opened", socketId, pc);
         };
 
         pc.onaddstream = function(evt) {
-            console.log('onaddstream:'+pc)
             that.emit('pc_add_stream', evt.stream, socketId, pc);
         };
 
