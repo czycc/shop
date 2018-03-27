@@ -1,0 +1,123 @@
+html,body{
+  width: 1024px;
+  height: 768px;
+  overflow: hidden;
+}
+body{
+  width: 1024px;
+  height: 768px;
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+video{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  background: transparent;
+}
+header{
+  margin-top: 56px;
+  padding: 30px 0;
+  text-align: center;
+  text-indent: 113px;
+  font-size: 0;
+  img{
+    width: 226px;
+    display: inline-block;
+  }
+  .small_title{
+    width: 134px;
+  }
+}
+section{
+  text-align: center;
+  .doctor_info{
+    display: inline-block;
+    height: 424px;
+    vertical-align: top;
+    background: url(../images/doctor_bg.png) no-repeat;
+    background-size: 100% 100%;
+    img{
+      height: 100%;
+    }
+  }
+  .chat{
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: top;
+    padding: 15px 20px;
+    width: 568px;
+    height: 424px;
+    background: url(../images/v_bg.png) no-repeat;
+    background-size: 100% 100%;
+    .box1{
+      box-sizing: border-box;
+      padding: 8px;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .box2{
+      position: absolute;
+      left: 40px;
+      top: 40px;
+      box-sizing: border-box;
+      padding: 8px;
+      width: 118px;
+      height: 90px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+    .call{
+      position: absolute;
+      left: 28px;
+      top: 23px;
+      width: 512px;
+      height: 378px;
+      background: #000;
+      p{
+        padding: 80px 0;
+        font-size: 30px;
+        line-height: 100px;
+        letter-spacing: 10px;
+        color: #fff;
+      }
+    }
+    .control{
+      display: none;
+      position: absolute;
+      left: 28px;
+      right: 28px; 
+      bottom: 23px;
+      z-index: 99999;
+      text-align: center;
+      p{
+        padding: 8px 0;
+        background: #000;
+        color: #fff;
+        font-size: 22px;
+      }
+    }
+    .breaklink{
+      display: none;
+      position: absolute;
+      left: 28px;
+      top: 23px;
+      width: 512px;
+      height: 378px;
+      background: #000;
+      p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: 30px;
+        line-height: 80px;
+        letter-spacing: 10px;
+        color: #fff;
+      }
+    }
+  }
+}

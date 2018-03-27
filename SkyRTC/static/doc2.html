@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>大医精诚</title>
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/doc.css">
 </head>
 <body>
   <audio class="phone_audio" loop preload src="images/phone.mp3"></audio>
@@ -15,74 +15,47 @@
     <img src="images/small_title.png" class="small_title">
   </header>
   <section>
-    <div id="doctor_info">
-      <img src="images/doc1.png" alt="">
-    </div>
-    <div id="chat">
+    <div class="chat">
       <div class="box1">
         <video src="" id='other_video' autoplay></video>
       </div>
       <div class="box2">
         <video src="" id='my_video' autoplay></video>
       </div>
-      <div class="control">
-        <img class="control_btn" src="images/no.png">
-        <p>通话时长&nbsp;<span class="timeDOM">00:00</span></p>
-      </div>
-      <div id="call">
-        <p></p>
+      <div class="call">
+        <p>对方请求视频通话<br/>. . . . . .</p>
         <div class="btn_group">
           <img id="no" src="images/no.png">
           <img id="yes" src="images/yes.png">
         </div>
       </div>
+      <div class="control">
+        <img class="hang_up" src="images/no.png">
+        <p>通话时长&nbsp;<span class="timeDOM">00:00</span></p>
+      </div>
       <div class="breaklink">
-        <p>断开链接<span class="breaktime">5</span>秒后退出</p>
+        <p>等待对方进入<br/>. . . . . .</p>
       </div>
     </div>
   </section>
-  <script src="js/SkyRTC-client.js"></script>
+  <script src='js/SkyRTC-client.js'></script>
   <script>
-    /**********   判断当前用户类型是否为医生   ***********/
-    var uid = GetQueryString('uid');
-    var isDoc = uid === '0' ? false : true;
-    function GetQueryString(name){
-      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-      var r = window.location.search.substr(1).match(reg);
-      if(r!=null)return  unescape(r[2]); return null;
-    }
-    
-    /**********   UI   ***********/
-    var doctor_info = document.querySelector('#doctor_info');
-    var chat = document.querySelector('#chat');
-    var call = document.querySelector('#call');
+    var my_video = document.querySelector('#my_video');
+    var other_video = document.querySelector('#other_video');
+    var call_container = document.querySelector('.call');
     var control = document.querySelector('.control');
-    var control_btn = document.querySelector('.control_btn');
-    if(isDoc){
-      //医生界面样式
-      doctor_info.classList.add('doctor_info_doc');
-      chat.classList.add('chat_doc');
-      //默认状态下call界面无显示
-      call.style.display = 'none';
-      call.classList.add('call_doc');
-      call.getElementsByTagName('p')[0].innerHTML = '对方请求视频通话<br/>......';
-    }else{
-      //用户界面样式
-      doctor_info.classList.add('doctor_info_user');
-      chat.classList.add('chat_user');
-      call.classList.add('call_user');
-      call.getElementsByTagName('p')[0].innerHTML = '等待对方接听<br/>......';
-      control_btn.style.display = 'none';
-    }
+    var breaklink = document.querySelector('.breaklink');
+    var phone_audio = document.querySelector('.phone_audio');
+    //接收到文字信息, 判断呼叫流程
+    var state_1 = 'user call';    //呼叫中
+    var state_2 = 'doc answer';   //接听电话
+    var state_3 = 'doc hang up';  //挂断电话
+    //存放的全局变脸
+    var other_stream;
 
-    /**********   RTC   ***********/
-    var my_video = document.querySelector("#my_video");
-    var other_video = document.querySelector("#other_video");
-    var rtc = SkyRTC();
-    first_login = true;
-    var other_stream = null;
-    //默认状态下视频禁音
-    my_video.muted = true;
+    var rtc = new SkyRTC();
+    //连接WebSocket服务器
+    rtc.connect("wss://" + window.location.host, 'doc2', 'doc2_room');
 
     //成功创建WebSocket连接
     rtc.on("connected", function(socket) {
@@ -92,129 +65,79 @@
             "audio": true
         });
     });
+
     //创建本地视频流成功
     rtc.on("stream_created", function(stream) {
-        my_video.srcObject = stream;
-        my_video.play();
+      my_video.srcObject = stream;
+      my_video.muted = true;
+      my_video.play();
     });
+
     //创建本地视频流失败
     rtc.on("stream_create_error", function() {
-        alert("不支持webRTC, 请在非IOS的chrome下运行");
+        alert("不支持webRTC, 请在windows下的chrome浏览器中运行");
     });
+
     //接收到其他用户的视频流
     rtc.on('pc_add_stream', function(stream, socketId) {
-      console.log('接受到视频流');
-      //用户呼叫医生
-      if(first_login){
-        if(isDoc){
-          other_video.style.display = 'none';
-        }else{
-          setTimeout(function(){
-            rtc.broadcast(state_1);
-          },1000)
-        }
-        first_login = false;
-      }
-      
-      var id = 'other_video';
       other_stream = stream;
-      //rtc.attachStream(stream, id);
     });
+
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
-      other_video.setAttribute('src','')
-      //断开链接
-      if(isDoc){
-        //医生界面样式
-        control.style.display = 'none';
-        stop_time();
-        call.style.display = 'none';
-        phone_audio.pause();
-      }else{
-        //用户界面样式
-        stop_time();
-        breaklink();
-      }
+      other_video.setAttribute('src',' ');
+      control.style.display = 'none';
     });
-    
-    //连接WebSocket服务器
-    rtc.connect("wss:" + window.location.href.substring(window.location.protocol.length).split('#')[0], 'doctor2');
 
-    /********** 电话流程 **********/
-    //接收到文字信息, 判断呼叫流程
-    var state_1 = 'user call';    //呼叫中
-    var state_2 = 'doc answer';   //接听电话
-    var state_3 = 'doc hang up';  //挂断电话
-    var phone_audio = document.querySelector('.phone_audio');
-    
-    //用户呼叫医生
-    if(isDoc){
-      other_video.style.display = 'none';
-    }else{
-      setTimeout(function(){
-        rtc.broadcast(state_1);
-      },1000)
-    }
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
-      if(isDoc){
-        //医生
-        if(message === state_1) {
-          call.style.display = 'block';
-          phone_audio.load();
-          phone_audio.play();
-        }
-      }else{
-        //用户
-        if(message === state_2) {
-          call.style.display = 'none';
-          control.style.display = 'block';
-          //添加视频流
-          rtc.attachStream(other_stream, 'other_video');
-          start_time();
-        }
-        if(message === state_3){
-          stop_time();
-          //删除视频流
-          if(other_video){
-            other_video.setAttribute('src','')
-            stop_time();
-          }
-          breaklink();
-        }
+      //呼叫中
+      if(message === state_1) {
+        call_container.style.display = 'block';
+        breaklink.style.display = 'none';
+        phone_audio.load();
+        phone_audio.play();
       }
-    });
+    })
 
-    //发出状态
-    //电话按钮后的UI变化
     //接听电话
     var yes = document.querySelector('#yes');
-    yes.onclick = function() {
+    yes.addEventListener('touchend', tel_yes);
+    yes.addEventListener('click', tel_yes);
+    function tel_yes(){
       //发出状态
       rtc.broadcast(state_2);
       phone_audio.pause();
-      //添加视频流
       rtc.attachStream(other_stream, 'other_video');
       //更改医生界面样式
-      call.style.display = 'none';
+      call_container.style.display = 'none';
       other_video.style.display = 'block';
       control.style.display = 'block';
-      start_time();
+      //开始计时
+      start_time()
     }
+
     //挂断电话
     var no = document.querySelector('#no');
-    no.onclick = function() {
+    no.addEventListener('touchend', tel_no);
+    no.addEventListener('click', tel_no);
+    function tel_no(){
       rtc.broadcast(state_3);
       phone_audio.pause();
-      call.style.display = 'none';
+      breaklink.style.display = 'block';
+      call_container.style.display = 'none';
     }
-    //医生结束通话
-    control_btn.onclick = function(){
-      //发出状态
+
+    //结束通话
+    var hang_up = document.querySelector('.hang_up');
+    hang_up.addEventListener('touchend', tel_hang_up);
+    hang_up.addEventListener('click', tel_hang_up);
+    function tel_hang_up(){
       rtc.broadcast(state_3);
+      breaklink.style.display = 'block';
       //删除视频流
       if(other_video){
-        other_video.setAttribute('src','')
+        other_video.style.display = 'none';
         stop_time();
       }
     }
@@ -258,23 +181,6 @@
     function stop_time(){
       clearInterval(timer);
       control.style.display = 'none';
-    }
-    //断开链接
-    function breaklink(){
-      var breaklinkDOM = document.querySelector('.breaklink');
-      var breaktime = document.querySelector('.breaktime');
-      var t = 5;
-
-      breaklinkDOM.style.display = 'block';
-      var break_timer = setInterval(function(){
-        t--;
-        breaktime.innerHTML = t;
-        if(t === 0){
-          clearInterval(break_timer);
-          window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
-        }
-      },1000)
-
     }
   </script>
 </body>

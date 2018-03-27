@@ -7,61 +7,38 @@ var path = require("path");
 var port = process.env.PORT || 3000;
 server.listen(port);
 
-//医生在线状态
-let doctors = {
-	doc1: false,
-	doc2: false,
-}
-
 app.use(express.static(path.join(__dirname, 'static')));
 
-let uid = '';
-
-//一号医生页面
-app.use('/doc1', function(req, res) {
-	uid = req.query.uid
-	if(uid === "1" || uid === "0"){
-		res.sendfile(__dirname + '/static/doc1.html');
-	}else{
-		res.sendfile(__dirname + '/static/404.html');
-	}
-});
-
-//二号医生页面
-app.use('/doc2', function(req, res) {
-	uid = req.query.uid
-	if(uid === "2" || uid === "0"){
-		res.sendfile(__dirname + '/static/doc2.html');
-	}else{
-		res.sendfile(__dirname + '/static/404.html');
-	}
-});
+//医生在线状态
+let doc_online = {
+	doc1: false,
+	doc2: false
+}
 
 //返回医生在线状态
 app.use('/docState', function(req,res){
-	res.end(JSON.stringify(doctors))
+	res.end(JSON.stringify(doc_online))
 })
 
 SkyRTC.rtc.on('new_connect', function(socket) {
-	socket.id = uid;
-	console.log('创建新连接');
+	//console.log('创建新连接');
 });
 
 SkyRTC.rtc.on('remove_peer', function(socketId) {
-	if(socketId === '1'){
-		doctors.doc1 = false
-	}else if(socketId === '2'){
-		doctors.doc2 = false
-	}
 	console.log(socketId + "用户离开");
+	if(socketId === 'doc1'){
+		doc_online.doc1 = false
+	}else if(socketId === 'doc2'){
+		doc_online.doc2 = false
+	}
 });
 
 SkyRTC.rtc.on('new_peer', function(socket, room) {
 	console.log("新用户" + socket.id + "加入房间" + room);
-	if(socket.id === '1'){
-		doctors.doc1 = true
-	}else if(socket.id === '2'){
-		doctors.doc2 = true
+	if(socket.id === 'doc1'){
+		doc_online.doc1 = true
+	}else if(socket.id === 'doc2'){
+		doc_online.doc2 = true
 	}
 });
 

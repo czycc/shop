@@ -16,12 +16,14 @@ function SkyRTC() {
 	this.on('__join', function(data, socket) {
 		var ids = [],
 			i, m,
-			room = data.room || "__default",
+			room = data.room || "default_room",
+			id = data.id || 'visitor',
 			curSocket,
 			curRoom;
 
 		curRoom = this.rooms[room] = this.rooms[room] || [];
-
+		socket.id = id;
+		socket.room = room;
 		for (i = 0, m = curRoom.length; i < m; i++) {
 			curSocket = curRoom[i];
 			if (curSocket.id === socket.id) {
@@ -37,7 +39,6 @@ function SkyRTC() {
 		}
 
 		curRoom.push(socket);
-		socket.room = room;
 
 		socket.send(JSON.stringify({
 			"eventName": "_peers",
