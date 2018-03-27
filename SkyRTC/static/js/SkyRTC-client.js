@@ -362,12 +362,13 @@ var SkyRTC = function() {
             that.emit("pc_get_ice_candidate", evt.candidate, socketId, pc);
         };
 
+        console.log(pc)
         pc.onopen = function() {
             that.emit("pc_opened", socketId, pc);
         };
 
         pc.onaddstream = function(evt) {
-            console.log('pc.onaddstream')
+            console.log('onaddstream:'+pc)
             that.emit('pc_add_stream', evt.stream, socketId, pc);
         };
 
