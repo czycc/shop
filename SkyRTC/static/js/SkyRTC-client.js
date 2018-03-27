@@ -418,7 +418,6 @@ var SkyRTC = function() {
         var pc, key, channel;
         pc = this.peerConnections[socketId];
 
-        console.log(socketId, label)
         if (!socketId) {
             this.emit("data_channel_create_error", socketId, new Error("attempt to create data channel without socket id"));
         }
@@ -438,15 +437,18 @@ var SkyRTC = function() {
     skyrtc.prototype.addDataChannel = function(socketId, channel) {
         var that = this;
         channel.onopen = function() {
+            console.log('data_channel_opened')
             that.emit('data_channel_opened', channel, socketId);
         };
 
         channel.onclose = function(event) {
+            console.log('data_channel_closed')
             delete that.dataChannels[socketId];
             that.emit('data_channel_closed', channel, socketId);
         };
 
         channel.onmessage = function(message) {
+            console.log('data_channel_message')
             var json;
             json = JSON.parse(message.data);
             if (json.type === '__file') {
