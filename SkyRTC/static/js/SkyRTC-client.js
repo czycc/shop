@@ -407,7 +407,6 @@ var SkyRTC = function() {
 
     //对所有的PeerConnections创建Data channel
     skyrtc.prototype.addDataChannels = function() {
-        console.log(this.peerConnections)
         var connection;
         for (connection in this.peerConnections) {
             this.createDataChannel(connection);
@@ -419,6 +418,7 @@ var SkyRTC = function() {
         var pc, key, channel;
         pc = this.peerConnections[socketId];
 
+        console.log(socketId, label)
         if (!socketId) {
             this.emit("data_channel_create_error", socketId, new Error("attempt to create data channel without socket id"));
         }
@@ -431,7 +431,6 @@ var SkyRTC = function() {
         } catch (error) {
             this.emit("data_channel_create_error", socketId, error);
         }
-
         return this.addDataChannel(socketId, channel);
     };
 
