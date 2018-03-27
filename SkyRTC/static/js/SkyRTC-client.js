@@ -390,7 +390,7 @@ var SkyRTC = function() {
     //消息广播
     skyrtc.prototype.broadcast = function(message) {
         var socketId;
-        console.log('broadcast:'+socketId)
+        console.log('broadcast:'+message)
         for (socketId in this.dataChannels) {
             console.log('循环：'+message+'...'+socketId)
             this.sendMessage(message, socketId);
