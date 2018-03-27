@@ -397,6 +397,7 @@ var SkyRTC = function() {
 
     //发送消息方法
     skyrtc.prototype.sendMessage = function(message, socketId) {
+        console.log(this.dataChannels[socketId].readyState.toLowerCase())
         if (this.dataChannels[socketId].readyState.toLowerCase() === 'open') {
             this.dataChannels[socketId].send(JSON.stringify({
                 type: "__msg",
