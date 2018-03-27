@@ -430,6 +430,7 @@ var SkyRTC = function() {
         } catch (error) {
             this.emit("data_channel_create_error", socketId, error);
         }
+        console.log(channel)
         return this.addDataChannel(socketId, channel);
     };
 
@@ -437,18 +438,15 @@ var SkyRTC = function() {
     skyrtc.prototype.addDataChannel = function(socketId, channel) {
         var that = this;
         channel.onopen = function() {
-            console.log('data_channel_opened')
             that.emit('data_channel_opened', channel, socketId);
         };
 
         channel.onclose = function(event) {
-            console.log('data_channel_closed')
             delete that.dataChannels[socketId];
             that.emit('data_channel_closed', channel, socketId);
         };
 
         channel.onmessage = function(message) {
-            console.log('data_channel_message')
             var json;
             json = JSON.parse(message.data);
             if (json.type === '__file') {
