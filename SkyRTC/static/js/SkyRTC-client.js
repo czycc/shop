@@ -447,6 +447,7 @@ var SkyRTC = function() {
         };
 
         channel.onmessage = function(message) {
+            console.log('测试===')
             var json;
             json = JSON.parse(message.data);
             if (json.type === '__file') {
