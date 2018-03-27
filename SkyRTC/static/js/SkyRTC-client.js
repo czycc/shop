@@ -390,7 +390,9 @@ var SkyRTC = function() {
     //消息广播
     skyrtc.prototype.broadcast = function(message) {
         var socketId;
+        console.log('broadcast:'+socketId)
         for (socketId in this.dataChannels) {
+            console.log('循环：'+message+'...'+socketId)
             this.sendMessage(message, socketId);
         }
     };
@@ -438,18 +440,15 @@ var SkyRTC = function() {
     skyrtc.prototype.addDataChannel = function(socketId, channel) {
         var that = this;
         channel.onopen = function() {
-            console.log('open')
             that.emit('data_channel_opened', channel, socketId);
         };
 
         channel.onclose = function(event) {
-            console.log('close')
             delete that.dataChannels[socketId];
             that.emit('data_channel_closed', channel, socketId);
         };
 
         channel.onmessage = function(message) {
-            console.log('message')
             var json;
             json = JSON.parse(message.data);
             if (json.type === '__file') {
@@ -461,7 +460,6 @@ var SkyRTC = function() {
         };
 
         channel.onerror = function(err) {
-            console.log(err)
             that.emit('data_channel_error', channel, socketId, err);
         };
 
