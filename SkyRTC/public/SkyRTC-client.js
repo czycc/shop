@@ -8,6 +8,8 @@ var SkyRTC = function() {
     var iceServer = {
         "iceServers": [{
             "url": "stun:stun.l.google.com:19302"
+        },{
+            "url": "stun.stunprotocol.org"
         }]
     };
     var packetSize = 1000;
