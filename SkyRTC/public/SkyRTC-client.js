@@ -7,18 +7,7 @@ var SkyRTC = function() {
     var moz = !!navigator.mozGetUserMedia;
     var iceServer = {
         "iceServers": [{
-            urls: "stun:stun.services.mozilla.com",
-            username: "louis@mozilla.com", 
-            credential: "webrtcdemo"
-        },{
-            urls: [
-                "stun:stun.example.com",
-                "stun:stun-1.example.com"
-            ]
-        },{
-            "urls": "stun:stun.l.google.com:19302"
-        },{
-            "urls": "stun.stunprotocol.org"
+            "url": "stun.stunprotocol.org:3478"
         }]
     };
     var packetSize = 1000;
