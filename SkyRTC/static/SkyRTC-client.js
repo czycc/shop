@@ -7,7 +7,10 @@ var SkyRTC = function() {
     var moz = !!navigator.mozGetUserMedia;
     var iceServer = {
         "iceServers": [
-            {url: 'stun:stun.l.google.com:19302'}
+            {'url': 'stun.ideasip.com'},
+            {'url': 'stun.iptel.org'},
+            {'url': 'stun.voxgratia.org'},
+            {'url': 'stun:stun.l.google.com:19302'}
         ]
     };
     var packetSize = 1000;
