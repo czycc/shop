@@ -11,7 +11,7 @@ var SkyRTC = function() {
             {
                 'url': 'turn:wx.touchworld-sh.com:3478',
                 'username': 'czy',
-                'password': 'secret'
+                'credential': 'secret'
             }
         ]
     };
