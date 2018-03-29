@@ -6,9 +6,9 @@ var SkyRTC = function() {
     var nativeRTCSessionDescription = (window.mozRTCSessionDescription || window.RTCSessionDescription); // order is very important: "RTCSessionDescription" defined in Nighly but useless
     var moz = !!navigator.mozGetUserMedia;
     var iceServer = {
-        "iceServers": [{
-            "url": "stun.stunprotocol.org:3478"
-        }]
+        "iceServers": [
+            {url:'stun.qq.com:3478'}
+        ]
     };
     var packetSize = 1000;
 
