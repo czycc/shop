@@ -50,7 +50,7 @@
     var state_1 = 'user call';    //呼叫中
     var state_2 = 'doc answer';   //接听电话
     var state_3 = 'doc hang up';  //挂断电话
-    //存放的全局变脸
+    //存放的全局变量
     var other_stream;
 
     var rtc = new SkyRTC();
@@ -85,6 +85,7 @@
 
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
+      tel_hang_up();
       other_video.setAttribute('src',' ');
       control.style.display = 'none';
     });

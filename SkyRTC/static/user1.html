@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/user.css">
 </head>
 <body>
+  <audio class="phone_audio" loop preload src="images/phone.mp3"></audio>
   <header>
     <img src="images/title.png">
     <img src="images/small_title.png" class="small_title">
@@ -42,11 +43,12 @@
     var call_container = document.querySelector('.call');
     var control = document.querySelector('.control');
     var breaklink = document.querySelector('.breaklink');
+    var phone_audio = document.querySelector('.phone_audio');
     //接收到文字信息, 判断呼叫流程
     var state_1 = 'user call';    //呼叫中
     var state_2 = 'doc answer';   //接听电话
     var state_3 = 'doc hang up';  //挂断电话
-    //存放的全局变脸
+    //存放的全局变量
     var other_stream;
 
     var rtc = new SkyRTC();
@@ -92,14 +94,24 @@
       stop_time();
     });
 
+    //等待20秒，无人接听则返回
+    var isOK = false;
+    setTimeout(function(){
+      if(!isOK){
+        window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
+      }
+    },20000)
+
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
       //医生接听
       if(message === state_2) {
+        isOK = true;
         doc_call();
       }
       //医生挂断
       if(message === state_3) {
+        isOK = true;
         //删除视频流
         if(other_video){
           other_video.setAttribute('src',' ')
@@ -116,6 +128,7 @@
     var breaktime = document.querySelector('.breaktime');
     //医生接听电话
     function doc_call(){
+      phone_audio.pause();
       clearInterval(break_timer);
       t = 5;
       breaktime.innerHTML = t;
@@ -127,6 +140,7 @@
     }
     //断开连接
     function doc_break(){
+      phone_audio.pause();
       clearInterval(break_timer);
       breaktime.innerHTML = t;
       breaklinkDOM.style.display = 'block';
