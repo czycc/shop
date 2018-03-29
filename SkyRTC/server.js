@@ -7,7 +7,7 @@ var path = require("path");
 var port = process.env.PORT || 3000;
 server.listen(port);
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'static')));
 
 app.get('/', function(req, res) {
 	res.sendfile(__dirname + '/index.html');
