@@ -7,9 +7,15 @@ var SkyRTC = function() {
     var moz = !!navigator.mozGetUserMedia;
     var iceServer = {
         "iceServers": [
-            {'url': 'wx.touchworld-sh.com:3478'}
+            {
+                'url': 'turn:wx.touchworld-sh.com:3478',
+                'username': 'czy',
+                'password': 'secret'
+            },
+            {'url': 'stun:touchworld-sh.com:3478'}
         ]
     };
+    // {'url': 'stun:stun.l.google.com:19302'}
     var packetSize = 1000;
 
     /**********************************************************/
