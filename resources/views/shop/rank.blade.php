@@ -21,7 +21,7 @@
 <body>
 <img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
 <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
-<img src="{{ asset('vip/images/rank/rank_bg.jpg') }}">
+<img src="{{ asset('vip/images/rank/rank_bg1.jpg') }}">
 <div class="myStep">{{ $relate->machine->total }}</div>
 <div class="getGold">今日得到<span>{{ floor($sub/1000) }}</span>金币</div>
 <div class="tips">( 还有<span>{{ $sub }}</span>步数可兑换 )</div>

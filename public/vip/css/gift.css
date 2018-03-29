@@ -6,7 +6,7 @@
     width: 640px;
     height: 1038px;
     position: absolute;
-    background: url("../images/gift/bg.jpg") no-repeat center center;
+    background: url("../images/gift/bg1.jpg") no-repeat center center;
 }
 .hidden{
     display: none;
@@ -16,14 +16,14 @@
     left:0;
     right: 0;
     margin:auto;
-    top:394px;
+    top:402px;
 }
 .rta .pointer img{
     position: absolute;
     left:0;
     right: 0;
     margin:auto;
-    top:549px;
+    top:555px;
     z-index: 1;
     animation: pointer 0.6s infinite linear alternate;
 
@@ -46,7 +46,7 @@
     z-index: 100;
     width: 640px;
     height: 1038px;
-    background: url("../images/gift/coupon.png") no-repeat center center;
+    background: url("../images/gift/coupon1.png") no-repeat center center;
 }
 .rta .gold{
     position: absolute;

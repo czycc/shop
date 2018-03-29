@@ -12,55 +12,61 @@
 <div class="loading">
     <img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
     <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
-    {{--<p class="loadText"><span class="number">0</span><span>%</span></p>--}}
-    {{--<div class="load">--}}
-        {{--<p class="grey"></p>--}}
-        {{--<p class="orange"></p>--}}
-    {{--</div>--}}
-    <canvas id='canvas'></canvas>
+    <p class="loadText"><span class="number">0</span><span>%</span></p>
+    <div class="load">
+        <p class="grey"></p>
+        <p class="orange"></p>
+    </div>
+    <img src="{{asset('vip/images/loading/dog_s.png')}}" alt="" class="dog">
 </div>
 </body>
 <script src="{{asset('vip/js/jquery.min.js')}}"></script>
 <script src="{{asset('vip/js/sequenceFrame.js')}}"></script>
-
-
 <script>
-    var imgarr = [];
-    for(var i = 1 ;i < 5;i ++){
-        imgarr.push('../vip/images/loading/ladingpage/loding page_0000'+2*i+'.png')
+   //图片预加载
+    var loader = new PxLoader();
+    var URL = window.location.href;
+    var BASE_PATH = URL.substring(0, URL.lastIndexOf('/') + 1);
+    var realLoadingNum = 0;
+    var fakeLoadingNum = 0;
+    var myLoadingInterval = null;
+    var fileList = [
+       'images/loading/bg2.png',
+    ];
+    for (var i = 0; i < 10; i++) {
+        fileList.push('images/loading/ladingpage/loding page_0000'+i+'.png');
     }
-    for(var i = 10 ;i < 87;i ++){
-        imgarr.push('../vip/images/loading/ladingpage/loding page_000'+i+'.png')
+    for (var i = 10; i < 69; i++) {
+        fileList.push('images/loading/ladingpage/loding page_000'+i+'.png');
     }
-
-    var frame2 = new SequenceFrame({
-        id: $('#canvas')[0],
-        width: 640,
-        height: 1038,
-        speed: 50,
-        loop: false,
-        callback: function() {
-
-            window.location.href = '{{ url('shop/index') }}'
-
-        },
-        imgArr: imgarr
+    for(var i = 0; i < fileList.length; i++){
+        var pxImage = new PxLoaderImage(BASE_PATH + fileList[i]);
+        pxImage.imageNumber = i + 1;
+        loader.add(pxImage);
+    }
+    loader.addCompletionListener(function(){
+        console.log("预加载图片："+fileList.length+"张");
     });
-
-    {{--var num = 0;--}}
-    {{--var wid = 0;--}}
-    {{--var timer = setInterval(function () {--}}
-        {{--num++;--}}
-        {{--wid = num / 100;--}}
-        {{--$('.loading .loadText .number').html(num);--}}
-        {{--$('.loading .load .orange').css('width',500*wid + "px")--}}
-        {{--if(num >= 100){--}}
-            {{--clearInterval(timer);--}}
-            {{--//当数据为100的时候，调转的连接--}}
-          {{--window.location.href = '{{ url('shop/index') }}'--}}
-        {{--}--}}
-    {{--},30)--}}
-
+    loader.addProgressListener(function(e){
+        var percent = Math.round( (e.completedCount / e.totalCount) * 100); //正序, 1-100
+        realLoadingNum = percent;
+    });
+    var myLoadingInterval=setInterval(function(){
+        fakeLoadingNum++;
+        if(realLoadingNum > fakeLoadingNum){
+            $(".number").html(fakeLoadingNum);
+            $('.loading .load .orange').css('width',500*fakeLoadingNum/100 + "px")
+        }else{
+            $(".number").html(realLoadingNum);
+            $('.loading .load .orange').css('width',500*realLoadingNum/100 + "px")
+        }
+        if(fakeLoadingNum>=100 && realLoadingNum==100){
+            clearInterval(myLoadingInterval);
+           //绘制序列帧动态背景
+            window.location.href = '{{ url('shop/index') }}'
+        }
+    },30);
+    loader.start();
 </script>
 <script>
     //解决ios上不能自动播放声音

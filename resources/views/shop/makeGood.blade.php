@@ -33,7 +33,7 @@
         @endforeach
     </ul>
     {{--前往抽奖页面--}}
-    <a href="{{ url('shop/draw') }}" class="btn"><img src="{{ asset('vip/images/makeGood/btn.png') }}"></a>
+    <a href="{{ url('shop/draw') }}" class="btn"><img src="{{ asset('vip/images/makeGood/btn1.png') }}"></a>
     {{--前往首页--}}
     <a href="{{ url('shop/index') }}" class="home"><img src="{{ asset('vip/images/makeGood/home.png') }}"></a>
 </div>

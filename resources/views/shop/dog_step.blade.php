@@ -22,7 +22,7 @@
 <body>
 <img src="{{asset('vip/images/audio/audio2.png')}}" alt="" class="audioMusic">
 <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
-<img src="{{ asset('vip/images/dog_step/step_bg.jpg') }}">
+<img src="{{ asset('vip/images/dog_step/step_bg1.jpg') }}">
 <a href="javascript:void(0)" class="storeList"><img src="{{ asset('vip/images/dog_step/storeList.png') }}"></a>
 <a href="javascript:void(0)" class="showList"><img src="{{ asset('vip/images/dog_step/showList.png') }}"></a>
 <a href="{{ url('shop/index') }}" class="home"><img src="{{ asset('vip/images/dog_step/home.png') }}"></a>
@@ -69,7 +69,7 @@
             <li>秦皇岛:茂业HP</li>
             <li>唐山:万达百货HP</li>
         </ul>
-        <img src="{{ asset('vip/images/dog_step/dog.png') }}" class="dog">
+        <img src="{{ asset('vip/images/dog_step/dog1.png') }}" class="dog">
     </div>
 </div>
 

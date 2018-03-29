@@ -34,7 +34,7 @@
         <img src="{{ asset('vip/images/gift/gifyBtn.png') }}" alt="">
     </a>
 </div>
-<img src="{{ asset('vip/images/gift/illusPopup.png') }}" alt="" class="myGift">
+<img src="{{ asset('vip/images/gift/illusPopup1.png') }}" alt="" class="myGift">
 <!--抽奖回调的弹窗-->
 <div class="popup hidden">
     <img src="{{ asset('vip/images/gift/0.png') }}" alt="" class="popupBg">
