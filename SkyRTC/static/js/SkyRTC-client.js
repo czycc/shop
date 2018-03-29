@@ -1,5 +1,5 @@
 var SkyRTC = function() {
-    var PeerConnection = (window.PeerConnection || window.webkitPeerConnection00 || window.webkitRTCPeerConnection || window.mozRTCPeerConnection);
+    var PeerConnection = (window.PeerConnection || window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection ||window.webkitPeerConnection00);
     var URL = (window.URL || window.webkitURL || window.msURL || window.oURL);
     var getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
     var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -7,10 +7,16 @@ var SkyRTC = function() {
     var nativeRTCSessionDescription = (window.mozRTCSessionDescription || window.RTCSessionDescription); // order is very important: "RTCSessionDescription" defined in Nighly but useless
     var moz = !!navigator.mozGetUserMedia;
     var iceServer = {
-        "iceServers": [{
-            "url": "stun:stun.l.google.com:19302"
-        }]
+        "iceServers": [
+            {'url': 'stun:touchworld-sh.com:3478'},
+            {
+                'url': 'turn:wx.touchworld-sh.com:3478',
+                'username': 'czy',
+                'credential': 'secret'
+            }
+        ]
     };
+    
     var packetSize = 1000;
 
     /**********************************************************/
@@ -83,7 +89,7 @@ var SkyRTC = function() {
 
 
     //本地连接信道，信道为websocket
-    skyrtc.prototype.connect = function(server, room) {
+    skyrtc.prototype.connect = function(server, id, room) {
         var socket,
             that = this;
         room = room || "";
@@ -92,6 +98,7 @@ var SkyRTC = function() {
             socket.send(JSON.stringify({
                 "eventName": "__join",
                 "data": {
+                    "id": id,
                     "room": room
                 }
             }));
@@ -395,7 +402,6 @@ var SkyRTC = function() {
         } catch (error) {
             this.emit("data_channel_create_error", socketId, error);
         }
-
         return this.addDataChannel(socketId, channel);
     };
 
