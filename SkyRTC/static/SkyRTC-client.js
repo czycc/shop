@@ -7,7 +7,7 @@ var SkyRTC = function() {
     var moz = !!navigator.mozGetUserMedia;
     var iceServer = {
         "iceServers": [
-            {url: 'stun.ideasip.com'}
+            {url: 'stun.ideasip.com:3478'}
         ]
     };
     var packetSize = 1000;
