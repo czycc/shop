@@ -31,13 +31,13 @@
     var fakeLoadingNum = 0;
     var myLoadingInterval = null;
     var fileList = [
-       '{{asset('vip/images/loading/bg2.png')}}',
+       "{{asset('vip/images/loading/bg2.png')}}",
     ];
     for (var i = 0; i < 10; i++) {
-        fileList.push('{{asset('vip/images/loading/ladingpage/loding page_0000'+i+'.png')}});
+        fileList.push("{{asset('vip/images/loading/ladingpage/loding page_0000"+i+".png')}}");
     }
     for (var i = 10; i < 69; i++) {
-        fileList.push('{{asset('vip/images/loading/ladingpage/loding page_000'+i+'.png')}});
+        fileList.push("{{asset('vip/images/loading/ladingpage/loding page_000"+i+".png')}}");
     }
     for(var i = 0; i < fileList.length; i++){
         var pxImage = new PxLoaderImage(BASE_PATH + fileList[i]);
