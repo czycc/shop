@@ -22,6 +22,7 @@
 </body>
 <script src="{{asset('vip/js/jquery.min.js')}}"></script>
 <script src="{{asset('vip/js/sequenceFrame.js')}}"></script>
+<script src="{{asset('vip/js/pxloader-all.min.js')}}"></script>
 <script>
    //图片预加载
     var loader = new PxLoader();
@@ -31,13 +32,13 @@
     var fakeLoadingNum = 0;
     var myLoadingInterval = null;
     var fileList = [
-       'images/loading/bg2.png',
+       "../vip/images/loading/bg2.png",
     ];
     for (var i = 0; i < 10; i++) {
-        fileList.push('images/loading/ladingpage/loding page_0000'+i+'.png');
+        fileList.push("../vip/images/loading/ladingpage/loding page_0000"+i+".png");
     }
     for (var i = 10; i < 69; i++) {
-        fileList.push('images/loading/ladingpage/loding page_000'+i+'.png');
+        fileList.push("../vip/images/loading/ladingpage/loding page_000"+i+".png");
     }
     for(var i = 0; i < fileList.length; i++){
         var pxImage = new PxLoaderImage(BASE_PATH + fileList[i]);
