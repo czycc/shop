@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>大医精诚</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="layui/css/layui.css">
+	<style>
+		html,
+		body,
+		#video {
+			width: 100%;
+			height: 100%;
+		}
+
+		#video {
+			object-fit: fill;
+		}
+	</style>
+</head>
+
+<body>
+	<video id="video" src="images/video.mp4" autoplay loop></video>
+	<script>
+		var video = document.getElementById('video');
+
+		//键盘事件
+		document.onkeydown = function (e) {
+			//选择医生
+			console.log(e.keyCode)
+			switch (e.keyCode) {
+				case 1:
+					//跳转视频聊天室
+					window.location.href = "https://weixin.touchworld-sh.com/node/user1.html";
+					break;
+				case 2:
+					//跳转视频聊天室
+					window.location.href = "https://weixin.touchworld-sh.com/node/user2.html";
+					break;
+				default:
+					break;
+			}
+		};
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>大医精诚</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/doc.css">
+</head>
+<body>
+  <audio class="phone_audio" loop preload src="images/phone.mp3"></audio>
+  <header>
+    <img src="images/title.png">
+    <img src="images/small_title.png" class="small_title">
+  </header>
+  <section>
+    <div class="chat">
+      <div class="box1">
+        <video src="" id='other_video' autoplay playsinline></video>
+      </div>
+      <div class="box2">
+        <video src="" id='my_video' autoplay playsinline></video>
+      </div>
+      <div class="call">
+        <p>对方请求视频通话<br/>. . . . . .</p>
+        <div class="btn_group">
+          <img id="no" src="images/no.png">
+          <img id="yes" src="images/yes.png">
+        </div>
+      </div>
+      <div class="control">
+        <img class="hang_up" src="images/no.png">
+        <p>通话时长&nbsp;<span class="timeDOM">00:00</span></p>
+      </div>
+      <div class="breaklink">
+        <p>等待对方进入<br/>. . . . . .</p>
+      </div>
+    </div>
+  </section>
+  <script src='js/SkyRTC-client.js'></script>
+  <script>
+    var my_video = document.querySelector('#my_video');
+    var other_video = document.querySelector('#other_video');
+    var call_container = document.querySelector('.call');
+    var control = document.querySelector('.control');
+    var breaklink = document.querySelector('.breaklink');
+    var phone_audio = document.querySelector('.phone_audio');
+    //接收到文字信息, 判断呼叫流程
+    var state_1 = 'user call';    //呼叫中
+    var state_2 = 'doc answer';   //接听电话
+    var state_3 = 'doc hang up';  //挂断电话
+    //存放的全局变脸
+    var other_stream;
+
+    var rtc = new SkyRTC();
+    //连接WebSocket服务器
+    rtc.connect("wss://" + window.location.host + '/node/doc2_room', 'doc2', 'doc2_room');
+
+    //成功创建WebSocket连接
+    rtc.on("connected", function(socket) {
+        //创建本地视频流
+        rtc.createStream({
+            "video": true,
+            "audio": true
+        });
+    });
+
+    //创建本地视频流成功
+    rtc.on("stream_created", function(stream) {
+      my_video.srcObject = stream;
+      my_video.muted = true;
+      my_video.play();
+    });
+
+    //创建本地视频流失败
+    rtc.on("stream_create_error", function() {
+        alert("不支持webRTC, 请在windows下的chrome浏览器中运行");
+    });
+
+    //接收到其他用户的视频流
+    rtc.on('pc_add_stream', function(stream, socketId) {
+      other_stream = stream;
+    });
+
+    //删除其他用户
+    rtc.on('remove_peer', function(socketId) {
+      other_video.setAttribute('src',' ');
+      control.style.display = 'none';
+    });
+
+    //接受状态
+    rtc.on('data_channel_message', function(channel, socketId, message){
+      //呼叫中
+      if(message === state_1) {
+        call_container.style.display = 'block';
+        breaklink.style.display = 'none';
+        phone_audio.load();
+        phone_audio.play();
+      }
+    })
+
+    //接听电话
+    var yes = document.querySelector('#yes');
+    yes.addEventListener('touchend', tel_yes);
+    yes.addEventListener('click', tel_yes);
+    function tel_yes(){
+      //发出状态
+      rtc.broadcast(state_2);
+      phone_audio.pause();
+      rtc.attachStream(other_stream, 'other_video');
+      //更改医生界面样式
+      call_container.style.display = 'none';
+      other_video.style.display = 'block';
+      control.style.display = 'block';
+      //开始计时
+      start_time()
+    }
+
+    //挂断电话
+    var no = document.querySelector('#no');
+    no.addEventListener('touchend', tel_no);
+    no.addEventListener('click', tel_no);
+    function tel_no(){
+      rtc.broadcast(state_3);
+      phone_audio.pause();
+      breaklink.style.display = 'block';
+      call_container.style.display = 'none';
+    }
+
+    //结束通话
+    var hang_up = document.querySelector('.hang_up');
+    hang_up.addEventListener('touchend', tel_hang_up);
+    hang_up.addEventListener('click', tel_hang_up);
+    function tel_hang_up(){
+      rtc.broadcast(state_3);
+      breaklink.style.display = 'block';
+      //删除视频流
+      if(other_video){
+        other_video.style.display = 'none';
+        stop_time();
+      }
+    }
+
+    //时间计时器，返回00：00格式的时间
+    var timer = null;
+    function start_time(){
+      var timeDOM = document.querySelector('.timeDOM');
+      var s = 0;
+      var m = 0;
+      var h = 0;
+      var time = '00:00'
+
+      timer = setInterval(function(){
+        s = parseInt(s);
+        m = parseInt(m);
+        h = parseInt(h);
+        s++;
+        if(s === 60){
+          m++;  
+          s = 0;
+        }
+        if(m === 60){
+          h++;
+          s = 0;
+          m = 0;
+        }
+        //格式化时间
+        s = s < 10 ? '0' + s : s;
+        m = m < 10 ? '0' + m : m;
+        h = h < 10 ? '0' + h : h;
+        if(h > 0){
+          time = h + ':' + m + ':' + s;
+        }else{
+          time = m + ':' + s;
+        }
+        //加入DOM
+        timeDOM.innerHTML = time;
+      }, 1000)
+    }
+    function stop_time(){
+      clearInterval(timer);
+      control.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
