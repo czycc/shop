@@ -9,9 +9,9 @@ server.listen(port);
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-app.get('/', function(req, res) {
-	res.sendfile(__dirname + '/index.html');
-});
+// app.get('/', function(req, res) {
+// 	res.sendfile(__dirname + '/index.html');
+// });
 
 SkyRTC.rtc.on('new_connect', function(socket) {
 	console.log('创建新连接');
