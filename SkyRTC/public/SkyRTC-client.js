@@ -312,7 +312,7 @@ var SkyRTC = function() {
     //创建单个PeerConnection
     skyrtc.prototype.createPeerConnection = function(socketId) {
         var that = this;
-        var pc = new PeerConnection(iceServer);
+        var pc = new PeerConnection();
         this.peerConnections[socketId] = pc;
         pc.onicecandidate = function(evt) {
             if (evt.candidate)
