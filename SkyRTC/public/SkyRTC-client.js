@@ -7,7 +7,9 @@ var SkyRTC = function() {
     var moz = !!navigator.mozGetUserMedia;
     var iceServer = {
         "iceServers": [
-            {url:'stun.qq.com:3478'}
+            {url:'stun.qq.com:3478'},
+            {url:'stun.phone.com:3478'},
+            {url:'stun.smartvoip.com:3478'}
         ]
     };
     var packetSize = 1000;
