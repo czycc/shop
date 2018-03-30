@@ -106,11 +106,13 @@
     rtc.on('data_channel_message', function(channel, socketId, message){
       //医生接听
       if(message === state_2) {
+        phone_audio.pause();
         isOK = true;
         doc_call();
       }
       //医生挂断
       if(message === state_3) {
+        phone_audio.pause();
         isOK = true;
         //删除视频流
         if(other_video){
