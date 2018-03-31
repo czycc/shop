@@ -91,9 +91,14 @@
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
       console.log(socketId+'掉线了')
-      tel_hang_up();
-      other_video.setAttribute('src',' ');
-      control.style.display = 'none';
+      // tel_hang_up();
+      // other_video.setAttribute('src',' ');
+      // control.style.display = 'none';
+      if(!isOnline){
+        tel_no();
+        hide_all();
+        show_waiting();
+      }
     });
 
 
