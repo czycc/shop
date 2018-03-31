@@ -80,14 +80,13 @@
     rtc.on('pc_add_stream', function(stream, socketId) {
       other_stream = stream;
       console.log(isOnline)
-      if(!isOnline){
-        setTimeout(function(){
-          rtc.broadcast(state_1);
-        },1000)
-      }else{
+      setTimeout(function(){
+        rtc.broadcast(state_1);
+      },1000)
+      if(isOnline){
         //断下重连
         hide_all();
-        show_waiting();
+        show_control();
       }
     });
 
@@ -96,7 +95,7 @@
       console.log(socketId+'掉线了')
       if(!isOnline){
         hide_all();
-        show_waiting();
+        show_breaklink();
       }
     });
 
