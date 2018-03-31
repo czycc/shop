@@ -65,15 +65,15 @@ section .chat .box2 {
 section .chat .call {
   display: none;
   position: absolute;
-  left: 28px;
-  top: 23px;
-  width: 512px;
-  height: 378px;
+  left: 48px;
+  top: 38px;
+  width: 969px;
+  height: 676px;
   background: #000;
 }
 section .chat .call p {
-  padding: 30px 0;
-  font-size: 30px;
+  padding: 130px 0;
+  font-size: 40px;
   line-height: 60px;
   letter-spacing: 10px;
   color: #fff;
@@ -82,6 +82,7 @@ section .chat .call .btn_group {
   text-align: center;
 }
 section .chat .call .btn_group img {
+  width: 100px;
   display: inline-block;
   padding: 30px 50px;
 }
@@ -119,7 +120,7 @@ section .chat .waiting p {
   align-items: center;
   width: 100%;
   height: 100%;
-  font-size: 30px;
+  font-size: 40px;
   line-height: 80px;
   letter-spacing: 10px;
   color: #fff;
