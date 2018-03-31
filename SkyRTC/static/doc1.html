@@ -104,10 +104,9 @@
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
       //呼叫中
-      console.log(message === state_1);
-      console.log(!isOnline);
-      if(message === state_1 && !isOnline) {
-        console.log('接听电话执行')
+      console.log('message:' + message);
+      console.log('isOnline' + isOnline);
+      if(message === state_1 && isOnline === true) {
         hide_all();
         show_call_btn();
       }
