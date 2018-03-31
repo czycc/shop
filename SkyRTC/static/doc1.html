@@ -153,6 +153,7 @@
     hang_up.addEventListener('touchend', tel_hang_up);
     hang_up.addEventListener('click', tel_hang_up);
     function tel_hang_up(){
+      isOnline = false;
       phone_audio.pause();
       rtc.broadcast(state_3);
       breaklink.style.display = 'block';
