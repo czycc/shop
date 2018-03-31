@@ -84,12 +84,41 @@ var SkyRTC = function() {
     //继承自事件处理器，提供绑定事件和触发事件的功能
     skyrtc.prototype = new EventEmitter();
 
+    //初始化所有参数
+    skyrtc.prototype.init_parmas = function(){
+        //本地media stream
+        this.localMediaStream = null;
+        //所在房间
+        this.room = "";
+        //接收文件时用于暂存接收文件
+        this.fileData = {};
+        //本地WebSocket连接
+        this.socket = null;
+        //本地socket的id，由后台服务器创建
+        this.me = null;
+        //保存所有与本地相连的peer connection， 键为socket id，值为PeerConnection类型
+        this.peerConnections = {};
+        //保存所有与本地连接的socket的id
+        this.connections = [];
+        //初始时需要构建链接的数目
+        this.numStreams = 0;
+        //初始时已经连接的数目
+        this.initializedStreams = 0;
+        //保存所有的data channel，键为socket id，值通过PeerConnection实例的createChannel创建
+        this.dataChannels = {};
+        //保存所有发文件的data channel及其发文件状态
+        this.fileChannels = {};
+        //保存所有接受到的文件
+        this.receiveFiles = {};
+    }
+
 
     /*************************服务器连接部分***************************/
 
 
     //本地连接信道，信道为websocket
     skyrtc.prototype.connect = function(server, id, room) {
+        this.init_parmas();
         var socket,
             that = this;
         room = room || "";

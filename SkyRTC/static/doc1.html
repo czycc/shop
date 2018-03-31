@@ -92,8 +92,9 @@
     });
 
     rtc.on('socket_closed', function(socket){
-      call_container.style.display = 'none';
+      console.log('socket连接中断')
       rtc.connect("wss://" + window.location.host + '/node/doc1_room', 'doc1', 'doc1_room');
+      call_container.style.display = 'none';
     })
 
     //接受状态
