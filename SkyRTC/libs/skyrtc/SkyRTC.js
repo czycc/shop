@@ -179,6 +179,7 @@ SkyRTC.prototype.init = function(socket) {
 			console.log('离开的用户房间：'+room)
 		if (room) {
 			curRoom = that.rooms[room];
+			console.log(curRoom)
 			for (i = curRoom.length; i--;) {
 				if (curRoom[i].id === socket.id) {
 					continue;
@@ -190,7 +191,6 @@ SkyRTC.prototype.init = function(socket) {
 					}
 				}), errorCb);
 			}
-			console.log(curRoom[i])
 		}
 
 		that.removeSocket(socket);
