@@ -105,7 +105,7 @@
     //等待20秒，无人接听则返回选择页面
     setTimeout(function(){
       if(!isOnline){
-        //window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
+        window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
       }
     },20000)
 
@@ -164,6 +164,7 @@
       var timer = null;
       var t = 5;
       pause_audio();
+      other_video.volume = 0;
       breaktime_dom.innerHTML = t;
       breaklink_dom.style.display = 'block';
       timer = setInterval(function(){
@@ -171,7 +172,7 @@
         breaktime_dom.innerHTML = t;
         if(t <= 0){
           clearInterval(timer);
-          console.log('跳转页面')
+          window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
         }
       },1000)
     }

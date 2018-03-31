@@ -89,9 +89,9 @@ section .chat .call .btn_group img {
 section .chat .control {
   display: none;
   position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 23px;
+  left: 48px;
+  right: 48px;
+  bottom: 38px;
   z-index: 99999;
   text-align: center;
 }
