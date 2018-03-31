@@ -176,7 +176,6 @@ SkyRTC.prototype.init = function(socket) {
 		var i, m,
 			room = socket.room,
 			curRoom;
-			console.log('离开的用户房间：'+room)
 		if (room) {
 			curRoom = that.rooms[room];
 			console.log(curRoom)
