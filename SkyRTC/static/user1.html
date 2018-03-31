@@ -96,7 +96,8 @@
     });
 
     rtc.on('socket_closed', function(socket){
-      console.log('socket连接中断')
+      console.log('socket连接中断');
+      window.location.reload();
     })
 
     //等待20秒，无人接听则返回
