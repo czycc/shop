@@ -86,6 +86,7 @@
 
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
+      console.log(socketId+'掉线了')
       //删除视频流
       if(other_video){
         other_video.setAttribute('src',' ')
