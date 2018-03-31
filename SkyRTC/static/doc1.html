@@ -90,10 +90,9 @@
       other_video.setAttribute('src',' ');
       control.style.display = 'none';
     });
-    
+
     rtc.on('socket_closed', function(socket){
-      console.log('socket连接中断');
-      window.location.reload();
+      rtc.connect("wss://" + window.location.host + '/node/doc1_room', 'doc1', 'doc1_room');
     })
 
     //接受状态
