@@ -78,7 +78,6 @@
 
     //接收到其他用户的视频流
     rtc.on('pc_add_stream', function(stream, socketId) {
-      console.log('接受到视频流')
       setTimeout(function(){
         rtc.broadcast(state_1);
       },1000)
@@ -88,12 +87,10 @@
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
       console.log(socketId+'掉线了')
-      //删除视频流
-      // if(other_video){
-      //   other_video.setAttribute('src',' ')
-      // }
-      // doc_break();
-      // stop_time();
+      if(!isOnline){
+        hide_all();
+        show_waiting();
+      }
     });
 
     rtc.on('socket_closed', function(socket){
@@ -117,19 +114,16 @@
         start_time();
       }
       //医生挂断
-      // if(message === state_3) {
-      //   phone_audio.pause();
-      //   isOK = true;
-      //   //删除视频流
-      //   if(other_video){
-      //     other_video.setAttribute('src',' ')
-      //   }
-      //   doc_break();
-      //   stop_time();
-      // }
+      if(message === state_3) {
+        isOnline = false;
+        hide_control();
+        show_breaklink();
+        show_breaklink();
+      }
     })
     function hide_all(){
       hide_call();
+      hide_control();
     }
     //显示等待接听界面
     function show_call(){
@@ -159,6 +153,22 @@
       other_video.style.display = 'none';
       other_video.volume = 0;
     }
+    //显示挂断界面
+    function show_breaklink(){
+      var breaklink_dom = document.querySelector('.breaklink');
+      var breaktime_dom = document.querySelector('.breaktime');
+      var t = 5;
+      pause_audio();
+      breaktime_dom.innerHTML = t;
+      breaklink_dom.style.display = 'block';
+      setInterval(function(){
+        t--;
+        breaktime_dom.innerHTML = t;
+        if(t <= 0){
+          console.log('跳转页面')
+        }
+      },1000)
+    }
     //播放电话音
     function play_audio(){
       var phone_audio = document.querySelector('.phone_audio');
@@ -169,40 +179,6 @@
     function pause_audio(){
       var phone_audio = document.querySelector('.phone_audio');
       phone_audio.pause();
-    }
-
-    //断开连倒计时
-    var t = 5;
-    var break_timer = null;
-    var breaklinkDOM = document.querySelector('.breaklink');
-    var breaktime = document.querySelector('.breaktime');
-    //医生接听电话
-    function doc_call(){
-      phone_audio.pause();
-      clearInterval(break_timer);
-      t = 5;
-      breaktime.innerHTML = t;
-      breaklinkDOM.style.display = 'none';
-      call_container.style.display = 'none';
-      control.style.display = 'block';
-      rtc.attachStream(other_stream, 'other_video');
-      start_time();
-    }
-    //断开连接
-    function doc_break(){
-      phone_audio.pause();
-      clearInterval(break_timer);
-      breaktime.innerHTML = t;
-      breaklinkDOM.style.display = 'block';
-      break_timer = setInterval(function(){
-        if(t > 0) {
-          t--;
-          breaktime.innerHTML = t;
-        } else {
-          clearInterval(break_timer);
-          //window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
-        }
-      },1000)
     }
 
     //时间计时器，返回00：00格式的时间
@@ -243,7 +219,6 @@
     }
     function stop_time(){
       clearInterval(timer);
-      control.style.display = 'none';
     }
   </script>
 </body>
