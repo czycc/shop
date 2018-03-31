@@ -1,12 +1,11 @@
 html,
 body {
-  width: 1024px;
-  height: 768px;
-  overflow: hidden;
+  width: 1920px;
+  height: 1200px;
 }
 body {
-  width: 1024px;
-  height: 768px;
+  width: 1920px;
+  height: 1200px;
   background: url(../images/bg.jpg) no-repeat;
   background-size: 100% 100%;
 }
@@ -17,18 +16,19 @@ video {
   background: transparent;
 }
 header {
-  margin-top: 56px;
-  padding: 30px 0;
+  padding-top: 110px;
+  padding: 140px 0 30px 0;
   text-align: center;
   text-indent: 113px;
   font-size: 0;
 }
 header img {
-  width: 226px;
+  width: 323px;
   display: inline-block;
 }
 header .small_title {
-  width: 134px;
+  width: 140px;
+  vertical-align: bottom;
 }
 section {
   text-align: center;
@@ -38,9 +38,9 @@ section .chat {
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
-  padding: 15px 20px;
-  width: 568px;
-  height: 424px;
+  padding: 30px 40px;
+  width: 1065px;
+  height: 752px;
   background: url(../images/v_bg.png) no-repeat;
   background-size: 100% 100%;
 }
@@ -53,12 +53,12 @@ section .chat .box1 {
 }
 section .chat .box2 {
   position: absolute;
-  left: 40px;
-  top: 40px;
+  left: 60px;
+  top: 60px;
   box-sizing: border-box;
   padding: 8px;
-  width: 118px;
-  height: 90px;
+  width: 220px;
+  height: 166px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
@@ -107,10 +107,10 @@ section .chat .control p {
 }
 section .chat .waiting {
   position: absolute;
-  left: 28px;
-  top: 23px;
-  width: 512px;
-  height: 378px;
+  left: 48px;
+  top: 38px;
+  width: 969px;
+  height: 676px;
   background: #000;
 }
 section .chat .waiting p {
