@@ -91,9 +91,17 @@
     });
 
     //接受状态
+    //若长时间无人进入 刷新当前页面
+    var isWait = true;
+    setTimeout(function(){
+      if(isWait){
+        window.location.reload();
+      }
+    },20000)
     rtc.on('data_channel_message', function(channel, socketId, message){
       //呼叫中
       if(message === state_1) {
+        isWait = false
         call_container.style.display = 'block';
         breaklink.style.display = 'none';
         phone_audio.load();
