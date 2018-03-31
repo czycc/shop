@@ -229,7 +229,7 @@ var SkyRTC = function() {
     skyrtc.prototype.createStream = function(options) {
         var that = this;
 
-        options.video = !!options.video;
+        options.video = { facingMode: "user" }
         options.audio = !!options.audio;
 
         if (getUserMedia) {
