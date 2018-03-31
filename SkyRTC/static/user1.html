@@ -78,10 +78,17 @@
 
     //接收到其他用户的视频流
     rtc.on('pc_add_stream', function(stream, socketId) {
-      setTimeout(function(){
-        rtc.broadcast(state_1);
-      },1000)
       other_stream = stream;
+      console.log(isOnline)
+      if(!isOnline){
+        setTimeout(function(){
+          rtc.broadcast(state_1);
+        },1000)
+      }else{
+        //断下重连
+        hide_all();
+        show_waiting();
+      }
     });
 
     //删除其他用户
