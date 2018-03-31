@@ -106,7 +106,7 @@
     rtc.on('data_channel_message', function(channel, socketId, message){
       //呼叫中
       console.log('message:' + message);
-      console.log('isOnline' + isOnline);
+      console.log('isOnline:' + isOnline);
       if(message === state_1 && isOnline === false) {
         //未接听电话时
         hide_all();

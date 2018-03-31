@@ -79,7 +79,6 @@
     //接收到其他用户的视频流
     rtc.on('pc_add_stream', function(stream, socketId) {
       other_stream = stream;
-      console.log(isOnline)
       setTimeout(function(){
         rtc.broadcast(state_1);
       },1000)
@@ -124,7 +123,6 @@
         isOnline = false;
         hide_control();
         show_breaklink();
-        show_breaklink();
       }
     })
     function hide_all(){
@@ -163,14 +161,16 @@
     function show_breaklink(){
       var breaklink_dom = document.querySelector('.breaklink');
       var breaktime_dom = document.querySelector('.breaktime');
+      var timer = null;
       var t = 5;
       pause_audio();
       breaktime_dom.innerHTML = t;
       breaklink_dom.style.display = 'block';
-      setInterval(function(){
+      timer = setInterval(function(){
         t--;
         breaktime_dom.innerHTML = t;
         if(t <= 0){
+          clearInterval(timer);
           console.log('跳转页面')
         }
       },1000)
