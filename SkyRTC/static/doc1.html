@@ -107,8 +107,13 @@
       console.log('message:' + message);
       console.log('isOnline' + isOnline);
       if(message === state_1 && isOnline === false) {
+        //未接听电话时
         hide_all();
         show_call_btn();
+      }else if(message === state_1 && isOnline === false){
+        //接听时，用于断线重连
+        hide_all();
+        show_control();
       }
     })
 
