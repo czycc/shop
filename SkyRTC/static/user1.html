@@ -95,6 +95,10 @@
       stop_time();
     });
 
+    rtc.on('socket_closed', function(socket){
+      console.log('socket连接中断')
+    })
+
     //等待20秒，无人接听则返回
     var isOK = false;
     setTimeout(function(){

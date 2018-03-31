@@ -190,14 +190,8 @@ SkyRTC.prototype.init = function(socket) {
 					}
 				}), errorCb);
 			}
+			console.log(curRoom[i])
 		}
-
-		curRoom[i].send(JSON.stringify({
-			"eventName": "_remove_peer",
-			"data": {
-				"socketId": socket.id
-			}
-		}), errorCb);
 
 		that.removeSocket(socket);
 
