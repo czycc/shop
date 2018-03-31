@@ -178,7 +178,6 @@ SkyRTC.prototype.init = function(socket) {
 			curRoom;
 		if (room) {
 			curRoom = that.rooms[room];
-			console.log(curRoom)
 			for (i = curRoom.length; i--;) {
 				if (curRoom[i].id === socket.id) {
 					continue;
