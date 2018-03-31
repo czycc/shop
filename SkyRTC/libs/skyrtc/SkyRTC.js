@@ -192,6 +192,13 @@ SkyRTC.prototype.init = function(socket) {
 			}
 		}
 
+		curRoom[i].send(JSON.stringify({
+			"eventName": "_remove_peer",
+			"data": {
+				"socketId": socket.id
+			}
+		}), errorCb);
+
 		that.removeSocket(socket);
 
 		that.emit('remove_peer', socket.id, that);
