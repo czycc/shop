@@ -92,6 +92,7 @@
     });
 
     rtc.on('socket_closed', function(socket){
+      call_container.style.display = 'none';
       rtc.connect("wss://" + window.location.host + '/node/doc1_room', 'doc1', 'doc1_room');
     })
 
