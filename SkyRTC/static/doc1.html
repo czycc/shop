@@ -33,7 +33,7 @@
         <img class="hang_up" src="images/no.png">
         <p>通话时长&nbsp;<span class="timeDOM">00:00</span></p>
       </div>
-      <div class="breaklink">
+      <div class="waiting">
         <p>等待对方进入<br/>. . . . . .</p>
       </div>
     </div>
@@ -43,15 +43,13 @@
   <script>
     var my_video = document.querySelector('#my_video');
     var other_video = document.querySelector('#other_video');
-    var call_container = document.querySelector('.call');
-    var control = document.querySelector('.control');
-    var breaklink = document.querySelector('.breaklink');
-    var phone_audio = document.querySelector('.phone_audio');
-    var isOnline = false; //是否在连线中
+    
+    //状态信息
+    var isOnline = false;               //是否在连线中
     //接收到文字信息, 判断呼叫流程
-    var state_1 = 'user call';    //呼叫中
-    var state_2 = 'doc answer';   //接听电话
-    var state_3 = 'doc hang up';  //挂断电话
+    var state_1 = 'calling';            //呼叫中
+    var state_2 = 'doc answer';         //接听电话
+    var state_3 = 'doc hang up';        //挂断电话
     //存放的全局变量
     var other_stream;
 
@@ -100,22 +98,11 @@
 
 
     //接受状态
-    //若长时间无人进入 刷新当前页面
-    var isWait = true;
-    setTimeout(function(){
-      if(isWait){
-        window.location.reload();
-      }
-    },20000)
-    
     rtc.on('data_channel_message', function(channel, socketId, message){
       //呼叫中
       if(message === state_1 && !isOnline) {
-        isWait = false;
-        call_container.style.display = 'block';
-        breaklink.style.display = 'none';
-        phone_audio.load();
-        phone_audio.play();
+        hide_all();
+        show_call_btn();
       }
     })
 
@@ -125,15 +112,9 @@
     yes.addEventListener('click', tel_yes);
     function tel_yes(){
       isOnline = true;
-      //发出状态
       rtc.broadcast(state_2);
-      phone_audio.pause();
-      rtc.attachStream(other_stream, 'other_video');
-      //更改医生界面样式
-      call_container.style.display = 'none';
-      other_video.style.display = 'block';
-      control.style.display = 'block';
-      //开始计时
+      hide_all();
+      show_control();
       start_time()
     }
 
@@ -141,28 +122,85 @@
     var no = document.querySelector('#no');
     no.addEventListener('touchend', tel_no);
     no.addEventListener('click', tel_no);
+    //结束通话
+    var hang_up = document.querySelector('.hang_up');
+    hang_up.addEventListener('touchend', tel_no);
+    hang_up.addEventListener('click', tel_no);
     function tel_no(){
       isOnline = false;
       rtc.broadcast(state_3);
-      phone_audio.pause();
-      breaklink.style.display = 'block';
-      call_container.style.display = 'none';
+      hide_all();
+      show_waiting();
+      stop_time();
     }
 
-    //结束通话
-    var hang_up = document.querySelector('.hang_up');
-    hang_up.addEventListener('touchend', tel_hang_up);
-    hang_up.addEventListener('click', tel_hang_up);
-    function tel_hang_up(){
-      isOnline = false;
+    // function tel_hang_up(){
+    //   isOnline = false;
+    //   rtc.broadcast(state_3);
+    //   waiting.style.display = 'block';
+    //   //删除视频流
+    //   if(other_video){
+    //     other_video.style.display = 'none';
+    //     stop_time();
+    //   }
+    // }
+
+    //隐藏所有状态界面
+    function hide_all(){
+      hide_call_btn();
+      hide_waiting();
+      hide_control();
+    }
+    //显示接听或挂断按钮
+    function show_call_btn(){
+      var call_dom = document.querySelector('.call');
+      var waiting_dom = document.querySelector('.waiting');
+      call_dom.style.display = 'block';
+      play_audio();
+    }
+    //隐藏接听或挂断按钮
+    function hide_call_btn(){
+      var call_dom = document.querySelector('.call');
+      var waiting_dom = document.querySelector('.waiting');
+      call_dom.style.display = 'none';
+      pause_audio();
+    }
+    //显示等待界面
+    function show_waiting(){
+      var waiting_dom = document.querySelector('.waiting');
+      waiting_dom.style.display = 'block';
+    }
+    //隐藏等待界面
+    function hide_waiting(){
+      var waiting_dom = document.querySelector('.waiting');
+      waiting_dom.style.display = 'none';
+    }
+    //显示控制界面
+    function show_control(){
+      var control_dom = document.querySelector('.control');
+      rtc.attachStream(other_stream, 'other_video');
+      control_dom.style.display = 'block';
+      other_video.style.display = 'block';
+      other_video.volume = 1;
+    }
+    //隐藏控制界面
+    function hide_control(){
+      var control_dom = document.querySelector('.control');
+      other_video.setAttribute('src',' ');
+      control_dom.style.display = 'none';
+      other_video.style.display = 'none';
+      other_video.volume = 0;
+    }
+    //播放电话音
+    function play_audio(){
+      var phone_audio = document.querySelector('.phone_audio');
+      phone_audio.load();
+      phone_audio.play();
+    }
+    //关闭电话音
+    function pause_audio(){
+      var phone_audio = document.querySelector('.phone_audio');
       phone_audio.pause();
-      rtc.broadcast(state_3);
-      breaklink.style.display = 'block';
-      //删除视频流
-      if(other_video){
-        other_video.style.display = 'none';
-        stop_time();
-      }
     }
 
     //时间计时器，返回00：00格式的时间
@@ -203,7 +241,6 @@
     }
     function stop_time(){
       clearInterval(timer);
-      control.style.display = 'none';
     }
   </script>
 </body>

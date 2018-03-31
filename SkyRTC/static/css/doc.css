@@ -105,7 +105,7 @@ section .chat .control p {
   color: #fff;
   font-size: 22px;
 }
-section .chat .breaklink {
+section .chat .waiting {
   position: absolute;
   left: 28px;
   top: 23px;
@@ -113,7 +113,7 @@ section .chat .breaklink {
   height: 378px;
   background: #000;
 }
-section .chat .breaklink p {
+section .chat .waiting p {
   display: flex;
   justify-content: center;
   align-items: center;
