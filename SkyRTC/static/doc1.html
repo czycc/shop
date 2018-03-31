@@ -110,7 +110,8 @@
         //未接听电话时
         hide_all();
         show_call_btn();
-      }else if(message === state_1 && isOnline === false){
+      }else if(message === state_1 && isOnline === true){
+        console.log('断下重连')
         //接听时，用于断线重连
         hide_all();
         show_control();
