@@ -43,7 +43,6 @@
   <script>
     var my_video = document.querySelector('#my_video');
     var other_video = document.querySelector('#other_video');
-    
     //状态信息
     var isOnline = false;               //是否在连线中
     //接收到文字信息, 判断呼叫流程
@@ -75,7 +74,7 @@
 
     //创建本地视频流失败
     rtc.on("stream_create_error", function() {
-        alert("不支持webRTC, 请确认是否开启摄像头, 并在windows下的chrome浏览器中运行");
+      alert("不支持webRTC, 请确认是否开启摄像头, 并在windows下的chrome浏览器中运行");
     });
 
     //接收到其他用户的视频流
@@ -113,7 +112,7 @@
       }else if(message === state_1 && isOnline === true){
         console.log('断下重连')
         //接听时，用于断线重连
-        hide_all();
+        hide_control();
         show_control();
       }
     })
@@ -146,17 +145,6 @@
       stop_time();
     }
 
-    // function tel_hang_up(){
-    //   isOnline = false;
-    //   rtc.broadcast(state_3);
-    //   waiting.style.display = 'block';
-    //   //删除视频流
-    //   if(other_video){
-    //     other_video.style.display = 'none';
-    //     stop_time();
-    //   }
-    // }
-
     //隐藏所有状态界面
     function hide_all(){
       hide_call_btn();
@@ -166,14 +154,12 @@
     //显示接听或挂断按钮
     function show_call_btn(){
       var call_dom = document.querySelector('.call');
-      var waiting_dom = document.querySelector('.waiting');
       call_dom.style.display = 'block';
       play_audio();
     }
     //隐藏接听或挂断按钮
     function hide_call_btn(){
       var call_dom = document.querySelector('.call');
-      var waiting_dom = document.querySelector('.waiting');
       call_dom.style.display = 'none';
       pause_audio();
     }

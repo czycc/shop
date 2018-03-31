@@ -41,14 +41,13 @@
   <script>
     var my_video = document.querySelector('#my_video');
     var other_video = document.querySelector('#other_video');
-    var call_container = document.querySelector('.call');
-    var control = document.querySelector('.control');
     var breaklink = document.querySelector('.breaklink');
-    var phone_audio = document.querySelector('.phone_audio');
+    //状态信息
+    var isOnline = false;               //是否在连线中
     //接收到文字信息, 判断呼叫流程
-    var state_1 = 'calling';    //呼叫中
-    var state_2 = 'doc answer';   //接听电话
-    var state_3 = 'doc hang up';  //挂断电话
+    var state_1 = 'calling';            //呼叫中
+    var state_2 = 'doc answer';         //接听电话
+    var state_3 = 'doc hang up';        //挂断电话
     //存放的全局变量
     var other_stream;
 
@@ -74,11 +73,12 @@
 
     //创建本地视频流失败
     rtc.on("stream_create_error", function() {
-        alert("不支持webRTC, 请在windows下的chrome浏览器中运行");
+      alert("不支持webRTC, 请确认是否开启摄像头, 并在windows下的chrome浏览器中运行");
     });
 
     //接收到其他用户的视频流
     rtc.on('pc_add_stream', function(stream, socketId) {
+      console.log('接受到视频流')
       setTimeout(function(){
         rtc.broadcast(state_1);
       },1000)
@@ -89,22 +89,21 @@
     rtc.on('remove_peer', function(socketId) {
       console.log(socketId+'掉线了')
       //删除视频流
-      if(other_video){
-        other_video.setAttribute('src',' ')
-      }
-      doc_break();
-      stop_time();
+      // if(other_video){
+      //   other_video.setAttribute('src',' ')
+      // }
+      // doc_break();
+      // stop_time();
     });
 
     rtc.on('socket_closed', function(socket){
-      window.location.reload();
+      //window.location.reload();
     })
 
-    //等待20秒，无人接听则返回
-    var isOK = false;
+    //等待20秒，无人接听则返回选择页面
     setTimeout(function(){
-      if(!isOK){
-        window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
+      if(!isOnline){
+        //window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
       }
     },20000)
 
@@ -112,22 +111,65 @@
     rtc.on('data_channel_message', function(channel, socketId, message){
       //医生接听
       if(message === state_2) {
-        phone_audio.pause();
-        isOK = true;
-        doc_call();
+        isOnline = true;
+        hide_all();
+        show_control();
+        start_time();
       }
       //医生挂断
-      if(message === state_3) {
-        phone_audio.pause();
-        isOK = true;
-        //删除视频流
-        if(other_video){
-          other_video.setAttribute('src',' ')
-        }
-        doc_break();
-        stop_time();
-      }
+      // if(message === state_3) {
+      //   phone_audio.pause();
+      //   isOK = true;
+      //   //删除视频流
+      //   if(other_video){
+      //     other_video.setAttribute('src',' ')
+      //   }
+      //   doc_break();
+      //   stop_time();
+      // }
     })
+    function hide_all(){
+      hide_call();
+    }
+    //显示等待接听界面
+    function show_call(){
+      var call_dom = document.querySelector('.call');
+      call_dom.style.display = 'block';
+      play_audio();
+    }
+    //隐藏等待接听界面
+    function hide_call(){
+      var call_dom = document.querySelector('.call');
+      call_dom.style.display = 'none';
+      pause_audio();
+    }
+    //显示控制界面
+    function show_control(){
+      var control_dom = document.querySelector('.control');
+      rtc.attachStream(other_stream, 'other_video');
+      control_dom.style.display = 'block';
+      other_video.style.display = 'block';
+      other_video.volume = 1;
+    }
+    //隐藏控制界面
+    function hide_control(){
+      var control_dom = document.querySelector('.control');
+      other_video.setAttribute('src',' ');
+      control_dom.style.display = 'none';
+      other_video.style.display = 'none';
+      other_video.volume = 0;
+    }
+    //播放电话音
+    function play_audio(){
+      var phone_audio = document.querySelector('.phone_audio');
+      phone_audio.load();
+      phone_audio.play();
+    }
+    //关闭电话音
+    function pause_audio(){
+      var phone_audio = document.querySelector('.phone_audio');
+      phone_audio.pause();
+    }
 
     //断开连倒计时
     var t = 5;
