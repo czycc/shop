@@ -138,7 +138,11 @@ $(function () {
                 success: function (data) {
                     goldNum = data.coin;
                     if (data.code == 0) {
-                        alert('金币数不够，再攒多一点再来吧！');
+                        if (data.code <50) {
+                            alert('金币数不够，再攒多一点再来吧！');
+                        }else {
+                            alert('很抱歉，该礼品库存不足！');
+                        }
                         $('.popup').hide();
                     } else if (data.code == 1) {
                         $('.popup').hide();
