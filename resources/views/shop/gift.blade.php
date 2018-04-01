@@ -24,7 +24,7 @@
     <audio id="audio" src="{{asset('vip/m.mp3')}}" preload="auto" loop="loop" autoplay="autoplay"></audio>
     <div class="turntable-bg">
         <div class="pointer"><img src="{{ asset('vip/images/gift/btn.png') }}" alt="pointer"/></div>
-        <div class="rotate"><img id="rotate" src="{{ asset('vip/images/gift/rta.png') }}" alt="turntable"/></div>
+        <div class="rotate"><img id="rotate" src="{{ asset('vip/images/gift/rta1.png') }}" alt="turntable"/></div>
     </div>
     <img src="{{ asset('vip/images/gift/sprite.png') }}" alt="" class="sprite">
     <a href="{{ url('shop/index') }}" class="home">
@@ -41,7 +41,7 @@
     <div class="btn">
         <img src="{{ asset('vip/images/gift/confirm.png') }}" alt="" class="confirmBtn" id="confirmBtn">
         <img src="{{ asset('vip/images/gift/abandon.png') }}" alt="" class="abandonBtn">
-        <img src="{{ asset('vip/images/gift/goldText2.png') }}" alt="" class="goldText">
+        <img src="{{ asset('vip/images/gift/goldText.png') }}" alt="" class="goldText">
     </div>
     <div class="gold">
         <p>$<span class="goldNum"></span></p>
