@@ -101,8 +101,7 @@ class OrderController extends Controller
                         return '狗项圈';
                     case 'gift3':
                         //后期修改，奖品类型调整
-                        $date = date('Ymd');
-                        if ($date < '20180330') {
+                        if ($this->created_at < '2018-04-01 15:53:11') {
                             return '手机壳';
                         }
                         return '狗零食';
