@@ -88,10 +88,10 @@ body{
     display: inline-block;
 }
 .coupon .cjText li div .textNum{
-    font-size: 20px;
+    font-size: 22px;
 }
 .coupon .cjText li div .dataText{
-    font-size: 18px;
+    font-size: 26px;
 }
 .coupon .popup{
     position: absolute;
