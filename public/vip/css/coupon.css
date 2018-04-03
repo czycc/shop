@@ -99,7 +99,7 @@ body{
     height: 1038px;
     z-index: 1000;
     background: url("../images/coupon/popup.png");
-    /* display: none; */
+    display: none;
 }
 .coupon .popup .ruleText{
     position: absolute;
@@ -117,6 +117,17 @@ body{
 .coupon .popup .ruleText li{
     line-height: 1.8;
     font-size: 20px;
+    margin-top: 10px;
+}
+.coupon .popup .ruleText h3{
+    font-size: 30px;
+    line-height: 1.8;
+    text-align: center;
+}
+.coupon .popup .ruleText h4{
+    font-size: 26px;
+    line-height: 1.8;
+    text-align: center;
 }
 .coupon .popup .ruleText .maText{
     margin-top: 40px;
