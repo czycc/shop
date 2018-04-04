@@ -100,7 +100,11 @@ class OrderController extends Controller
                     case 'gift2':
                         return '狗项圈';
                     case 'gift3':
-                        return '手机壳';
+                        //后期修改，奖品类型调整
+                        if ($this->created_at < '2018-04-01 15:53:11') {
+                            return '手机壳';
+                        }
+                        return '狗零食';
                     case 'gift4':
                         return '钥匙扣';
                     case 'gift5':

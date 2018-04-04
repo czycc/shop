@@ -26,7 +26,7 @@
 <nav>
     <ul>
         <li><a href="{{ url('shop/user') }}"><img src="{{ asset('vip/images/index/my_info.png') }}"></a></li>
-        <li><img onclick="alert('很抱歉，优惠券已过期')" src="{{ asset('vip/images/index/my_coupon.png') }}"></li>
+        <li><a href="{{ url('shop/ticket') }}"><img src="{{ asset('vip/images/index/my_coupon.png') }}"></a></li>
         <li><a href="{{ url('shop/coin') }}"><img src="{{ asset('vip/images/index/my_gold.png') }}"></a></li>
     </ul>
 </nav>
@@ -39,11 +39,11 @@
     {{--爱犬大步走--}}
     <a href="{{ url('shop/dog') }}"><img src="{{asset('vip/images/index/dog1.png')}}" class="dog1"></a>
     {{--闪耀星派对--}}
-    <a href="http://7a214f33dda9.iiih5.cn/idea/TejT7neL?vxparm=/vxid_1/senderid_7ff6bb66a7b32305&source=undefined&suid=76E2BF4C-3FEF-46FB-850A-DC4A0562AD71&sl=0&from=groupmessage"><img src="{{asset('vip/images/index/dog21.png')}}" class="dog2"></a>
+    <a href="http://mp.weixin.qq.com/s/zBqgXEg34LHAah_r7wfmNA"><img src="{{asset('vip/images/index/dog22.png')}}" class="dog2"></a>
     {{--礼品店--}}
     <a href="{{ url('shop/draw') }}"><img src="{{asset('vip/images/index/gift.png')}}" class="gift"></a>
     {{--秋冬新鞋--}}
-    <a href="http://mp.weixin.qq.com/s/-mbpYIvpFN4oQvsKGSU4kw"><img src="{{asset('vip/images/index/shoes2.png')}}" class="shoes"></a>
+    <a href="https://file4b6b1a65f5d8.iamh5.cn/v3/idea/SzguxT2h?suid=C422F165-6908-4B25-9131-CE37B3412FA0&sl=1&from=singlemessage&isappinstalled=0&unid=ohAJ7weegbmwvVN3VG3jnC07G19c&wxid=oZwt-wNZxbVHlkilY-knJo9oQ0Dg&latestUser=1"><img src="{{asset('vip/images/index/shoes2.png')}}" class="shoes"></a>
     {{--每日签到--}}
     <a href="{{ url('shop/coin/day') }}" class="sign"><img src="{{asset('vip/images/index/sign2.png')}}"></a>
 </section>

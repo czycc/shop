@@ -116,19 +116,16 @@
     <div class="select_list ">
         <p>请选择上传的类型</p>
         <ul class="list_ul">
-            <li index="0">空景</li>
-            <li index="1">签到到达</li>
-            <li index="2">明星展车</li>
-            <li index="3">明星背板</li>
-            <li index="4">嘉宾美图</li>
-            <li index="5">主流程</li>
+            @foreach($categories as $category)
+                <li index="{{ $category->id }}">{{ $category->category }}</li>
+            @endforeach
         </ul>
         <div class="confirm_list">确 定</div>
     </div>
     <div class="upload_list hidden">
         <label for="file_input">
             <span>点击上传图片</span>
-            <input style="display: none" id="file_input" type="file" accept="image/*" />
+            <input style="display: none" id="file_input" type="file" accept="image/*"/>
         </label>
         <p class="upload_comfirm">确定</p>
         <p class="reselect">重新选择</p>
@@ -165,11 +162,11 @@
     //用来判断用户有没有选择图片
     var result = null;
     var picture_type;
-    if(typeof FileReader==='undefined'){
+    if (typeof FileReader === 'undefined') {
         alert = "抱歉，你的浏览器不支持 FileReader";
-        input.setAttribute('disabled','disabled');
-    }else{
-        input.addEventListener('change',readFile,false);
+        input.setAttribute('disabled', 'disabled');
+    } else {
+        input.addEventListener('change', readFile, false);
     }
 
     function readFile() {
@@ -181,7 +178,7 @@
         reader.readAsDataURL(this.files[0]);
         reader.onload = function (e) {
             result = e.currentTarget.result;
-            $('.image_list').append('<img src="' + this.result+ '" alt="">')
+            $('.image_list').append('<img src="' + this.result + '" alt="">')
         };
         var reader2 = new FileReader();
         reader2.readAsBinaryString(this.files[0]);
@@ -211,10 +208,10 @@
     })
     $('.confirm_list').click(function () {
 
-        if($('.select_list ul li').hasClass('select')){
+        if ($('.select_list ul li').hasClass('select')) {
             $('.upload_list').show();
             $('.select_list').hide();
-        }else{
+        } else {
             alert('请选择上传图片的类型');
         }
     });
@@ -226,10 +223,10 @@
         $('.select_list').show();
     })
     $('.upload_comfirm').click(function () {
-        if(result == null){
+        if (result == null) {
             alert('请上传图片');
 
-        }else{
+        } else {
             $('.image_list').html('');
             $('.popup_select').hide();
             $('.select_list ul li').removeClass('select');
@@ -238,8 +235,8 @@
             var index = $('.select_list ul li').eq(selectIndex).attr('index');
 
             formData = {
-                index:index,
-                result:picture_type
+                index: index,
+                result: picture_type
             }
 
             doUpload();
@@ -247,9 +244,10 @@
 
         }
     })
+
     function doUpload() {
         $.ajax({
-            url: '' ,
+            url: '',
             type: 'POST',
             data: formData,
             async: false,

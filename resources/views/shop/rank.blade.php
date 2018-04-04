@@ -90,8 +90,6 @@
                 audioMusic.src = '{{asset('vip/images/audio/audio1.png')}}'
 
             }
-
-
         });
     }
 </script>
