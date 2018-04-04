@@ -63,8 +63,7 @@
     <img src="{{asset('vip/images/coupon/rule.png')}}" alt="" class="ruleBtn">
     <div class="popup">
         <ul class="ruleText">
-            <h3>暇步士:</h3>
-            <h4>18SS新品传播战役H5优惠券</h4>
+            <h3>暇步士100元优惠券:</h3>
             <li>1.适用于中国内地所有暇步士门店；</li>
             <li>
                 2.暇步士2018年春鞋7.5折（含7.5折）以上、2018年凉鞋8折（含8折）以上可使用优惠券；以下新品不参与活动：CZPHAV57FU1AM8，CZPHAV58FU1AM8，CZPHND20FK1AQ8，CZPHND20FM1AQ8，CZPHND20FU1AQ8，CZPHND20FU2AQ8；
@@ -80,6 +79,7 @@
             <li>2、可使用项目为：基础水疗SPA、特效SPA、果蔬SPA、泥疗SPA、体膜SPA使用；</li>
             <li>3、可使用日期为2018年4月1日至2018年5月31日，周六日及节假日可用；</li>
             <li>4、不可叠加使用，每次仅限使用一张，不可折现，不可找零，不与其他优惠同时使用。</li>
+            <li>5、酷迪保留在法律范围内对此优惠活动的解释权。</li>
             <li></li>
             <h3>宠颐生:</h3>
             <h4>310元体检套餐优惠兑换</h4>
