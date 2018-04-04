@@ -16,7 +16,7 @@
         // 获取“分享给朋友”按钮点击状态及自定义分享内容接口
         wx.onMenuShareAppMessage({
             title: '暇步士拍党俱乐部', // 分享标题
-            desc: "加入拍拍与小巴，赚金币，赢惊喜！", // 分享描述
+            desc: "加入拍党俱乐部，赚金币，赢惊喜，优惠券拿不停！", // 分享描述
             link: "https://weixin.touchworld-sh.com/shop",
             imgUrl: "{{asset('vip/images/share.jpg')}}", // 分享图标
             type: 'link', // 分享类型,music、video或link，不填默认为link
