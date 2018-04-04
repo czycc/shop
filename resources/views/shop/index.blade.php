@@ -43,7 +43,7 @@
     {{--礼品店--}}
     <a href="{{ url('shop/draw') }}"><img src="{{asset('vip/images/index/gift.png')}}" class="gift"></a>
     {{--秋冬新鞋--}}
-    <a href="http://mp.weixin.qq.com/s/-mbpYIvpFN4oQvsKGSU4kw"><img src="{{asset('vip/images/index/shoes2.png')}}" class="shoes"></a>
+    <a href="https://file4b6b1a65f5d8.iamh5.cn/v3/idea/SzguxT2h?suid=C422F165-6908-4B25-9131-CE37B3412FA0&sl=1&from=singlemessage&isappinstalled=0&unid=ohAJ7weegbmwvVN3VG3jnC07G19c&wxid=oZwt-wNZxbVHlkilY-knJo9oQ0Dg&latestUser=1"><img src="{{asset('vip/images/index/shoes2.png')}}" class="shoes"></a>
     {{--每日签到--}}
     <a href="{{ url('shop/coin/day') }}" class="sign"><img src="{{asset('vip/images/index/sign2.png')}}"></a>
 </section>
