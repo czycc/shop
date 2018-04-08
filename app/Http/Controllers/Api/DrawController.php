@@ -79,26 +79,26 @@ class DrawController extends Controller
 
     public function ticket(Request $request)
     {
-        //查找未分配优惠券
-        $ticket = Ticket::select('id')
-            ->where('status', '0')
-            ->where('end', '>', Carbon::now())
-            ->first();
-        //优惠券已经领完
-        if (is_null($ticket)) {
-            return response()->json([
-                'code' => 0
-            ]);
-        }
-
-        //分配优惠券
-        $userTicket = new Shop_user_ticket;
-        $userTicket->openid = $request->openid;
-        $userTicket->ticket_id = $ticket->id;
-        $userTicket->save();
-        //更改已经分配优惠券的状态
-        $ticket->status = '1';
-        $ticket->save();
+//        //查找未分配优惠券
+//        $ticket = Ticket::select('id')
+//            ->where('status', '0')
+//            ->where('end', '>', Carbon::now())
+//            ->first();
+//        //优惠券已经领完
+//        if (is_null($ticket)) {
+//            return response()->json([
+//                'code' => 0
+//            ]);
+//        }
+//
+//        //分配优惠券
+//        $userTicket = new Shop_user_ticket;
+//        $userTicket->openid = $request->openid;
+//        $userTicket->ticket_id = $ticket->id;
+//        $userTicket->save();
+//        //更改已经分配优惠券的状态
+//        $ticket->status = '1';
+//        $ticket->save();
 
         return response()->json([
             'code' => 1
