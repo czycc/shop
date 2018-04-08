@@ -37,22 +37,22 @@ class ShopController extends Controller
             $user->mobile = $request->mobile;
             $user->sign = Carbon::yesterday();
 
-            //查找未分配优惠券
-            $ticket = Ticket::select('id')
-                ->where('status', '0')
-                ->where('end', '>', Carbon::now())
-                ->first();
-            //优惠券已经领完
-            if (!is_null($ticket)) {
-                //分配优惠券
-                $userTicket = new Shop_user_ticket;
-                $userTicket->openid = $request->openid;
-                $userTicket->ticket_id = $ticket->id;
-                $userTicket->save();
-                //更改已经分配优惠券的状态
-                $ticket->status = '1';
-                $ticket->save();
-            }
+//            //查找未分配优惠券
+//            $ticket = Ticket::select('id')
+//                ->where('status', '0')
+//                ->where('end', '>', Carbon::now())
+//                ->first();
+//            //优惠券已经领完
+//            if (!is_null($ticket)) {
+//                //分配优惠券
+//                $userTicket = new Shop_user_ticket;
+//                $userTicket->openid = $request->openid;
+//                $userTicket->ticket_id = $ticket->id;
+//                $userTicket->save();
+//                //更改已经分配优惠券的状态
+//                $ticket->status = '1';
+//                $ticket->save();
+//            }
 
             //没有填写非必填项
             if (is_null($request->username) || is_null($request->location)){
