@@ -39,7 +39,7 @@
     {{--爱犬大步走--}}
     <a href="{{ url('shop/dog') }}"><img src="{{asset('vip/images/index/dog1.png')}}" class="dog1"></a>
     {{--闪耀星派对--}}
-    <a href="http://mp.weixin.qq.com/s/zBqgXEg34LHAah_r7wfmNA"><img src="{{asset('vip/images/index/dog22.png')}}" class="dog2"></a>
+    <a href="http://mp.weixin.qq.com/s/NW2uzugGtIFIP5bq3am-9w"><img src="{{asset('vip/images/index/dog22.png')}}" class="dog2"></a>
     {{--礼品店--}}
     <a href="{{ url('shop/draw') }}"><img src="{{asset('vip/images/index/gift.png')}}" class="gift"></a>
     {{--秋冬新鞋--}}
