@@ -36,7 +36,7 @@ class HomeController extends Controller
             $content->description('首页');
 
             $content->row(function ($row) {
-                $ticket = Shop_user_ticket::all()->last();
+                $ticket = Shop_user_ticket::all();
                 $user = Shop_user::where('created_at','>', Carbon::today())->count();
                 $ticketDay = Shop_user_ticket::where('created_at', '>', Carbon::today())->count();
                 $share = Share::find(1);
@@ -50,7 +50,7 @@ class HomeController extends Controller
                 $row->column(3, new InfoBox('已兑换狗项圈', 'gift', 'blue', '', $gift2));
                 $row->column(3, new InfoBox('已兑换钥匙扣', 'gift', 'blue', '', $gift4));
                 $row->column(3, new InfoBox('已兑换徽章', 'gift', 'blue', '', $gift5));
-                $row->column(3, new InfoBox('已领优惠券总数', 'ticket', 'aqua', '', $ticket->ticket_id));
+                $row->column(3, new InfoBox('已领优惠券总数', 'ticket', 'aqua', '', $ticket->count()));
                 $row->column(3, new InfoBox('今日已领优惠券', 'ticket', 'aqua', '', $ticketDay));
                 $row->column(3, new InfoBox('总分享次数', 'share-alt', 'green', '', $share->share));
                 $row->column(3, new InfoBox('今日注册用户', 'users', 'red', '', $user));
