@@ -231,20 +231,7 @@ var SkyRTC = function() {
 
         options.video = { facingMode: "user" }
         options.audio = !!options.audio;
-        if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
-            navigator.mediaDevices.getUserMedia(options)
-            .then(function(stream){
-                that.localMediaStream = stream;
-                that.initializedStreams++;
-                that.emit("stream_created", stream);
-                if (that.initializedStreams === that.numStreams) {
-                    that.emit("ready");
-                }
-            })
-            .catch(function(error){
-                console.log(errir)
-            })
-        }else if (getUserMedia) {
+        if (getUserMedia) {
             this.numStreams++;
             getUserMedia.call(navigator, options, function(stream) {
                     that.localMediaStream = stream;
