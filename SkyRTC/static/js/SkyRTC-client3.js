@@ -234,6 +234,7 @@ var SkyRTC = function() {
             this.numStreams++;
             navigator.mediaDevices.getUserMedia(options)
             .then(function(stream) {
+                console.log(stream)
                 that.localMediaStream = stream;
                 that.initializedStreams++;
                 that.emit("stream_created", stream);
