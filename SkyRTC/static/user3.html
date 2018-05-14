@@ -98,9 +98,7 @@
       clearTimeout(docTimer)
       docTimer = setTimeout(function(){
         if(!userDown) {
-          tel_no();
-          hide_all();
-          show_waiting();
+          window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
         }
       }, 10000)
       if(!isOnline){
