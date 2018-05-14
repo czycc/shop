@@ -76,7 +76,7 @@
 
     //创建本地视频流失败
     rtc.on("stream_create_error", function(err) {
-      alert(err);
+      console.log(err);
     });
 
     //接收到其他用户的视频流
