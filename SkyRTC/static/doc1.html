@@ -246,7 +246,7 @@
 
     window.setInterval(function(){ //每隔5秒钟发送一次心跳，避免websocket连接因超时而自动断开
       var ping = {"type":"ping"};
-      ws.send(JSON.stringify(ping));
+      rtc.broadcast(JSON.stringify(ping));
     },5000);
   </script>
 </body>
