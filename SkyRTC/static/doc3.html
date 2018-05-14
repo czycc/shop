@@ -152,12 +152,15 @@
 
     //挂断电话
     var no = document.querySelector('#no');
-    no.addEventListener('touchend', tel_no(true));
-    no.addEventListener('click', tel_no(true));
+    no.addEventListener('touchend', tel_no_click);
+    no.addEventListener('click', tel_no_click);
     //结束通话
     var hang_up = document.querySelector('.hang_up');
-    hang_up.addEventListener('touchend', tel_no(true));
-    hang_up.addEventListener('click', tel_no(true));
+    hang_up.addEventListener('touchend', tel_no_click);
+    hang_up.addEventListener('click', tel_no_click);
+    function tel_no_click() {
+      tel_no(true)
+    }
     function tel_no(sendMessage){
       clearTimeout(userTimer)
       isOnline = false;
