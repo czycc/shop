@@ -243,7 +243,7 @@ var SkyRTC = function() {
                 }
             })
             .catch(function(err) {
-                that.emit("stream_create_error", error);
+                that.emit("stream_create_error", err);
             })
         } else if (getUserMedia) {
             console.log('旧getUserMedia')
