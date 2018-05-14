@@ -105,7 +105,7 @@
       clearTimeout(userTimer)
       userTimer = setTimeout(function(){
         if(!userDown) {
-          tel_no();
+          tel_no(false);
           hide_all();
           show_waiting();
         }
@@ -158,9 +158,12 @@
     var hang_up = document.querySelector('.hang_up');
     hang_up.addEventListener('touchend', tel_no);
     hang_up.addEventListener('click', tel_no);
-    function tel_no(){
+    function tel_no(sendMessage){
+      clearTimeout(userTimer)
       isOnline = false;
-      rtc.broadcast(state_3);
+      if (!sendMessage) {
+        rtc.broadcast(state_3);
+      }
       hide_all();
       show_waiting();
       stop_time();
