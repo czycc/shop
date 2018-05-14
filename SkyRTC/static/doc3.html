@@ -45,6 +45,8 @@
     var other_video = document.querySelector('#other_video');
     //状态信息
     var isOnline = false;               //是否在连线中
+    var userDown = false;               //用户是否在线
+    var userTimer = null;
     //接收到文字信息, 判断呼叫流程
     var state_1 = 'calling';            //呼叫中
     var state_2 = 'doc answer';         //接听电话
@@ -95,6 +97,16 @@
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
       console.log(socketId+'掉线了')
+      userDown = false
+      clearTimeout(userTimer)
+      userTimer = setTimeout(function(){
+        if(!userDown) {
+          tel_no();
+          hide_all();
+          show_waiting();
+        }
+      }, 10000)
+
       if(!isOnline){
         tel_no();
         hide_all();
@@ -105,8 +117,10 @@
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
       //呼叫中
-      console.log('message:' + message);
-      console.log('isOnline:' + isOnline);
+      console.log(message);
+      if(message === 'connecting') {
+        userDown = true
+      }
       if(message === state_1 && isOnline === false) {
         //未接听电话时
         hide_all();
