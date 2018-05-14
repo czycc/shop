@@ -112,7 +112,7 @@
       }, 6000)
 
       if(!isOnline){
-        tel_no();
+        tel_no(false);
         hide_all();
         show_waiting();
       }
@@ -152,16 +152,16 @@
 
     //挂断电话
     var no = document.querySelector('#no');
-    no.addEventListener('touchend', tel_no);
-    no.addEventListener('click', tel_no);
+    no.addEventListener('touchend', tel_no(true));
+    no.addEventListener('click', tel_no(true));
     //结束通话
     var hang_up = document.querySelector('.hang_up');
-    hang_up.addEventListener('touchend', tel_no);
-    hang_up.addEventListener('click', tel_no);
+    hang_up.addEventListener('touchend', tel_no(true));
+    hang_up.addEventListener('click', tel_no(true));
     function tel_no(sendMessage){
       clearTimeout(userTimer)
       isOnline = false;
-      if (!sendMessage) {
+      if (sendMessage) {
         rtc.broadcast(state_3);
       }
       hide_all();
