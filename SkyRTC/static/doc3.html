@@ -39,7 +39,7 @@
     </div>
   </section>
   <script src="js/ReconnectingWebSocket.js"></script>
-  <script src='js/SkyRTC-client.js'></script>
+  <script src='js/SkyRTC-client3.js'></script>
   <script>
     var my_video = document.querySelector('#my_video');
     var other_video = document.querySelector('#other_video');
@@ -62,8 +62,8 @@
     rtc.on("connected", function(socket) {
         //创建本地视频流
         rtc.createStream({
-            "video": true,
-            "audio": true
+          audio: true,
+          video: { width: 1280, height: 720, facingMode: { exact: "environment" } }
         });
     });
 
@@ -92,12 +92,13 @@
     //socket连接中断
     rtc.on('socket_closed', function(socket){
       console.log('socket连接中断')
-      //rtc.connect("wss://" + window.location.host + '/node/doc1_room', 'doc1', 'doc1_room');
     })
+
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
       console.log(socketId+'掉线了')
       userDown = false
+
       clearTimeout(userTimer)
       userTimer = setTimeout(function(){
         if(!userDown) {
@@ -105,7 +106,7 @@
           hide_all();
           show_waiting();
         }
-      }, 10000)
+      }, 6000)
 
       if(!isOnline){
         tel_no();

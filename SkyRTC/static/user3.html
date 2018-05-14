@@ -37,7 +37,7 @@
     </div>
   </section>
   <script src="js/ReconnectingWebSocket.js"></script>
-  <script src='js/SkyRTC-client.js'></script>
+  <script src='js/SkyRTC-client3.js'></script>
   <script>
     var my_video = document.querySelector('#my_video');
     var other_video = document.querySelector('#other_video');
@@ -61,8 +61,8 @@
     rtc.on("connected", function(socket) {
         //创建本地视频流
         rtc.createStream({
-            "video": true,
-            "audio": true
+          audio: true,
+          video: { width: 1280, height: 720, facingMode: { exact: "environment" } }
         });
     });
 
@@ -100,7 +100,7 @@
         if(!docDown) {
           window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
         }
-      }, 10000)
+      }, 6000)
       if(!isOnline){
         hide_all();
         show_breaklink();
