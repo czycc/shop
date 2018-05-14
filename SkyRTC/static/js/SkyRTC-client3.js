@@ -229,6 +229,8 @@ var SkyRTC = function() {
     skyrtc.prototype.createStream = function(options) {
         var that = this;
 
+        console.log(options)
+
         if(navigator.mediaDevices.getUserMedia) {
             console.log('新mediaDevices')
             this.numStreams++;

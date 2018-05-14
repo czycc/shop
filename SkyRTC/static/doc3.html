@@ -75,8 +75,8 @@
     });
 
     //创建本地视频流失败
-    rtc.on("stream_create_error", function() {
-      alert("不支持webRTC, 请确认是否开启摄像头, 并在windows下的chrome浏览器中运行");
+    rtc.on("stream_create_error", function(err) {
+      alert(err);
     });
 
     //接收到其他用户的视频流
