@@ -44,6 +44,8 @@
     var breaklink = document.querySelector('.breaklink');
     //状态信息
     var isOnline = false;               //是否在连线中
+    var docDown = false;                //医生是否在线
+    var docTimer = null;
     //接收到文字信息, 判断呼叫流程
     var state_1 = 'calling';            //呼叫中
     var state_2 = 'doc answer';         //接听电话
@@ -59,8 +61,11 @@
     rtc.on("connected", function(socket) {
         //创建本地视频流
         rtc.createStream({
-            "video": true,
-            "audio": true
+          audio: true,
+          video: {
+            width: 1920,
+            height: 1080
+          }
         });
     });
 
@@ -92,6 +97,13 @@
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
       console.log(socketId+'掉线了')
+      docDown = false
+      clearTimeout(docTimer)
+      docTimer = setTimeout(function(){
+        if(!docDown) {
+          window.location.href = 'https://weixin.touchworld-sh.com/node/choose.html';
+        }
+      }, 6000)
       if(!isOnline){
         hide_all();
         show_breaklink();
@@ -111,6 +123,10 @@
 
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
+      console.log(message)
+      if(message === 'connecting') {
+        docDown = true
+      }
       //医生接听
       if(message === state_2) {
         isOnline = true;
@@ -230,7 +246,7 @@
 
     window.setInterval(function(){ //每隔5秒钟发送一次心跳，避免websocket连接因超时而自动断开
       var ping = {"type":"ping"};
-      rtc.broadcast(JSON.stringify(ping));
+      rtc.broadcast('connecting');
     },5000);
   </script>
 </body>

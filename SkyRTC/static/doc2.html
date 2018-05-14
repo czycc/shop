@@ -45,6 +45,8 @@
     var other_video = document.querySelector('#other_video');
     //状态信息
     var isOnline = false;               //是否在连线中
+    var userDown = false;               //用户是否在线
+    var userTimer = null;
     //接收到文字信息, 判断呼叫流程
     var state_1 = 'calling';            //呼叫中
     var state_2 = 'doc answer';         //接听电话
@@ -60,8 +62,11 @@
     rtc.on("connected", function(socket) {
         //创建本地视频流
         rtc.createStream({
-            "video": true,
-            "audio": true
+          audio: true,
+          video: {
+            width: 1920,
+            height: 1080
+          }
         });
     });
 
@@ -73,7 +78,8 @@
     });
 
     //创建本地视频流失败
-    rtc.on("stream_create_error", function() {
+    rtc.on("stream_create_error", function(err) {
+      console.log(err);
       alert("不支持webRTC, 请确认是否开启摄像头, 并在windows下的chrome浏览器中运行");
     });
 
@@ -90,13 +96,24 @@
     //socket连接中断
     rtc.on('socket_closed', function(socket){
       console.log('socket连接中断')
-      //rtc.connect("wss://" + window.location.host + '/node/doc1_room', 'doc1', 'doc1_room');
     })
+
     //删除其他用户
     rtc.on('remove_peer', function(socketId) {
       console.log(socketId+'掉线了')
+      userDown = false
+
+      clearTimeout(userTimer)
+      userTimer = setTimeout(function(){
+        if(!userDown) {
+          tel_no(false);
+          hide_all();
+          show_waiting();
+        }
+      }, 6000)
+
       if(!isOnline){
-        tel_no();
+        tel_no(false);
         hide_all();
         show_waiting();
       }
@@ -105,8 +122,10 @@
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
       //呼叫中
-      console.log('message:' + message);
-      console.log('isOnline:' + isOnline);
+      console.log(message);
+      if(message === 'connecting') {
+        userDown = true
+      }
       if(message === state_1 && isOnline === false) {
         //未接听电话时
         hide_all();
@@ -134,15 +153,21 @@
 
     //挂断电话
     var no = document.querySelector('#no');
-    no.addEventListener('touchend', tel_no);
-    no.addEventListener('click', tel_no);
+    no.addEventListener('touchend', tel_no_click);
+    no.addEventListener('click', tel_no_click);
     //结束通话
     var hang_up = document.querySelector('.hang_up');
-    hang_up.addEventListener('touchend', tel_no);
-    hang_up.addEventListener('click', tel_no);
-    function tel_no(){
+    hang_up.addEventListener('touchend', tel_no_click);
+    hang_up.addEventListener('click', tel_no_click);
+    function tel_no_click() {
+      tel_no(true)
+    }
+    function tel_no(sendMessage){
+      clearTimeout(userTimer)
       isOnline = false;
-      rtc.broadcast(state_3);
+      if (sendMessage) {
+        rtc.broadcast(state_3);
+      }
       hide_all();
       show_waiting();
       stop_time();
@@ -245,8 +270,7 @@
     }
 
     window.setInterval(function(){ //每隔5秒钟发送一次心跳，避免websocket连接因超时而自动断开
-      var ping = {"type":"ping"};
-      rtc.broadcast(JSON.stringify(ping));
+      rtc.broadcast('connecting');
     },5000);
   </script>
 </body>
