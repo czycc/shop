@@ -111,6 +111,7 @@
 
     //接受状态
     rtc.on('data_channel_message', function(channel, socketId, message){
+      console.log(message)
       //医生接听
       if(message === state_2) {
         isOnline = true;
@@ -230,7 +231,7 @@
 
     window.setInterval(function(){ //每隔5秒钟发送一次心跳，避免websocket连接因超时而自动断开
       var ping = {"type":"ping"};
-      rtc.broadcast(JSON.stringify(ping));
+      rtc.broadcast('connecting');
     },5000);
   </script>
 </body>
