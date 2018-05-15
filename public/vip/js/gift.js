@@ -12,7 +12,7 @@ $(function () {
     $('.pointer').click(function () {
         if (bRotate) return;
         //优惠券
-        var item = rnd(0, 5);
+        var item = rnd(6, 7);
         switch (item) {
             case 0:
                 rotateFn(0, 283, '狗项圈');
@@ -20,13 +20,13 @@ $(function () {
             case 1:
                 rotateFn(1, 232, '名牌');
                 break;
-            case 2:
+            case 6:
                 rotateFn(2, 180, '5');
                 break;
             case 3:
                 rotateFn(3, 129, '钥匙扣');
                 break;
-            case 4:
+            case 7:
                 rotateFn(4, 77, '10');
                 break;
             case 5:
