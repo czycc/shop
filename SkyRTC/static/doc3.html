@@ -51,6 +51,7 @@
     var state_1 = 'calling';            //呼叫中
     var state_2 = 'doc answer';         //接听电话
     var state_3 = 'doc hang up';        //挂断电话
+    var state_4 = 'user hang up';       //用户挂断
     //存放的全局变量
     var other_stream;
 
@@ -130,12 +131,10 @@
         hide_all();
         show_call_btn();
       }
-      // else if(message === state_1 && isOnline === true){
-      //   console.log('断下重连')
-      //   //接听时，用于断线重连
-      //   hide_all();
-      //   show_control();
-      // }
+      if(message === state_4) {
+        //用户挂断
+        tel_no_click()
+      }
     })
 
     //接听电话
@@ -148,6 +147,7 @@
       hide_all();
       show_control();
       start_time()
+      other_video.muted = false;
     }
 
     //挂断电话
@@ -170,6 +170,7 @@
       hide_all();
       show_waiting();
       stop_time();
+      other_video.muted = true;
     }
 
     //隐藏所有状态界面
